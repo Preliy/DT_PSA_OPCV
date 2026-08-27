@@ -100,7 +100,7 @@ jobs:
 
       # semantic-release 25 requires node ^22.14 || >=24.10. Pinned rather than left to the
       # runner image, whose default node has changed before and would fail the whole job.
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
 
@@ -311,7 +311,7 @@ jobs:
           fetch-depth: 0
           token: ${{ steps.app-token.outputs.token }}
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
 
