@@ -106,7 +106,7 @@ jobs:
 
       - name: Work out the next version
         id: dry
-        uses: cycjimmy/semantic-release-action@v4
+        uses: cycjimmy/semantic-release-action@v6
         with:
           semantic_version: 25
           dry_run: true
@@ -324,7 +324,7 @@ jobs:
 
       - name: Semantic release
         id: semantic
-        uses: cycjimmy/semantic-release-action@v4
+        uses: cycjimmy/semantic-release-action@v6
         with:
           # Must match the dry run in the `version` job, or the preview can disagree with the
           # release it previewed. Change both together.
