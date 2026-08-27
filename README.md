@@ -135,17 +135,13 @@ person.
 
 ## Credits
 
-### The machine — [Villette Oh](https://grabcad.com/villette.oh-1)
+### The machine — [Villette Oh](https://grabcad.com/villette.oh-2)
 
 This twin has a real machine behind it because someone drew one and gave it away. The CAD model —
 [**Laser Welding & Assembly System (PSA
 OPCV)**](https://grabcad.com/library/laser-welding-assembly-system-psa-opcv-1), published on
 GrabCAD — is where every shape here comes from. Without it this would be one more demo with three
 boxes on a conveyor. Thank you.
-
-### Siemens expertise and PLC architecture — Andreas Fast
-
-For the Siemens side, and for the PLC project architecture and design the control side is built on.
 
 ### [Open Commissioning](https://github.com/OpenCommissioning)
 

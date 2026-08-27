@@ -1,5 +1,6 @@
 /_[Aa]rchive/
 /_[Dd]ata/
+/_[Bb]uilds/
 
 # Vendor modules. Each is a SEPARATE repository the user clones into this root - see
 # COMPATIBILITY.md. Ignoring the path is what keeps the two git repos from colliding:
