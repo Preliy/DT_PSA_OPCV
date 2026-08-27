@@ -221,6 +221,27 @@ jobs:
             exit 1
           fi
 
+      # The unityci/editor image for a Windows Mono build unpacks to roughly 10 GB, and an
+      # ubuntu-latest runner starts with about 14 GB free on / - most of it preinstalled
+      # toolchains this build never touches. Without this the docker pull dies partway
+      # through extracting a layer with "no space left on device", which reads like a build
+      # failure and is not one.
+      #
+      # Nothing removed here is used by a Unity Windows Mono build. Sizes are approximate
+      # and drift with the runner image; the df lines either side are what makes the next
+      # failure diagnosable instead of a guess.
+      - name: Free disk space
+        run: |
+          echo "before:"; df -h / | tail -1
+          sudo rm -rf /usr/local/lib/android          # ~9 GB, the single biggest win
+          sudo rm -rf /opt/hostedtoolcache/CodeQL     # ~5 GB
+          sudo rm -rf /usr/share/dotnet               # ~1.6 GB
+          sudo rm -rf /opt/ghc /usr/local/.ghcup      # ~1 GB
+          sudo rm -rf /usr/share/swift
+          sudo rm -rf /usr/local/share/powershell
+          sudo docker image prune --all --force || true
+          echo "after:"; df -h / | tail -1
+
       - uses: actions/checkout@v4
 
       - uses: actions/cache@v4
