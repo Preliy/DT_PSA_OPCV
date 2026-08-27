@@ -280,7 +280,7 @@ MonoBehaviour:
   _pressed: 0
   _button: {fileID: 2554799893381204748}
   _duration: 0.1
-  _offset: 0.005
+  _offset: 0.002
   _direction: {x: 0, y: 0, z: -1}
 --- !u!65 &8905233574019195442
 BoxCollider:

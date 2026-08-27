@@ -42,7 +42,6 @@ GameObject:
   - component: {fileID: 7318427361997664421}
   - component: {fileID: 7819782054068859532}
   - component: {fileID: 504129778394809534}
-  - component: {fileID: 5797021761230069979}
   - component: {fileID: 8228561844891267757}
   m_Layer: 10
   m_Name: Interactions
@@ -126,20 +125,6 @@ MonoBehaviour:
   OnPointerUpEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &5797021761230069979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2868292126932900526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70280ef36a7c3dd43b8792c042ae79ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: OC.UI::OC.UI.Interactions.Geometry
-  _viewModeType: 0
-  _viewModeState: 0
 --- !u!114 &8228561844891267757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +181,7 @@ GameObject:
   m_Component:
   - component: {fileID: 221442681970248717}
   - component: {fileID: 6918516020547011477}
+  - component: {fileID: 4741953928681918501}
   m_Layer: 0
   m_Name: Door Base
   m_TagString: Untagged
@@ -246,3 +232,17 @@ MonoBehaviour:
   OnCloseEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4741953928681918501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8365178252361392558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70280ef36a7c3dd43b8792c042ae79ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: OC.UI::OC.UI.Interactions.Geometry
+  _viewModeType: 0
+  _viewModeState: 0
