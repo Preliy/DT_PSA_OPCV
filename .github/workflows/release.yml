@@ -317,7 +317,7 @@ jobs:
 
       # Into dist/, which is what .releaserc.json's `assets` globs. The release is therefore
       # created WITH its download already on it, in one operation - never announced empty.
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: windows-build
           path: dist
