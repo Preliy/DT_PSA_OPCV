@@ -95,7 +95,7 @@ jobs:
           # semantic-release reads the whole history to find the last tag.
           fetch-depth: 0
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
 
@@ -112,13 +112,13 @@ jobs:
 
       # semantic-release 25 requires node ^22.14 || >=24.10. Pinned rather than left to the
       # runner image, whose default node has changed before and would fail the whole job.
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
 
       - name: Work out the next version
         id: dry
-        uses: cycjimmy/semantic-release-action@v4
+        uses: cycjimmy/semantic-release-action@v6
         with:
           semantic_version: 25
           dry_run: true
@@ -244,7 +244,7 @@ jobs:
 
       - uses: actions/checkout@v4
 
-      - uses: actions/cache@v4
+      - uses: actions/cache@v6
         with:
           path: Unity/Library
           key: Library-StandaloneWindows64-${{ hashFiles('Unity/Packages/packages-lock.json') }}-${{ hashFiles('Unity/Assets/**') }}
@@ -344,20 +344,20 @@ jobs:
           fetch-depth: 0
           token: ${{ steps.app-token.outputs.token }}
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
 
       # Into dist/, which is what .releaserc.json's `assets` globs. The release is therefore
       # created WITH its download already on it, in one operation - never announced empty.
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: windows-build
           path: dist
 
       - name: Semantic release
         id: semantic
-        uses: cycjimmy/semantic-release-action@v4
+        uses: cycjimmy/semantic-release-action@v6
         with:
           # Must match the dry run in the `version` job, or the preview can disagree with the
           # release it previewed. Change both together.
