@@ -73,6 +73,18 @@ jobs:
     # and does retrigger workflows, unlike a GITHUB_TOKEN one, so this guard is load-bearing.
     if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
     runs-on: ubuntu-latest
+    # WRITE, even though this job writes nothing. semantic-release verifies push access
+    # before it analyses anything - `git push --dry-run --no-verify HEAD:master` - and it
+    # does that in dry-run mode too. With contents: read that returns 403 "Write access to
+    # repository not granted" and the run dies before reporting a version.
+    #
+    # Safe on a pull request: GitHub downgrades GITHUB_TOKEN to read-only for a fork's PR
+    # whatever is declared here, and only collaborators can push the same-repo branches
+    # that keep write. This deliberately stays GITHUB_TOKEN rather than the release App -
+    # the App can bypass the master ruleset, and a job that checks out pull-request code
+    # must never hold a token that can.
+    permissions:
+      contents: write
     outputs:
       published: ${{ steps.dry.outputs.new_release_published }}
       version: ${{ steps.dry.outputs.new_release_version }}
