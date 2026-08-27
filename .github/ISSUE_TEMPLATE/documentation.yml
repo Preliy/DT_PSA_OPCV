@@ -1,0 +1,45 @@
+name: Documentation
+description: Something is wrong, missing or unclear in the docs
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Most of the machine description is generated**, not written by hand. If the page you
+        are reporting lives under `_docs/context/`, the fix goes into its *source* — the Unity
+        scene — never into the page itself, because the next build overwrites it. Say what is
+        wrong and we will find the source.
+
+        Pages under `_docs/reference/` are hand-written, so a pull request against one is welcome.
+
+  - type: input
+    id: page
+    attributes:
+      label: Which page
+      description: Path in the repo, or the wiki page name.
+      placeholder: _docs/02-setup.md
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of problem
+      options:
+        - Wrong - it states something untrue
+        - Missing - a step or fact is not there
+        - Unclear - it is right but I could not follow it
+        - A setup step I can fill in
+        - Broken link or image
+    validations:
+      required: true
+
+  - type: textarea
+    id: detail
+    attributes:
+      label: Details
+      description: >
+        If you got stuck following a procedure, say exactly where and what happened —
+        that is the most useful kind of documentation report.
+    validations:
+      required: true

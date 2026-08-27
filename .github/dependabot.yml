@@ -1,0 +1,21 @@
+# Keep the third-party actions the workflows pin up to date.
+#
+# Only github-actions. There is no npm ecosystem here to update - the root package.json is a
+# version record with no dependencies, and semantic-release itself is installed fresh by
+# cycjimmy/semantic-release-action on every run. The Python tooling is stdlib-only, on purpose,
+# so that CI needs no requirements file.
+
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    commit-message:
+      # Conventional, because the commit subject decides the next version and `ci:` produces
+      # no release. An action bump should never bump this project's version.
+      prefix: "ci"
+    labels:
+      - dependencies

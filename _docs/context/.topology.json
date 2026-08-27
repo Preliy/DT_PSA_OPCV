@@ -1,0 +1,295 @@
+{
+  "probedAtUtc": "2026-08-23T17:11:57Z",
+  "scene": "VC_Demo_1_Siemens_1",
+  "units": [
+    {
+      "name": "FG_Transport",
+      "scenePath": "Project/FG_Transport",
+      "component": "SequenceConveyor",
+      "devices": {
+        "_driveDown": "M_Conveyor",
+        "_driveTop": "M_Conveyor"
+      }
+    },
+    {
+      "name": "Lift01",
+      "scenePath": "Project/FG_Transport/Lift01",
+      "component": "SequenceTransferLift",
+      "next": "Project/FG_Transport/Stopper03",
+      "log": false,
+      "reverseDirection": false,
+      "devices": {
+        "_conveyor": "M_Conveyor",
+        "_lift": "Y_Lift",
+        "_sensorDetect": "B_Detect",
+        "_sensorExit": "B_Exit"
+      }
+    },
+    {
+      "name": "Lift02",
+      "scenePath": "Project/FG_Transport/Lift02",
+      "component": "SequenceTransferLift",
+      "next": "Project/FG_Transport/Stopper01",
+      "log": false,
+      "reverseDirection": true,
+      "devices": {
+        "_conveyor": "M_Conveyor",
+        "_lift": "Y_Lift",
+        "_sensorDetect": "B_Detect",
+        "_sensorExit": "B_Exit"
+      }
+    },
+    {
+      "name": "Index01",
+      "scenePath": "Project/FG_Transport/Index01",
+      "component": "SequenceTransferIndex",
+      "next": "Project/FG_Transport/Index02",
+      "bypass": false,
+      "log": false,
+      "devices": {
+        "_index": "Y_Lift",
+        "_sensorDetect": "B_Detect",
+        "_sensorExit": "B_Exit",
+        "_stopper": "Y_Stopper"
+      },
+      "triggers": {
+        "target": "Project/FG_01",
+        "method": "Execute",
+        "boolArgument": false,
+        "declaringType": "Preliy.Demo.SequenceUnit1, com.preliy.demo",
+        "callState": "RuntimeOnly"
+      }
+    },
+    {
+      "name": "Index02",
+      "scenePath": "Project/FG_Transport/Index02",
+      "component": "SequenceTransferIndex",
+      "next": "Project/FG_Transport/Index03",
+      "bypass": false,
+      "log": false,
+      "devices": {
+        "_index": "Y_Lift",
+        "_sensorDetect": "B_Detect",
+        "_sensorExit": "B_Exit",
+        "_stopper": "Y_Stopper"
+      },
+      "triggers": {
+        "target": "Project/FG_02",
+        "method": "Execute",
+        "boolArgument": false,
+        "declaringType": "Preliy.Demo.SequenceUnit2, com.preliy.demo",
+        "callState": "RuntimeOnly"
+      }
+    },
+    {
+      "name": "Index03",
+      "scenePath": "Project/FG_Transport/Index03",
+      "component": "SequenceTransferIndex",
+      "next": "Project/FG_Transport/Index04",
+      "bypass": false,
+      "log": false,
+      "devices": {
+        "_index": "Y_Lift",
+        "_sensorDetect": "B_Detect",
+        "_sensorExit": "B_Exit",
+        "_stopper": "Y_Stopper"
+      },
+      "triggers": {
+        "target": "Project/FG_03",
+        "method": "Execute",
+        "boolArgument": false,
+        "declaringType": "Preliy.Demo.SequenceUnit3, com.preliy.demo",
+        "callState": "RuntimeOnly"
+      }
+    },
+    {
+      "name": "Index04",
+      "scenePath": "Project/FG_Transport/Index04",
+      "component": "SequenceTransferIndex",
+      "next": "Project/FG_Transport/Index05",
+      "bypass": false,
+      "log": false,
+      "devices": {
+        "_index": "Y_Lift",
+        "_sensorDetect": "B_Detect",
+        "_sensorExit": "B_Exit",
+        "_stopper": "Y_Stopper"
+      },
+      "triggers": {
+        "target": "Project/FG_04",
+        "method": "Execute",
+        "boolArgument": false,
+        "declaringType": "Preliy.Demo.SequenceUnit4, com.preliy.demo",
+        "callState": "RuntimeOnly"
+      }
+    },
+    {
+      "name": "Index05",
+      "scenePath": "Project/FG_Transport/Index05",
+      "component": "SequenceTransferIndex",
+      "next": "Project/FG_Transport/Stopper04",
+      "bypass": false,
+      "log": false,
+      "devices": {
+        "_index": "Y_Lift",
+        "_sensorDetect": "B_Detect",
+        "_sensorExit": "B_Exit",
+        "_stopper": "Y_Stopper"
+      },
+      "triggers": {
+        "target": "Project/FG_05",
+        "method": "Execute",
+        "boolArgument": false,
+        "declaringType": "Preliy.Demo.SequenceUnit5, com.preliy.demo",
+        "callState": "RuntimeOnly"
+      }
+    },
+    {
+      "name": "Stopper01",
+      "scenePath": "Project/FG_Transport/Stopper01",
+      "component": "SequenceTransferStopper",
+      "next": "Project/FG_Transport/Stopper02",
+      "log": false,
+      "devices": {
+        "_sensorDetect": "B_Detect",
+        "_sensorExit": "B_Exit",
+        "_stopper": "Y_Stopper"
+      }
+    },
+    {
+      "name": "Stopper02",
+      "scenePath": "Project/FG_Transport/Stopper02",
+      "component": "SequenceTransferStopper",
+      "next": "Project/FG_Transport/Lift01",
+      "log": false,
+      "devices": {
+        "_sensorDetect": "B_Detect",
+        "_sensorExit": "B_Exit",
+        "_stopper": "Y_Stopper"
+      }
+    },
+    {
+      "name": "Stopper03",
+      "scenePath": "Project/FG_Transport/Stopper03",
+      "component": "SequenceTransferStopper",
+      "next": "Project/FG_Transport/Index01",
+      "log": false,
+      "devices": {
+        "_sensorDetect": "B_Detect",
+        "_sensorExit": "B_Exit",
+        "_stopper": "Y_Stopper"
+      }
+    },
+    {
+      "name": "Stopper04",
+      "scenePath": "Project/FG_Transport/Stopper04",
+      "component": "SequenceTransferStopper",
+      "next": "Project/FG_Transport/Lift02",
+      "log": false,
+      "devices": {
+        "_sensorDetect": "B_Detect",
+        "_sensorExit": "B_Exit",
+        "_stopper": "Y_Stopper"
+      }
+    },
+    {
+      "name": "FG_01",
+      "scenePath": "Project/FG_01",
+      "component": "SequenceUnit1",
+      "devices": {
+        "_gate1": "Y_Gate1",
+        "_gate2": "Y_Gate2",
+        "_gripper": "Y_Gripper",
+        "_laser": "Y_LaserMark",
+        "_platform": "Y_Platform",
+        "_readerWindow": "Y_ReaderWindow"
+      },
+      "completes": {
+        "target": "Project/FG_Transport/Index01",
+        "method": "set_OperationDone",
+        "boolArgument": true,
+        "declaringType": "Preliy.Demo.TransferIndexSequence, com.preliy.demo",
+        "callState": "RuntimeOnly"
+      }
+    },
+    {
+      "name": "FG_02",
+      "scenePath": "Project/FG_02",
+      "component": "SequenceUnit2",
+      "devices": {
+        "_dataReader": "P_Camera"
+      },
+      "completes": {
+        "target": "Project/FG_Transport/Index02",
+        "method": "set_OperationDone",
+        "boolArgument": true,
+        "declaringType": "Preliy.Demo.TransferIndexSequence, com.preliy.demo",
+        "callState": "RuntimeOnly"
+      }
+    },
+    {
+      "name": "FG_03",
+      "scenePath": "Project/FG_03",
+      "component": "SequenceUnit3",
+      "devices": {
+        "_gripper1": "Y_Gripper1",
+        "_gripper2": "Y_Gripper2",
+        "_r1": "Y_AxisR1",
+        "_x1": "Y_AxisX1",
+        "_x2": "Y_AxisX2",
+        "_y1": "Y_AxisY1",
+        "_y2": "Y_AxisY2"
+      },
+      "completes": {
+        "target": "Project/FG_Transport/Index03",
+        "method": "set_OperationDone",
+        "boolArgument": true,
+        "declaringType": "Preliy.Demo.TransferIndexSequence, com.preliy.demo",
+        "callState": "RuntimeOnly"
+      }
+    },
+    {
+      "name": "FG_04",
+      "scenePath": "Project/FG_04",
+      "component": "SequenceUnit4",
+      "devices": {
+        "_z1": "Y_AxisZ"
+      },
+      "completes": {
+        "target": "Project/FG_Transport/Index04",
+        "method": "set_OperationDone",
+        "boolArgument": true,
+        "declaringType": "Preliy.Demo.TransferIndexSequence, com.preliy.demo",
+        "callState": "RuntimeOnly"
+      }
+    },
+    {
+      "name": "FG_05",
+      "scenePath": "Project/FG_05",
+      "component": "SequenceUnit5",
+      "devices": {
+        "_gripper": "Y_Gripper",
+        "_part": "B_Part",
+        "_r1": "Y_AxisR",
+        "_x1": "Y_AxisX",
+        "_z1": "Y_AxisZ1",
+        "_z2": "Y_AxisZ2"
+      },
+      "completes": {
+        "target": "Project/FG_Transport/Index05",
+        "method": "set_OperationDone",
+        "boolArgument": true,
+        "declaringType": "Preliy.Demo.TransferIndexSequence, com.preliy.demo",
+        "callState": "RuntimeOnly"
+      }
+    },
+    {
+      "name": "FG_05",
+      "scenePath": "Project/FG_05",
+      "component": "SequenceBunker",
+      "devices": {
+        "_controlBunker": "Y_CapsSource"
+      }
+    }
+  ]
+}

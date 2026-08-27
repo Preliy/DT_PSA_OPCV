@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "_comment": [
+    "The vendor modules this machine has. Hand-maintained - it is the main repo's",
+    "single statement of which control platforms exist and which versions pair with",
+    "this one. A module is a SEPARATE repository the user clones into this repo's",
+    "root; the path is gitignored so the two git repos do not collide.",
+    "",
+    "Four tools read this file: build_knowledge.py (which vendor links to emit),",
+    "build_wiki.py (which sibling wikis to link into, and where),",
+    "build_compatibility.py (the table, from the modules on disk) and",
+    "check_compatibility.py (the same pairing, asked of each module's own repository",
+    "over https - which is what CI runs, since it clones no module). Adding a vendor is",
+    "one entry here plus a repository - no tool changes.",
+    "",
+    "`requires` is the module version range this main repo works with; `tested` is the",
+    "one it was actually verified against. Neither is derived - state them honestly.",
+    "",
+    "`knowledgeBase` says whether the module publishes _docs/ pages that a root page",
+    "can link to - and therefore whether it has a wiki of its own to link into. It is",
+    "DECLARED rather than probed for, because these pages are tracked: deriving it from",
+    "what is on disk would make a tracked file's content depend on which optional",
+    "modules a given user happened to clone."
+  ],
+  "repository": "https://github.com/Preliy/DT_PSA_OPCV",
+  "modules": {
+    "Beckhoff": {
+      "url": "https://github.com/Preliy/DT_PSA_OPCV_Beckhoff",
+      "branch": "master",
+      "requires": ">=1.0.0",
+      "tested": "1.0.0",
+      "platform": "Beckhoff TwinCAT 3",
+      "knowledgeBase": true,
+      "description": "The Beckhoff realisation: PLC_1 control on the SPT framework, SIM_1 twin devices, TE2000 HMI"
+    },
+    "Siemens": {
+      "url": "https://github.com/Preliy/DT_PSA_OPCV_Siemens",
+      "branch": "master",
+      "requires": ">=0.1.0",
+      "tested": "0.1.0",
+      "platform": "Siemens TIA Portal",
+      "knowledgeBase": false,
+      "description": "TIA port - work in progress. The Unity scene is real; the control side does not exist yet"
+    }
+  }
+}

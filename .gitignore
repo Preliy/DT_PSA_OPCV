@@ -1,0 +1,37 @@
+/_[Aa]rchive/
+/_[Dd]ata/
+
+# Vendor modules. Each is a SEPARATE repository the user clones into this root - see
+# COMPATIBILITY.md. Ignoring the path is what keeps the two git repos from colliding:
+# no accidental gitlink, no `git add -A` swallowing a whole TwinCAT solution, and a
+# `git status` here that stays quiet about a checkout it does not own.
+#
+# Add a line when you add a module to _workflow/config/modules.json.
+/Beckhoff/
+/Siemens/
+
+# The engineering TOOLS that read the Unity export, and their own separate repository:
+# the Python that generates _docs/context/ and checks the wiring.
+#
+# The line is what a tool READS, not that it is Python. The WIKI tooling is public, in
+# _workflow/tools/ - it reads only tracked files, and .github/workflows/wiki.yml has to
+# run it from a checkout of this repository alone. Everything else that describes how
+# the project is built - the skills, the workflow guideline, CONTEXT-SPEC.md,
+# WIKI-SPEC.md, CLAUDE.md and the module declaration - is in _workflow/ and tracked,
+# because a reader who wants to know how this project is built should be able to.
+/_private/
+
+# There is deliberately no .claude/ in this project - _workflow/ is the one folder
+# that holds the agent material, and the skills there are read by path rather than
+# auto-discovered. This rule is a guard: if a tool ever creates .claude/ here, it is
+# scratch and must not be committed.
+/.claude/
+/_workflow/settings.local.json
+
+# Generated documentation. build_wiki.py flattens _docs/ and every knowledge base into
+# _wiki/, which made it a second committed copy of ~6700 lines that already exist in
+# this repo. It is rebuilt on demand and published by publish_wiki.py.
+/_wiki/
+
+**/scheduled_tasks.lock
+__pycache__/

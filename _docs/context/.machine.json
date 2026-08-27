@@ -1,0 +1,3008 @@
+{
+ "schema": 2,
+ "referenceScene": "VC_Demo_1_Beckhoff_1",
+ "referenceVendor": "Beckhoff",
+ "scene": "VC_Demo_1_Beckhoff_1",
+ "exportedAtUtc": "2026-08-23T17:09:36.0996372Z",
+ "exportCommit": "5010e82 2026-08-23",
+ "exportUncommitted": false,
+ "liveVerified": false,
+ "machinePrefab": "Unity/Assets/Demo_1/Prefabs/Machine_1.prefab",
+ "scenes": [
+  {
+   "name": "VC_Demo_1_Beckhoff_1",
+   "vendor": "Beckhoff",
+   "sceneFile": "Unity/Assets/Demo_1/Scenes/VC_Demo_1_Beckhoff_1.unity",
+   "contextJson": "Unity/Assets/StreamingAssets/VC_Demo_1_Beckhoff_1_Context.json",
+   "projectTree": "Unity/Assets/StreamingAssets/VC_Demo_1_Beckhoff_1_Project_Tree.xml",
+   "exportedAtUtc": "2026-08-23T17:09:36.0996372Z",
+   "nodes": 180,
+   "symbols": 83,
+   "isReference": true
+  },
+  {
+   "name": "VC_Demo_1_Siemens_1",
+   "vendor": "Siemens",
+   "sceneFile": "Unity/Assets/Demo_1/Scenes/VC_Demo_1_Siemens_1.unity",
+   "contextJson": "Unity/Assets/StreamingAssets/VC_Demo_1_Siemens_1_Context.json",
+   "projectTree": "Unity/Assets/StreamingAssets/VC_Demo_1_Siemens_1_Project_Tree.xml",
+   "exportedAtUtc": "2026-08-26T11:52:16.8621701Z",
+   "nodes": 179,
+   "symbols": 83,
+   "isReference": false
+  }
+ ],
+ "vendorSpecificPaths": [
+  "Project/FG_System/H_ControlPanel",
+  "Project/FG_System/H_ControlPanel/ABORT",
+  "Project/FG_System/H_ControlPanel/AUTO START",
+  "Project/FG_System/H_ControlPanel/AUTO STOP",
+  "Project/FG_System/H_ControlPanel/CLEAR",
+  "Project/FG_System/H_ControlPanel/CONTROL ON/OFF",
+  "Project/FG_System/H_ControlPanel/ERROR ACK",
+  "Project/FG_System/H_ControlPanel/MAINTANANCE",
+  "Project/FG_System/H_ControlPanel/MANUAL",
+  "Project/FG_System/H_ControlPanel/OP MODE",
+  "Project/FG_System/H_ControlPanel/PRODUCTION",
+  "Project/FG_System/H_ControlPanel/RESET",
+  "Project/FG_System/H_ControlPanel/SINGLE STEP",
+  "Project/FG_System/H_ControlPanel/START",
+  "Project/FG_System/H_ControlPanel/STOP"
+ ],
+ "groups": [
+  {
+   "name": "FG_System",
+   "scenePath": "Project/FG_System",
+   "twinPlcPath": "MAIN.FG_System",
+   "behaviour": "fg-system-safety.md",
+   "servedBy": "",
+   "symbols": [
+    {
+     "name": "B_SafetyDoor11",
+     "twinPlcPath": "MAIN.FG_System.B_SafetyDoor11",
+     "deviceType": "Lock",
+     "twinFb": "FB_Lock",
+     "group": "FG_System",
+     "scenePath": "Project/FG_System/Doors/B_SafetyDoor11",
+     "role": "",
+     "signal": "Two inputs back - closed and locked - and one lock coil out. Secure means BOTH: closed alone is not enough.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "B_SafetyDoor12",
+     "twinPlcPath": "MAIN.FG_System.B_SafetyDoor12",
+     "deviceType": "Lock",
+     "twinFb": "FB_Lock",
+     "group": "FG_System",
+     "scenePath": "Project/FG_System/Doors/B_SafetyDoor12",
+     "role": "",
+     "signal": "Two inputs back - closed and locked - and one lock coil out. Secure means BOTH: closed alone is not enough.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "B_SafetyDoor13",
+     "twinPlcPath": "MAIN.FG_System.B_SafetyDoor13",
+     "deviceType": "Lock",
+     "twinFb": "FB_Lock",
+     "group": "FG_System",
+     "scenePath": "Project/FG_System/Doors/B_SafetyDoor13",
+     "role": "",
+     "signal": "Two inputs back - closed and locked - and one lock coil out. Secure means BOTH: closed alone is not enough.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "B_SafetyDoor21",
+     "twinPlcPath": "MAIN.FG_System.B_SafetyDoor21",
+     "deviceType": "Lock",
+     "twinFb": "FB_Lock",
+     "group": "FG_System",
+     "scenePath": "Project/FG_System/Doors/B_SafetyDoor21",
+     "role": "",
+     "signal": "Two inputs back - closed and locked - and one lock coil out. Secure means BOTH: closed alone is not enough.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "B_SafetyDoor22",
+     "twinPlcPath": "MAIN.FG_System.B_SafetyDoor22",
+     "deviceType": "Lock",
+     "twinFb": "FB_Lock",
+     "group": "FG_System",
+     "scenePath": "Project/FG_System/Doors/B_SafetyDoor22",
+     "role": "",
+     "signal": "Two inputs back - closed and locked - and one lock coil out. Secure means BOTH: closed alone is not enough.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "B_SafetyDoor23",
+     "twinPlcPath": "MAIN.FG_System.B_SafetyDoor23",
+     "deviceType": "Lock",
+     "twinFb": "FB_Lock",
+     "group": "FG_System",
+     "scenePath": "Project/FG_System/Doors/B_SafetyDoor23",
+     "role": "",
+     "signal": "Two inputs back - closed and locked - and one lock coil out. Secure means BOTH: closed alone is not enough.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "H_ControlPanel",
+     "twinPlcPath": "MAIN.FG_System.H_ControlPanel",
+     "deviceType": "PanelSampler",
+     "twinFb": "FB_Panel",
+     "group": "FG_System",
+     "scenePath": "Project/FG_System/H_ControlPanel",
+     "role": "",
+     "signal": "PanelSampler. Disables its children's individual communication and exposes one aggregated FB_Panel DWORD, packing their status bits in and unpacking control bits back.",
+     "vendorSpecific": true
+    },
+    {
+     "name": "H_SignalTower",
+     "twinPlcPath": "MAIN.FG_System.H_SignalTower",
+     "deviceType": "PanelSampler",
+     "twinFb": "FB_Panel",
+     "group": "FG_System",
+     "scenePath": "Project/FG_System/H_SignalTower",
+     "role": "",
+     "signal": "PanelSampler. Aggregates the four tower lamps into one FB_Panel DWORD, with the lamps own links disabled. Same packing mechanism as the control panel.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "SS_EStop1",
+     "twinPlcPath": "MAIN.FG_System.SS_EStop1",
+     "deviceType": "Button",
+     "twinFb": "FB_Button",
+     "group": "FG_System",
+     "scenePath": "Project/FG_System/SS_EStop1",
+     "role": "",
+     "signal": "One input and one lamp coil, as a single device. Active while the mushroom is latched.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "SS_EStop2",
+     "twinPlcPath": "MAIN.FG_System.SS_EStop2",
+     "deviceType": "Button",
+     "twinFb": "FB_Button",
+     "group": "FG_System",
+     "scenePath": "Project/FG_System/SS_EStop2",
+     "role": "",
+     "signal": "One input and one lamp coil, as a single device. Active while the mushroom is latched.",
+     "vendorSpecific": false
+    }
+   ]
+  },
+  {
+   "name": "FG_Transport",
+   "scenePath": "Project/FG_Transport",
+   "twinPlcPath": "MAIN.FG_Transport",
+   "behaviour": "transport-behaviour.md",
+   "servedBy": "",
+   "symbols": [
+    {
+     "name": "B_Detect",
+     "twinPlcPath": "MAIN.FG_Transport.Index01_B_Detect",
+     "deviceType": "SensorBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Index01/B_Detect",
+     "role": "",
+     "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "B_Exit",
+     "twinPlcPath": "MAIN.FG_Transport.Index01_B_Exit",
+     "deviceType": "SensorBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Index01/B_Exit",
+     "role": "",
+     "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_Lift",
+     "twinPlcPath": "MAIN.FG_Transport.Index01_Y_Lift",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Index01/Y_Lift",
+     "role": "",
+     "signal": "Double solenoid with both limits read. EXTENDED raises the carriage and fixes the pallet clear of the belt; retracted is home.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_Stopper",
+     "twinPlcPath": "MAIN.FG_Transport.Index01_Y_Stopper",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Index01/Y_Stopper",
+     "role": "",
+     "signal": "Double solenoid with both limits read. RETRACTED (min) holds the pallet; EXTENDING (max) releases it - the blade drops out of the way.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "B_Detect",
+     "twinPlcPath": "MAIN.FG_Transport.Index02_B_Detect",
+     "deviceType": "SensorBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Index02/B_Detect",
+     "role": "",
+     "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "B_Exit",
+     "twinPlcPath": "MAIN.FG_Transport.Index02_B_Exit",
+     "deviceType": "SensorBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Index02/B_Exit",
+     "role": "",
+     "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_Lift",
+     "twinPlcPath": "MAIN.FG_Transport.Index02_Y_Lift",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Index02/Y_Lift",
+     "role": "",
+     "signal": "Double solenoid with both limits read. EXTENDED raises the carriage and fixes the pallet clear of the belt; retracted is home.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_Stopper",
+     "twinPlcPath": "MAIN.FG_Transport.Index02_Y_Stopper",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Index02/Y_Stopper",
+     "role": "",
+     "signal": "Double solenoid with both limits read. RETRACTED (min) holds the pallet; EXTENDING (max) releases it - the blade drops out of the way.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "B_Detect",
+     "twinPlcPath": "MAIN.FG_Transport.Index03_B_Detect",
+     "deviceType": "SensorBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Index03/B_Detect",
+     "role": "",
+     "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "B_Exit",
+     "twinPlcPath": "MAIN.FG_Transport.Index03_B_Exit",
+     "deviceType": "SensorBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Index03/B_Exit",
+     "role": "",
+     "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_Lift",
+     "twinPlcPath": "MAIN.FG_Transport.Index03_Y_Lift",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Index03/Y_Lift",
+     "role": "",
+     "signal": "Double solenoid with both limits read. EXTENDED raises the carriage and fixes the pallet clear of the belt; retracted is home.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_Stopper",
+     "twinPlcPath": "MAIN.FG_Transport.Index03_Y_Stopper",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Index03/Y_Stopper",
+     "role": "",
+     "signal": "Double solenoid with both limits read. RETRACTED (min) holds the pallet; EXTENDING (max) releases it - the blade drops out of the way.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "B_Detect",
+     "twinPlcPath": "MAIN.FG_Transport.Index04_B_Detect",
+     "deviceType": "SensorBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Index04/B_Detect",
+     "role": "",
+     "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "B_Exit",
+     "twinPlcPath": "MAIN.FG_Transport.Index04_B_Exit",
+     "deviceType": "SensorBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Index04/B_Exit",
+     "role": "",
+     "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_Lift",
+     "twinPlcPath": "MAIN.FG_Transport.Index04_Y_Lift",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Index04/Y_Lift",
+     "role": "",
+     "signal": "Double solenoid with both limits read. EXTENDED raises the carriage and fixes the pallet clear of the belt; retracted is home.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_Stopper",
+     "twinPlcPath": "MAIN.FG_Transport.Index04_Y_Stopper",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Index04/Y_Stopper",
+     "role": "",
+     "signal": "Double solenoid with both limits read. RETRACTED (min) holds the pallet; EXTENDING (max) releases it - the blade drops out of the way.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "B_Detect",
+     "twinPlcPath": "MAIN.FG_Transport.Index05_B_Detect",
+     "deviceType": "SensorBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Index05/B_Detect",
+     "role": "",
+     "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "B_Exit",
+     "twinPlcPath": "MAIN.FG_Transport.Index05_B_Exit",
+     "deviceType": "SensorBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Index05/B_Exit",
+     "role": "",
+     "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_Lift",
+     "twinPlcPath": "MAIN.FG_Transport.Index05_Y_Lift",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Index05/Y_Lift",
+     "role": "",
+     "signal": "Double solenoid with both limits read. EXTENDED raises the carriage and fixes the pallet clear of the belt; retracted is home.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_Stopper",
+     "twinPlcPath": "MAIN.FG_Transport.Index05_Y_Stopper",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Index05/Y_Stopper",
+     "role": "",
+     "signal": "Double solenoid with both limits read. RETRACTED (min) holds the pallet; EXTENDING (max) releases it - the blade drops out of the way.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "B_Detect",
+     "twinPlcPath": "MAIN.FG_Transport.Lift01_B_Detect",
+     "deviceType": "SensorBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Lift01/Axis_Lift/B_Detect",
+     "role": "",
+     "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "B_Exit",
+     "twinPlcPath": "MAIN.FG_Transport.Lift01_B_Exit",
+     "deviceType": "SensorBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Lift01/B_Exit",
+     "role": "",
+     "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "M_Conveyor",
+     "twinPlcPath": "MAIN.FG_Transport.Lift01_M_Conveyor",
+     "deviceType": "DriveSimple",
+     "twinFb": "FB_Drive",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Lift01/Axis_Lift/TU_Linear/M_Conveyor",
+     "role": "",
+     "signal": "Simple drive: forward and backward run bits out, one drive-active bit back. No speed reference and no encoder.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_Lift",
+     "twinPlcPath": "MAIN.FG_Transport.Lift01_Y_Lift",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Lift01/Y_Lift",
+     "role": "",
+     "signal": "Double solenoid with both limits read. Moves the carriage between the lower and upper conveyor levels.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "B_Detect",
+     "twinPlcPath": "MAIN.FG_Transport.Lift02_B_Detect",
+     "deviceType": "SensorBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Lift02/Axis_Lift/B_Detect",
+     "role": "",
+     "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "B_Exit",
+     "twinPlcPath": "MAIN.FG_Transport.Lift02_B_Exit",
+     "deviceType": "SensorBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Lift02/B_Exit",
+     "role": "",
+     "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "M_Conveyor",
+     "twinPlcPath": "MAIN.FG_Transport.Lift02_M_Conveyor",
+     "deviceType": "DriveSimple",
+     "twinFb": "FB_Drive",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Lift02/Axis_Lift/TU_Linear/M_Conveyor",
+     "role": "",
+     "signal": "Simple drive: forward and backward run bits out, one drive-active bit back. No speed reference and no encoder.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_Lift",
+     "twinPlcPath": "MAIN.FG_Transport.Lift02_Y_Lift",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Lift02/Y_Lift",
+     "role": "",
+     "signal": "Double solenoid with both limits read. Moves the carriage between the lower and upper conveyor levels.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "B_Detect",
+     "twinPlcPath": "MAIN.FG_Transport.Stopper01_B_Detect",
+     "deviceType": "SensorBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Stopper01/B_Detect",
+     "role": "",
+     "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "B_Exit",
+     "twinPlcPath": "MAIN.FG_Transport.Stopper01_B_Exit",
+     "deviceType": "SensorBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Stopper01/B_Exit",
+     "role": "",
+     "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_Stopper",
+     "twinPlcPath": "MAIN.FG_Transport.Stopper01_Y_Stopper",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Stopper01/Y_Stopper",
+     "role": "",
+     "signal": "Double solenoid with both limits read. RETRACTED (min) holds the pallet; EXTENDING (max) releases it - the blade drops out of the way.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "B_Detect",
+     "twinPlcPath": "MAIN.FG_Transport.Stopper02_B_Detect",
+     "deviceType": "SensorBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Stopper02/B_Detect",
+     "role": "",
+     "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "B_Exit",
+     "twinPlcPath": "MAIN.FG_Transport.Stopper02_B_Exit",
+     "deviceType": "SensorBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Stopper02/B_Exit",
+     "role": "",
+     "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_Stopper",
+     "twinPlcPath": "MAIN.FG_Transport.Stopper02_Y_Stopper",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Stopper02/Y_Stopper",
+     "role": "",
+     "signal": "Double solenoid with both limits read. RETRACTED (min) holds the pallet; EXTENDING (max) releases it - the blade drops out of the way.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "B_Detect",
+     "twinPlcPath": "MAIN.FG_Transport.Stopper03_B_Detect",
+     "deviceType": "SensorBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Stopper03/B_Detect",
+     "role": "",
+     "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "B_Exit",
+     "twinPlcPath": "MAIN.FG_Transport.Stopper03_B_Exit",
+     "deviceType": "SensorBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Stopper03/B_Exit",
+     "role": "",
+     "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_Stopper",
+     "twinPlcPath": "MAIN.FG_Transport.Stopper03_Y_Stopper",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Stopper03/Y_Stopper",
+     "role": "",
+     "signal": "Double solenoid with both limits read. RETRACTED (min) holds the pallet; EXTENDING (max) releases it - the blade drops out of the way.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "B_Detect",
+     "twinPlcPath": "MAIN.FG_Transport.Stopper04_B_Detect",
+     "deviceType": "SensorBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Stopper04/B_Detect",
+     "role": "",
+     "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "B_Exit",
+     "twinPlcPath": "MAIN.FG_Transport.Stopper04_B_Exit",
+     "deviceType": "SensorBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Stopper04/B_Exit",
+     "role": "",
+     "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_Stopper",
+     "twinPlcPath": "MAIN.FG_Transport.Stopper04_Y_Stopper",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Stopper04/Y_Stopper",
+     "role": "",
+     "signal": "Double solenoid with both limits read. RETRACTED (min) holds the pallet; EXTENDING (max) releases it - the blade drops out of the way.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "M_Conveyor",
+     "twinPlcPath": "MAIN.FG_Transport.Transport01_M_Conveyor",
+     "deviceType": "DriveSimple",
+     "twinFb": "FB_Drive",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Transport01/M_Conveyor",
+     "role": "",
+     "signal": "Simple drive: forward and backward run bits out, one drive-active bit back. No speed reference and no encoder.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "M_Conveyor",
+     "twinPlcPath": "MAIN.FG_Transport.Transport02_M_Conveyor",
+     "deviceType": "DriveSimple",
+     "twinFb": "FB_Drive",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Transport02/M_Conveyor",
+     "role": "",
+     "signal": "Simple drive: forward and backward run bits out, one drive-active bit back. No speed reference and no encoder.",
+     "vendorSpecific": false
+    }
+   ]
+  },
+  {
+   "name": "FG_01",
+   "scenePath": "Project/FG_01",
+   "twinPlcPath": "MAIN.FG_01",
+   "behaviour": "fg-01-behaviour.md",
+   "servedBy": "Index01",
+   "symbols": [
+    {
+     "name": "B_SafetyGate1",
+     "twinPlcPath": "MAIN.FG_01.B_SafetyGate1",
+     "deviceType": "SensorBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_01",
+     "scenePath": "Project/FG_01/B_SafetyGate1",
+     "role": "Monitors guard gate 1 for the FG_01 laser interlock.",
+     "signal": "Binary presence sensor. Monitors a guard gate. Must be Active, with both gates at their extended limit, before the laser may fire.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "B_SafetyGate2",
+     "twinPlcPath": "MAIN.FG_01.B_SafetyGate2",
+     "deviceType": "SensorBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_01",
+     "scenePath": "Project/FG_01/B_SafetyGate2",
+     "role": "Monitors guard gate 2 for the FG_01 laser interlock.",
+     "signal": "Binary presence sensor. Monitors a guard gate. Must be Active, with both gates at their extended limit, before the laser may fire.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "P_Camera",
+     "twinPlcPath": "MAIN.FG_01.P_Camera",
+     "deviceType": "DataReader",
+     "twinFb": "FB_Camera",
+     "group": "FG_01",
+     "scenePath": "Project/FG_01/Barcode Reader/P_Camera",
+     "role": "",
+     "signal": "Enable, then trigger; reads back Ready, Busy, ResultValid and ResultOK. The twin echoes the two control bits and hands over the datum; the verdict is synthesised in OC_SIM FB_Camera.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_Gate1",
+     "twinPlcPath": "MAIN.FG_01.Y_Gate1",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_01",
+     "scenePath": "Project/FG_01/Y_Gate1",
+     "role": "Guard gate 1. Must be closed before the FG_01 laser may fire.",
+     "signal": "Extending CLOSES the gate, retracting OPENS it, and retracted is home - the opposite sense to a transport stopper. Both limits are read; the two gates are commanded together.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_Gate2",
+     "twinPlcPath": "MAIN.FG_01.Y_Gate2",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_01",
+     "scenePath": "Project/FG_01/Y_Gate2",
+     "role": "Guard gate 2. Must be closed before the FG_01 laser may fire.",
+     "signal": "Extending CLOSES the gate, retracting OPENS it, and retracted is home - the opposite sense to a transport stopper. Both limits are read; the two gates are commanded together.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_Gripper",
+     "twinPlcPath": "MAIN.FG_01.Y_Gripper",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_01",
+     "scenePath": "Project/FG_01/Y_Gripper",
+     "role": "",
+     "signal": "Double solenoid with both limits read. EXTENDED clamps the payload for marking and reading; retracted releases.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_LaserMark",
+     "twinPlcPath": "MAIN.FG_01.Y_LaserMark",
+     "deviceType": "LinkByte",
+     "twinFb": "FB_DeviceByte",
+     "group": "FG_01",
+     "scenePath": "Project/FG_01/Laser Unit/Axis/Y_LaserMark",
+     "role": "",
+     "signal": "One control bit out enables the laser module; held high for 1 s it applies the mark. NO status bits - the PLC gets no confirmation that it fired.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_Platform",
+     "twinPlcPath": "MAIN.FG_01.Y_Platform",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_01",
+     "scenePath": "Project/FG_01/Laser Unit/Y_Platform",
+     "role": "",
+     "signal": "Double solenoid with both limits read. Service positioning of the laser head. Never actuated during the production cycle.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_ReaderWindow",
+     "twinPlcPath": "MAIN.FG_01.Y_ReaderWindow",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_01",
+     "scenePath": "Project/FG_01/Barcode Reader/Y_ReaderWindow",
+     "role": "",
+     "signal": "Double solenoid with both limits read. EXTENDED opens the window for the read; retracted shields the optics and is home.",
+     "vendorSpecific": false
+    }
+   ]
+  },
+  {
+   "name": "FG_02",
+   "scenePath": "Project/FG_02",
+   "twinPlcPath": "MAIN.FG_02",
+   "behaviour": "fg-02-behaviour.md",
+   "servedBy": "Index02",
+   "symbols": [
+    {
+     "name": "P_Camera",
+     "twinPlcPath": "MAIN.FG_02.P_Camera",
+     "deviceType": "DataReader",
+     "twinFb": "FB_Camera",
+     "group": "FG_02",
+     "scenePath": "Project/FG_02/P_Camera",
+     "role": "",
+     "signal": "Enable, then trigger; reads back Ready, Busy, ResultValid and ResultOK. The twin echoes the two control bits and hands over the datum; the verdict is synthesised in OC_SIM FB_Camera.",
+     "vendorSpecific": false
+    }
+   ]
+  },
+  {
+   "name": "FG_03",
+   "scenePath": "Project/FG_03",
+   "twinPlcPath": "MAIN.FG_03",
+   "behaviour": "fg-03-behaviour.md",
+   "servedBy": "Index03",
+   "symbols": [
+    {
+     "name": "B_Detect1",
+     "twinPlcPath": "MAIN.FG_03.B_Detect1",
+     "deviceType": "SignalBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_03",
+     "scenePath": "Project/FG_03/Axis_X1/Axis_Y1/B_Detect1",
+     "role": "",
+     "signal": "Grip witness for arm 1. Active while gripper 1 actually holds the part.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "B_Detect2",
+     "twinPlcPath": "MAIN.FG_03.B_Detect2",
+     "deviceType": "SignalBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_03",
+     "scenePath": "Project/FG_03/Axis_X2/Axis_Y2/B_Detect2",
+     "role": "",
+     "signal": "Grip witness for arm 2. Active while gripper 2 actually holds the part.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_AxisR1",
+     "twinPlcPath": "MAIN.FG_03.Y_AxisR1",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_03",
+     "scenePath": "Project/FG_03/Axis_X1/Axis_Y1/Y_AxisR1",
+     "role": "",
+     "signal": "Double solenoid with both limits read. Rotary. Retracted is 0 deg and the receiving orientation; extended is 180 deg and the placing one.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_AxisX1",
+     "twinPlcPath": "MAIN.FG_03.Y_AxisX1",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_03",
+     "scenePath": "Project/FG_03/Y_AxisX1",
+     "role": "",
+     "signal": "Double solenoid with both limits read. MAX is raised; arm 1 rises once and stays up for the whole cycle.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_AxisX2",
+     "twinPlcPath": "MAIN.FG_03.Y_AxisX2",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_03",
+     "scenePath": "Project/FG_03/Y_AxisX2",
+     "role": "",
+     "signal": "Double solenoid with both limits read. MAX is the transfer position, min is home over slot 1.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_AxisY1",
+     "twinPlcPath": "MAIN.FG_03.Y_AxisY1",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_03",
+     "scenePath": "Project/FG_03/Axis_X1/Y_AxisY1",
+     "role": "",
+     "signal": "Double solenoid with both limits read. MAX is the transfer position, min is home over slot 2.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_AxisY2",
+     "twinPlcPath": "MAIN.FG_03.Y_AxisY2",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_03",
+     "scenePath": "Project/FG_03/Axis_X2/Y_AxisY2",
+     "role": "",
+     "signal": "Double solenoid with both limits read. The axis factor is inverted, so MAX is LOWERED.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_Gripper1",
+     "twinPlcPath": "MAIN.FG_03.Y_Gripper1",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_03",
+     "scenePath": "Project/FG_03/Axis_X1/Axis_Y1/Y_AxisR1/Axis_R1/Y_Gripper1",
+     "role": "",
+     "signal": "Double solenoid with both limits read. EXTENDED grips. The limit proves the jaws moved, NOT that they caught anything - only B_Detect1 says that.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_Gripper2",
+     "twinPlcPath": "MAIN.FG_03.Y_Gripper2",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_03",
+     "scenePath": "Project/FG_03/Axis_X2/Axis_Y2/Y_Gripper2",
+     "role": "",
+     "signal": "Double solenoid with both limits read. EXTENDED grips. The limit proves the jaws moved, NOT that they caught anything - only B_Detect2 says that.",
+     "vendorSpecific": false
+    }
+   ]
+  },
+  {
+   "name": "FG_04",
+   "scenePath": "Project/FG_04",
+   "twinPlcPath": "MAIN.FG_04",
+   "behaviour": "fg-04-behaviour.md",
+   "servedBy": "Index04",
+   "symbols": [
+    {
+     "name": "B_NIO",
+     "twinPlcPath": "MAIN.FG_04.B_NIO",
+     "deviceType": "SignalBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_04",
+     "scenePath": "Project/FG_04/B_NIO",
+     "role": "",
+     "signal": "A VERDICT, not a sensor reading. Active means the press bottomed with nothing correctly seated. Only meaningful at the bottom limit with the hold expired.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_AxisZ",
+     "twinPlcPath": "MAIN.FG_04.Y_AxisZ",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_04",
+     "scenePath": "Project/FG_04/Y_AxisZ",
+     "role": "",
+     "signal": "Double solenoid with both limits read. EXTENDED presses down onto the part; retracted is clear. A double solenoid so an abort leaves it where it is.",
+     "vendorSpecific": false
+    }
+   ]
+  },
+  {
+   "name": "FG_05",
+   "scenePath": "Project/FG_05",
+   "twinPlcPath": "MAIN.FG_05",
+   "behaviour": "fg-05-behaviour.md",
+   "servedBy": "Index05",
+   "symbols": [
+    {
+     "name": "B_Detect",
+     "twinPlcPath": "MAIN.FG_05.B_Detect",
+     "deviceType": "SignalBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_05",
+     "scenePath": "Project/FG_05/Axis_X/Axis_Z1/Axis_Z2/Axis_R/B_Detect",
+     "role": "",
+     "signal": "Grip witness in the jaws. Active while this unit carries a cap. NOT the same question as B_Part.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "B_Part",
+     "twinPlcPath": "MAIN.FG_05.B_Part",
+     "deviceType": "SensorBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_05",
+     "scenePath": "Project/FG_05/B_Part",
+     "role": "",
+     "signal": "Binary presence sensor. On the FEED: a cap has arrived at the pick position. Once the gripper lifts one away it reports the NEXT one.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "P_Camera",
+     "twinPlcPath": "MAIN.FG_05.P_Camera",
+     "deviceType": "DataReader",
+     "twinFb": "FB_Camera",
+     "group": "FG_05",
+     "scenePath": "Project/FG_05/P_Camera",
+     "role": "",
+     "signal": "Enable, then trigger; reads back Ready, Busy, ResultValid and ResultOK. The twin echoes the two control bits and hands over the datum; the verdict is synthesised in OC_SIM FB_Camera.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_AxisR",
+     "twinPlcPath": "MAIN.FG_05.Y_AxisR",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_05",
+     "scenePath": "Project/FG_05/Axis_X/Axis_Z1/Axis_Z2/Y_AxisR",
+     "role": "",
+     "signal": "Double solenoid with both limits read. Rotary. Extended is the fitting orientation, retracted is home.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_AxisX",
+     "twinPlcPath": "MAIN.FG_05.Y_AxisX",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_05",
+     "scenePath": "Project/FG_05/Y_AxisX",
+     "role": "",
+     "signal": "Double solenoid with both limits read. MAX is over the pallet, min is over the cap feed.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_AxisZ1",
+     "twinPlcPath": "MAIN.FG_05.Y_AxisZ1",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_05",
+     "scenePath": "Project/FG_05/Axis_X/Y_AxisZ1",
+     "role": "",
+     "signal": "Double solenoid with both limits read. EXTENDED lowers the cap onto the part on the pallet side.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_AxisZ2",
+     "twinPlcPath": "MAIN.FG_05.Y_AxisZ2",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_05",
+     "scenePath": "Project/FG_05/Axis_X/Axis_Z1/Y_AxisZ2",
+     "role": "",
+     "signal": "Double solenoid with both limits read. EXTENDED lowers to the cap at the pick position on the feed side.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_CapsSource",
+     "twinPlcPath": "MAIN.FG_05.Y_CapsSource",
+     "deviceType": "ControlBunker",
+     "twinFb": "FB_DeviceByte",
+     "group": "FG_05",
+     "scenePath": "Project/FG_05/Y_CapsSource",
+     "role": "",
+     "signal": "Two bool outputs from the PLC and no status bits - the bunker reports nothing back. MIL turns both on together for as long as it is enabled.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_CapsSourceStopper",
+     "twinPlcPath": "MAIN.FG_05.Y_CapsSourceStopper",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_05",
+     "scenePath": "Project/FG_05/Y_CapsSourceStopper",
+     "role": "",
+     "signal": "Double solenoid with both limits read. EXTENDED BLOCKS the feed path and the queue accumulates against it. The opposite sense to a transport stopper.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "Y_Gripper",
+     "twinPlcPath": "MAIN.FG_05.Y_Gripper",
+     "deviceType": "Cylinder",
+     "twinFb": "FB_Cylinder",
+     "group": "FG_05",
+     "scenePath": "Project/FG_05/Axis_X/Axis_Z1/Axis_Z2/Axis_R/Y_Gripper",
+     "role": "",
+     "signal": "Double solenoid with both limits read. EXTENDED grips the cap. The limit proves the jaws moved, NOT that they caught one - only B_Detect says that.",
+     "vendorSpecific": false
+    }
+   ]
+  }
+ ],
+ "vendors": {
+  "Beckhoff": {
+   "scene": "VC_Demo_1_Beckhoff_1",
+   "exportedAtUtc": "2026-08-23T17:09:36.0996372Z",
+   "groups": [
+    {
+     "name": "FG_System",
+     "scenePath": "Project/FG_System",
+     "twinPlcPath": "MAIN.FG_System",
+     "behaviour": "fg-system-safety.md",
+     "servedBy": "",
+     "symbols": [
+      {
+       "name": "B_SafetyDoor11",
+       "twinPlcPath": "MAIN.FG_System.B_SafetyDoor11",
+       "deviceType": "Lock",
+       "twinFb": "FB_Lock",
+       "group": "FG_System",
+       "scenePath": "Project/FG_System/Doors/B_SafetyDoor11",
+       "role": "",
+       "signal": "Two inputs back - closed and locked - and one lock coil out. Secure means BOTH: closed alone is not enough.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_SafetyDoor12",
+       "twinPlcPath": "MAIN.FG_System.B_SafetyDoor12",
+       "deviceType": "Lock",
+       "twinFb": "FB_Lock",
+       "group": "FG_System",
+       "scenePath": "Project/FG_System/Doors/B_SafetyDoor12",
+       "role": "",
+       "signal": "Two inputs back - closed and locked - and one lock coil out. Secure means BOTH: closed alone is not enough.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_SafetyDoor13",
+       "twinPlcPath": "MAIN.FG_System.B_SafetyDoor13",
+       "deviceType": "Lock",
+       "twinFb": "FB_Lock",
+       "group": "FG_System",
+       "scenePath": "Project/FG_System/Doors/B_SafetyDoor13",
+       "role": "",
+       "signal": "Two inputs back - closed and locked - and one lock coil out. Secure means BOTH: closed alone is not enough.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_SafetyDoor21",
+       "twinPlcPath": "MAIN.FG_System.B_SafetyDoor21",
+       "deviceType": "Lock",
+       "twinFb": "FB_Lock",
+       "group": "FG_System",
+       "scenePath": "Project/FG_System/Doors/B_SafetyDoor21",
+       "role": "",
+       "signal": "Two inputs back - closed and locked - and one lock coil out. Secure means BOTH: closed alone is not enough.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_SafetyDoor22",
+       "twinPlcPath": "MAIN.FG_System.B_SafetyDoor22",
+       "deviceType": "Lock",
+       "twinFb": "FB_Lock",
+       "group": "FG_System",
+       "scenePath": "Project/FG_System/Doors/B_SafetyDoor22",
+       "role": "",
+       "signal": "Two inputs back - closed and locked - and one lock coil out. Secure means BOTH: closed alone is not enough.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_SafetyDoor23",
+       "twinPlcPath": "MAIN.FG_System.B_SafetyDoor23",
+       "deviceType": "Lock",
+       "twinFb": "FB_Lock",
+       "group": "FG_System",
+       "scenePath": "Project/FG_System/Doors/B_SafetyDoor23",
+       "role": "",
+       "signal": "Two inputs back - closed and locked - and one lock coil out. Secure means BOTH: closed alone is not enough.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "H_ControlPanel",
+       "twinPlcPath": "MAIN.FG_System.H_ControlPanel",
+       "deviceType": "PanelSampler",
+       "twinFb": "FB_Panel",
+       "group": "FG_System",
+       "scenePath": "Project/FG_System/H_ControlPanel",
+       "role": "",
+       "signal": "PanelSampler. Disables its children's individual communication and exposes one aggregated FB_Panel DWORD, packing their status bits in and unpacking control bits back.",
+       "vendorSpecific": true
+      },
+      {
+       "name": "H_SignalTower",
+       "twinPlcPath": "MAIN.FG_System.H_SignalTower",
+       "deviceType": "PanelSampler",
+       "twinFb": "FB_Panel",
+       "group": "FG_System",
+       "scenePath": "Project/FG_System/H_SignalTower",
+       "role": "",
+       "signal": "PanelSampler. Aggregates the four tower lamps into one FB_Panel DWORD, with the lamps own links disabled. Same packing mechanism as the control panel.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "SS_EStop1",
+       "twinPlcPath": "MAIN.FG_System.SS_EStop1",
+       "deviceType": "Button",
+       "twinFb": "FB_Button",
+       "group": "FG_System",
+       "scenePath": "Project/FG_System/SS_EStop1",
+       "role": "",
+       "signal": "One input and one lamp coil, as a single device. Active while the mushroom is latched.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "SS_EStop2",
+       "twinPlcPath": "MAIN.FG_System.SS_EStop2",
+       "deviceType": "Button",
+       "twinFb": "FB_Button",
+       "group": "FG_System",
+       "scenePath": "Project/FG_System/SS_EStop2",
+       "role": "",
+       "signal": "One input and one lamp coil, as a single device. Active while the mushroom is latched.",
+       "vendorSpecific": false
+      }
+     ]
+    },
+    {
+     "name": "FG_Transport",
+     "scenePath": "Project/FG_Transport",
+     "twinPlcPath": "MAIN.FG_Transport",
+     "behaviour": "transport-behaviour.md",
+     "servedBy": "",
+     "symbols": [
+      {
+       "name": "B_Detect",
+       "twinPlcPath": "MAIN.FG_Transport.Index01_B_Detect",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index01/B_Detect",
+       "role": "",
+       "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Exit",
+       "twinPlcPath": "MAIN.FG_Transport.Index01_B_Exit",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index01/B_Exit",
+       "role": "",
+       "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Lift",
+       "twinPlcPath": "MAIN.FG_Transport.Index01_Y_Lift",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index01/Y_Lift",
+       "role": "",
+       "signal": "Double solenoid with both limits read. EXTENDED raises the carriage and fixes the pallet clear of the belt; retracted is home.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Stopper",
+       "twinPlcPath": "MAIN.FG_Transport.Index01_Y_Stopper",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index01/Y_Stopper",
+       "role": "",
+       "signal": "Double solenoid with both limits read. RETRACTED (min) holds the pallet; EXTENDING (max) releases it - the blade drops out of the way.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Detect",
+       "twinPlcPath": "MAIN.FG_Transport.Index02_B_Detect",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index02/B_Detect",
+       "role": "",
+       "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Exit",
+       "twinPlcPath": "MAIN.FG_Transport.Index02_B_Exit",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index02/B_Exit",
+       "role": "",
+       "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Lift",
+       "twinPlcPath": "MAIN.FG_Transport.Index02_Y_Lift",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index02/Y_Lift",
+       "role": "",
+       "signal": "Double solenoid with both limits read. EXTENDED raises the carriage and fixes the pallet clear of the belt; retracted is home.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Stopper",
+       "twinPlcPath": "MAIN.FG_Transport.Index02_Y_Stopper",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index02/Y_Stopper",
+       "role": "",
+       "signal": "Double solenoid with both limits read. RETRACTED (min) holds the pallet; EXTENDING (max) releases it - the blade drops out of the way.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Detect",
+       "twinPlcPath": "MAIN.FG_Transport.Index03_B_Detect",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index03/B_Detect",
+       "role": "",
+       "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Exit",
+       "twinPlcPath": "MAIN.FG_Transport.Index03_B_Exit",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index03/B_Exit",
+       "role": "",
+       "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Lift",
+       "twinPlcPath": "MAIN.FG_Transport.Index03_Y_Lift",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index03/Y_Lift",
+       "role": "",
+       "signal": "Double solenoid with both limits read. EXTENDED raises the carriage and fixes the pallet clear of the belt; retracted is home.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Stopper",
+       "twinPlcPath": "MAIN.FG_Transport.Index03_Y_Stopper",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index03/Y_Stopper",
+       "role": "",
+       "signal": "Double solenoid with both limits read. RETRACTED (min) holds the pallet; EXTENDING (max) releases it - the blade drops out of the way.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Detect",
+       "twinPlcPath": "MAIN.FG_Transport.Index04_B_Detect",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index04/B_Detect",
+       "role": "",
+       "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Exit",
+       "twinPlcPath": "MAIN.FG_Transport.Index04_B_Exit",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index04/B_Exit",
+       "role": "",
+       "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Lift",
+       "twinPlcPath": "MAIN.FG_Transport.Index04_Y_Lift",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index04/Y_Lift",
+       "role": "",
+       "signal": "Double solenoid with both limits read. EXTENDED raises the carriage and fixes the pallet clear of the belt; retracted is home.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Stopper",
+       "twinPlcPath": "MAIN.FG_Transport.Index04_Y_Stopper",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index04/Y_Stopper",
+       "role": "",
+       "signal": "Double solenoid with both limits read. RETRACTED (min) holds the pallet; EXTENDING (max) releases it - the blade drops out of the way.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Detect",
+       "twinPlcPath": "MAIN.FG_Transport.Index05_B_Detect",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index05/B_Detect",
+       "role": "",
+       "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Exit",
+       "twinPlcPath": "MAIN.FG_Transport.Index05_B_Exit",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index05/B_Exit",
+       "role": "",
+       "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Lift",
+       "twinPlcPath": "MAIN.FG_Transport.Index05_Y_Lift",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index05/Y_Lift",
+       "role": "",
+       "signal": "Double solenoid with both limits read. EXTENDED raises the carriage and fixes the pallet clear of the belt; retracted is home.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Stopper",
+       "twinPlcPath": "MAIN.FG_Transport.Index05_Y_Stopper",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index05/Y_Stopper",
+       "role": "",
+       "signal": "Double solenoid with both limits read. RETRACTED (min) holds the pallet; EXTENDING (max) releases it - the blade drops out of the way.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Detect",
+       "twinPlcPath": "MAIN.FG_Transport.Lift01_B_Detect",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Lift01/Axis_Lift/B_Detect",
+       "role": "",
+       "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Exit",
+       "twinPlcPath": "MAIN.FG_Transport.Lift01_B_Exit",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Lift01/B_Exit",
+       "role": "",
+       "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "M_Conveyor",
+       "twinPlcPath": "MAIN.FG_Transport.Lift01_M_Conveyor",
+       "deviceType": "DriveSimple",
+       "twinFb": "FB_Drive",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Lift01/Axis_Lift/TU_Linear/M_Conveyor",
+       "role": "",
+       "signal": "Simple drive: forward and backward run bits out, one drive-active bit back. No speed reference and no encoder.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Lift",
+       "twinPlcPath": "MAIN.FG_Transport.Lift01_Y_Lift",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Lift01/Y_Lift",
+       "role": "",
+       "signal": "Double solenoid with both limits read. Moves the carriage between the lower and upper conveyor levels.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Detect",
+       "twinPlcPath": "MAIN.FG_Transport.Lift02_B_Detect",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Lift02/Axis_Lift/B_Detect",
+       "role": "",
+       "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Exit",
+       "twinPlcPath": "MAIN.FG_Transport.Lift02_B_Exit",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Lift02/B_Exit",
+       "role": "",
+       "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "M_Conveyor",
+       "twinPlcPath": "MAIN.FG_Transport.Lift02_M_Conveyor",
+       "deviceType": "DriveSimple",
+       "twinFb": "FB_Drive",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Lift02/Axis_Lift/TU_Linear/M_Conveyor",
+       "role": "",
+       "signal": "Simple drive: forward and backward run bits out, one drive-active bit back. No speed reference and no encoder.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Lift",
+       "twinPlcPath": "MAIN.FG_Transport.Lift02_Y_Lift",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Lift02/Y_Lift",
+       "role": "",
+       "signal": "Double solenoid with both limits read. Moves the carriage between the lower and upper conveyor levels.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Detect",
+       "twinPlcPath": "MAIN.FG_Transport.Stopper01_B_Detect",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Stopper01/B_Detect",
+       "role": "",
+       "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Exit",
+       "twinPlcPath": "MAIN.FG_Transport.Stopper01_B_Exit",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Stopper01/B_Exit",
+       "role": "",
+       "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Stopper",
+       "twinPlcPath": "MAIN.FG_Transport.Stopper01_Y_Stopper",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Stopper01/Y_Stopper",
+       "role": "",
+       "signal": "Double solenoid with both limits read. RETRACTED (min) holds the pallet; EXTENDING (max) releases it - the blade drops out of the way.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Detect",
+       "twinPlcPath": "MAIN.FG_Transport.Stopper02_B_Detect",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Stopper02/B_Detect",
+       "role": "",
+       "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Exit",
+       "twinPlcPath": "MAIN.FG_Transport.Stopper02_B_Exit",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Stopper02/B_Exit",
+       "role": "",
+       "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Stopper",
+       "twinPlcPath": "MAIN.FG_Transport.Stopper02_Y_Stopper",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Stopper02/Y_Stopper",
+       "role": "",
+       "signal": "Double solenoid with both limits read. RETRACTED (min) holds the pallet; EXTENDING (max) releases it - the blade drops out of the way.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Detect",
+       "twinPlcPath": "MAIN.FG_Transport.Stopper03_B_Detect",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Stopper03/B_Detect",
+       "role": "",
+       "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Exit",
+       "twinPlcPath": "MAIN.FG_Transport.Stopper03_B_Exit",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Stopper03/B_Exit",
+       "role": "",
+       "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Stopper",
+       "twinPlcPath": "MAIN.FG_Transport.Stopper03_Y_Stopper",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Stopper03/Y_Stopper",
+       "role": "",
+       "signal": "Double solenoid with both limits read. RETRACTED (min) holds the pallet; EXTENDING (max) releases it - the blade drops out of the way.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Detect",
+       "twinPlcPath": "MAIN.FG_Transport.Stopper04_B_Detect",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Stopper04/B_Detect",
+       "role": "",
+       "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Exit",
+       "twinPlcPath": "MAIN.FG_Transport.Stopper04_B_Exit",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Stopper04/B_Exit",
+       "role": "",
+       "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Stopper",
+       "twinPlcPath": "MAIN.FG_Transport.Stopper04_Y_Stopper",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Stopper04/Y_Stopper",
+       "role": "",
+       "signal": "Double solenoid with both limits read. RETRACTED (min) holds the pallet; EXTENDING (max) releases it - the blade drops out of the way.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "M_Conveyor",
+       "twinPlcPath": "MAIN.FG_Transport.Transport01_M_Conveyor",
+       "deviceType": "DriveSimple",
+       "twinFb": "FB_Drive",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Transport01/M_Conveyor",
+       "role": "",
+       "signal": "Simple drive: forward and backward run bits out, one drive-active bit back. No speed reference and no encoder.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "M_Conveyor",
+       "twinPlcPath": "MAIN.FG_Transport.Transport02_M_Conveyor",
+       "deviceType": "DriveSimple",
+       "twinFb": "FB_Drive",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Transport02/M_Conveyor",
+       "role": "",
+       "signal": "Simple drive: forward and backward run bits out, one drive-active bit back. No speed reference and no encoder.",
+       "vendorSpecific": false
+      }
+     ]
+    },
+    {
+     "name": "FG_01",
+     "scenePath": "Project/FG_01",
+     "twinPlcPath": "MAIN.FG_01",
+     "behaviour": "fg-01-behaviour.md",
+     "servedBy": "Index01",
+     "symbols": [
+      {
+       "name": "B_SafetyGate1",
+       "twinPlcPath": "MAIN.FG_01.B_SafetyGate1",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_01",
+       "scenePath": "Project/FG_01/B_SafetyGate1",
+       "role": "Monitors guard gate 1 for the FG_01 laser interlock.",
+       "signal": "Binary presence sensor. Monitors a guard gate. Must be Active, with both gates at their extended limit, before the laser may fire.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_SafetyGate2",
+       "twinPlcPath": "MAIN.FG_01.B_SafetyGate2",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_01",
+       "scenePath": "Project/FG_01/B_SafetyGate2",
+       "role": "Monitors guard gate 2 for the FG_01 laser interlock.",
+       "signal": "Binary presence sensor. Monitors a guard gate. Must be Active, with both gates at their extended limit, before the laser may fire.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "P_Camera",
+       "twinPlcPath": "MAIN.FG_01.P_Camera",
+       "deviceType": "DataReader",
+       "twinFb": "FB_Camera",
+       "group": "FG_01",
+       "scenePath": "Project/FG_01/Barcode Reader/P_Camera",
+       "role": "",
+       "signal": "Enable, then trigger; reads back Ready, Busy, ResultValid and ResultOK. The twin echoes the two control bits and hands over the datum; the verdict is synthesised in OC_SIM FB_Camera.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Gate1",
+       "twinPlcPath": "MAIN.FG_01.Y_Gate1",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_01",
+       "scenePath": "Project/FG_01/Y_Gate1",
+       "role": "Guard gate 1. Must be closed before the FG_01 laser may fire.",
+       "signal": "Extending CLOSES the gate, retracting OPENS it, and retracted is home - the opposite sense to a transport stopper. Both limits are read; the two gates are commanded together.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Gate2",
+       "twinPlcPath": "MAIN.FG_01.Y_Gate2",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_01",
+       "scenePath": "Project/FG_01/Y_Gate2",
+       "role": "Guard gate 2. Must be closed before the FG_01 laser may fire.",
+       "signal": "Extending CLOSES the gate, retracting OPENS it, and retracted is home - the opposite sense to a transport stopper. Both limits are read; the two gates are commanded together.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Gripper",
+       "twinPlcPath": "MAIN.FG_01.Y_Gripper",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_01",
+       "scenePath": "Project/FG_01/Y_Gripper",
+       "role": "",
+       "signal": "Double solenoid with both limits read. EXTENDED clamps the payload for marking and reading; retracted releases.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_LaserMark",
+       "twinPlcPath": "MAIN.FG_01.Y_LaserMark",
+       "deviceType": "LinkByte",
+       "twinFb": "FB_DeviceByte",
+       "group": "FG_01",
+       "scenePath": "Project/FG_01/Laser Unit/Axis/Y_LaserMark",
+       "role": "",
+       "signal": "One control bit out enables the laser module; held high for 1 s it applies the mark. NO status bits - the PLC gets no confirmation that it fired.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Platform",
+       "twinPlcPath": "MAIN.FG_01.Y_Platform",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_01",
+       "scenePath": "Project/FG_01/Laser Unit/Y_Platform",
+       "role": "",
+       "signal": "Double solenoid with both limits read. Service positioning of the laser head. Never actuated during the production cycle.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_ReaderWindow",
+       "twinPlcPath": "MAIN.FG_01.Y_ReaderWindow",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_01",
+       "scenePath": "Project/FG_01/Barcode Reader/Y_ReaderWindow",
+       "role": "",
+       "signal": "Double solenoid with both limits read. EXTENDED opens the window for the read; retracted shields the optics and is home.",
+       "vendorSpecific": false
+      }
+     ]
+    },
+    {
+     "name": "FG_02",
+     "scenePath": "Project/FG_02",
+     "twinPlcPath": "MAIN.FG_02",
+     "behaviour": "fg-02-behaviour.md",
+     "servedBy": "Index02",
+     "symbols": [
+      {
+       "name": "P_Camera",
+       "twinPlcPath": "MAIN.FG_02.P_Camera",
+       "deviceType": "DataReader",
+       "twinFb": "FB_Camera",
+       "group": "FG_02",
+       "scenePath": "Project/FG_02/P_Camera",
+       "role": "",
+       "signal": "Enable, then trigger; reads back Ready, Busy, ResultValid and ResultOK. The twin echoes the two control bits and hands over the datum; the verdict is synthesised in OC_SIM FB_Camera.",
+       "vendorSpecific": false
+      }
+     ]
+    },
+    {
+     "name": "FG_03",
+     "scenePath": "Project/FG_03",
+     "twinPlcPath": "MAIN.FG_03",
+     "behaviour": "fg-03-behaviour.md",
+     "servedBy": "Index03",
+     "symbols": [
+      {
+       "name": "B_Detect1",
+       "twinPlcPath": "MAIN.FG_03.B_Detect1",
+       "deviceType": "SignalBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_03",
+       "scenePath": "Project/FG_03/Axis_X1/Axis_Y1/B_Detect1",
+       "role": "",
+       "signal": "Grip witness for arm 1. Active while gripper 1 actually holds the part.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Detect2",
+       "twinPlcPath": "MAIN.FG_03.B_Detect2",
+       "deviceType": "SignalBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_03",
+       "scenePath": "Project/FG_03/Axis_X2/Axis_Y2/B_Detect2",
+       "role": "",
+       "signal": "Grip witness for arm 2. Active while gripper 2 actually holds the part.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_AxisR1",
+       "twinPlcPath": "MAIN.FG_03.Y_AxisR1",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_03",
+       "scenePath": "Project/FG_03/Axis_X1/Axis_Y1/Y_AxisR1",
+       "role": "",
+       "signal": "Double solenoid with both limits read. Rotary. Retracted is 0 deg and the receiving orientation; extended is 180 deg and the placing one.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_AxisX1",
+       "twinPlcPath": "MAIN.FG_03.Y_AxisX1",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_03",
+       "scenePath": "Project/FG_03/Y_AxisX1",
+       "role": "",
+       "signal": "Double solenoid with both limits read. MAX is raised; arm 1 rises once and stays up for the whole cycle.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_AxisX2",
+       "twinPlcPath": "MAIN.FG_03.Y_AxisX2",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_03",
+       "scenePath": "Project/FG_03/Y_AxisX2",
+       "role": "",
+       "signal": "Double solenoid with both limits read. MAX is the transfer position, min is home over slot 1.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_AxisY1",
+       "twinPlcPath": "MAIN.FG_03.Y_AxisY1",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_03",
+       "scenePath": "Project/FG_03/Axis_X1/Y_AxisY1",
+       "role": "",
+       "signal": "Double solenoid with both limits read. MAX is the transfer position, min is home over slot 2.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_AxisY2",
+       "twinPlcPath": "MAIN.FG_03.Y_AxisY2",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_03",
+       "scenePath": "Project/FG_03/Axis_X2/Y_AxisY2",
+       "role": "",
+       "signal": "Double solenoid with both limits read. The axis factor is inverted, so MAX is LOWERED.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Gripper1",
+       "twinPlcPath": "MAIN.FG_03.Y_Gripper1",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_03",
+       "scenePath": "Project/FG_03/Axis_X1/Axis_Y1/Y_AxisR1/Axis_R1/Y_Gripper1",
+       "role": "",
+       "signal": "Double solenoid with both limits read. EXTENDED grips. The limit proves the jaws moved, NOT that they caught anything - only B_Detect1 says that.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Gripper2",
+       "twinPlcPath": "MAIN.FG_03.Y_Gripper2",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_03",
+       "scenePath": "Project/FG_03/Axis_X2/Axis_Y2/Y_Gripper2",
+       "role": "",
+       "signal": "Double solenoid with both limits read. EXTENDED grips. The limit proves the jaws moved, NOT that they caught anything - only B_Detect2 says that.",
+       "vendorSpecific": false
+      }
+     ]
+    },
+    {
+     "name": "FG_04",
+     "scenePath": "Project/FG_04",
+     "twinPlcPath": "MAIN.FG_04",
+     "behaviour": "fg-04-behaviour.md",
+     "servedBy": "Index04",
+     "symbols": [
+      {
+       "name": "B_NIO",
+       "twinPlcPath": "MAIN.FG_04.B_NIO",
+       "deviceType": "SignalBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_04",
+       "scenePath": "Project/FG_04/B_NIO",
+       "role": "",
+       "signal": "A VERDICT, not a sensor reading. Active means the press bottomed with nothing correctly seated. Only meaningful at the bottom limit with the hold expired.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_AxisZ",
+       "twinPlcPath": "MAIN.FG_04.Y_AxisZ",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_04",
+       "scenePath": "Project/FG_04/Y_AxisZ",
+       "role": "",
+       "signal": "Double solenoid with both limits read. EXTENDED presses down onto the part; retracted is clear. A double solenoid so an abort leaves it where it is.",
+       "vendorSpecific": false
+      }
+     ]
+    },
+    {
+     "name": "FG_05",
+     "scenePath": "Project/FG_05",
+     "twinPlcPath": "MAIN.FG_05",
+     "behaviour": "fg-05-behaviour.md",
+     "servedBy": "Index05",
+     "symbols": [
+      {
+       "name": "B_Detect",
+       "twinPlcPath": "MAIN.FG_05.B_Detect",
+       "deviceType": "SignalBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_05",
+       "scenePath": "Project/FG_05/Axis_X/Axis_Z1/Axis_Z2/Axis_R/B_Detect",
+       "role": "",
+       "signal": "Grip witness in the jaws. Active while this unit carries a cap. NOT the same question as B_Part.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Part",
+       "twinPlcPath": "MAIN.FG_05.B_Part",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_05",
+       "scenePath": "Project/FG_05/B_Part",
+       "role": "",
+       "signal": "Binary presence sensor. On the FEED: a cap has arrived at the pick position. Once the gripper lifts one away it reports the NEXT one.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "P_Camera",
+       "twinPlcPath": "MAIN.FG_05.P_Camera",
+       "deviceType": "DataReader",
+       "twinFb": "FB_Camera",
+       "group": "FG_05",
+       "scenePath": "Project/FG_05/P_Camera",
+       "role": "",
+       "signal": "Enable, then trigger; reads back Ready, Busy, ResultValid and ResultOK. The twin echoes the two control bits and hands over the datum; the verdict is synthesised in OC_SIM FB_Camera.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_AxisR",
+       "twinPlcPath": "MAIN.FG_05.Y_AxisR",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_05",
+       "scenePath": "Project/FG_05/Axis_X/Axis_Z1/Axis_Z2/Y_AxisR",
+       "role": "",
+       "signal": "Double solenoid with both limits read. Rotary. Extended is the fitting orientation, retracted is home.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_AxisX",
+       "twinPlcPath": "MAIN.FG_05.Y_AxisX",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_05",
+       "scenePath": "Project/FG_05/Y_AxisX",
+       "role": "",
+       "signal": "Double solenoid with both limits read. MAX is over the pallet, min is over the cap feed.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_AxisZ1",
+       "twinPlcPath": "MAIN.FG_05.Y_AxisZ1",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_05",
+       "scenePath": "Project/FG_05/Axis_X/Y_AxisZ1",
+       "role": "",
+       "signal": "Double solenoid with both limits read. EXTENDED lowers the cap onto the part on the pallet side.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_AxisZ2",
+       "twinPlcPath": "MAIN.FG_05.Y_AxisZ2",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_05",
+       "scenePath": "Project/FG_05/Axis_X/Axis_Z1/Y_AxisZ2",
+       "role": "",
+       "signal": "Double solenoid with both limits read. EXTENDED lowers to the cap at the pick position on the feed side.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_CapsSource",
+       "twinPlcPath": "MAIN.FG_05.Y_CapsSource",
+       "deviceType": "ControlBunker",
+       "twinFb": "FB_DeviceByte",
+       "group": "FG_05",
+       "scenePath": "Project/FG_05/Y_CapsSource",
+       "role": "",
+       "signal": "Two bool outputs from the PLC and no status bits - the bunker reports nothing back. MIL turns both on together for as long as it is enabled.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_CapsSourceStopper",
+       "twinPlcPath": "MAIN.FG_05.Y_CapsSourceStopper",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_05",
+       "scenePath": "Project/FG_05/Y_CapsSourceStopper",
+       "role": "",
+       "signal": "Double solenoid with both limits read. EXTENDED BLOCKS the feed path and the queue accumulates against it. The opposite sense to a transport stopper.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Gripper",
+       "twinPlcPath": "MAIN.FG_05.Y_Gripper",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_05",
+       "scenePath": "Project/FG_05/Axis_X/Axis_Z1/Axis_Z2/Axis_R/Y_Gripper",
+       "role": "",
+       "signal": "Double solenoid with both limits read. EXTENDED grips the cap. The limit proves the jaws moved, NOT that they caught one - only B_Detect says that.",
+       "vendorSpecific": false
+      }
+     ]
+    }
+   ]
+  },
+  "Siemens": {
+   "scene": "VC_Demo_1_Siemens_1",
+   "exportedAtUtc": "2026-08-26T11:52:16.8621701Z",
+   "groups": [
+    {
+     "name": "FG_System",
+     "scenePath": "Project/FG_System",
+     "twinPlcPath": "MAIN.FG_System",
+     "behaviour": "fg-system-safety.md",
+     "servedBy": "",
+     "symbols": [
+      {
+       "name": "B_SafetyDoor11",
+       "twinPlcPath": "MAIN.FG_System.B_SafetyDoor11",
+       "deviceType": "Lock",
+       "twinFb": "FB_Lock",
+       "group": "FG_System",
+       "scenePath": "Project/FG_System/Doors/B_SafetyDoor11",
+       "role": "",
+       "signal": "Two inputs back - closed and locked - and one lock coil out. Secure means BOTH: closed alone is not enough.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_SafetyDoor12",
+       "twinPlcPath": "MAIN.FG_System.B_SafetyDoor12",
+       "deviceType": "Lock",
+       "twinFb": "FB_Lock",
+       "group": "FG_System",
+       "scenePath": "Project/FG_System/Doors/B_SafetyDoor12",
+       "role": "",
+       "signal": "Two inputs back - closed and locked - and one lock coil out. Secure means BOTH: closed alone is not enough.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_SafetyDoor13",
+       "twinPlcPath": "MAIN.FG_System.B_SafetyDoor13",
+       "deviceType": "Lock",
+       "twinFb": "FB_Lock",
+       "group": "FG_System",
+       "scenePath": "Project/FG_System/Doors/B_SafetyDoor13",
+       "role": "",
+       "signal": "Two inputs back - closed and locked - and one lock coil out. Secure means BOTH: closed alone is not enough.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_SafetyDoor21",
+       "twinPlcPath": "MAIN.FG_System.B_SafetyDoor21",
+       "deviceType": "Lock",
+       "twinFb": "FB_Lock",
+       "group": "FG_System",
+       "scenePath": "Project/FG_System/Doors/B_SafetyDoor21",
+       "role": "",
+       "signal": "Two inputs back - closed and locked - and one lock coil out. Secure means BOTH: closed alone is not enough.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_SafetyDoor22",
+       "twinPlcPath": "MAIN.FG_System.B_SafetyDoor22",
+       "deviceType": "Lock",
+       "twinFb": "FB_Lock",
+       "group": "FG_System",
+       "scenePath": "Project/FG_System/Doors/B_SafetyDoor22",
+       "role": "",
+       "signal": "Two inputs back - closed and locked - and one lock coil out. Secure means BOTH: closed alone is not enough.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_SafetyDoor23",
+       "twinPlcPath": "MAIN.FG_System.B_SafetyDoor23",
+       "deviceType": "Lock",
+       "twinFb": "FB_Lock",
+       "group": "FG_System",
+       "scenePath": "Project/FG_System/Doors/B_SafetyDoor23",
+       "role": "",
+       "signal": "Two inputs back - closed and locked - and one lock coil out. Secure means BOTH: closed alone is not enough.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "H_ControlPanel",
+       "twinPlcPath": "MAIN.FG_System.H_ControlPanel_Siemens",
+       "deviceType": "PanelSampler",
+       "twinFb": "FB_Panel",
+       "group": "FG_System",
+       "scenePath": "Project/FG_System/H_ControlPanel",
+       "role": "",
+       "signal": "",
+       "vendorSpecific": true
+      },
+      {
+       "name": "H_SignalTower",
+       "twinPlcPath": "MAIN.FG_System.H_SignalTower",
+       "deviceType": "PanelSampler",
+       "twinFb": "FB_Panel",
+       "group": "FG_System",
+       "scenePath": "Project/FG_System/H_SignalTower",
+       "role": "",
+       "signal": "PanelSampler. Aggregates the four tower lamps into one FB_Panel DWORD, with the lamps own links disabled. Same packing mechanism as the control panel.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "SS_EStop1",
+       "twinPlcPath": "MAIN.FG_System.SS_EStop1",
+       "deviceType": "Button",
+       "twinFb": "FB_Button",
+       "group": "FG_System",
+       "scenePath": "Project/FG_System/SS_EStop1",
+       "role": "",
+       "signal": "One input and one lamp coil, as a single device. Active while the mushroom is latched.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "SS_EStop2",
+       "twinPlcPath": "MAIN.FG_System.SS_EStop2",
+       "deviceType": "Button",
+       "twinFb": "FB_Button",
+       "group": "FG_System",
+       "scenePath": "Project/FG_System/SS_EStop2",
+       "role": "",
+       "signal": "One input and one lamp coil, as a single device. Active while the mushroom is latched.",
+       "vendorSpecific": false
+      }
+     ]
+    },
+    {
+     "name": "FG_Transport",
+     "scenePath": "Project/FG_Transport",
+     "twinPlcPath": "MAIN.FG_Transport",
+     "behaviour": "transport-behaviour.md",
+     "servedBy": "",
+     "symbols": [
+      {
+       "name": "B_Detect",
+       "twinPlcPath": "MAIN.FG_Transport.Index01_B_Detect",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index01/B_Detect",
+       "role": "",
+       "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Exit",
+       "twinPlcPath": "MAIN.FG_Transport.Index01_B_Exit",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index01/B_Exit",
+       "role": "",
+       "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Lift",
+       "twinPlcPath": "MAIN.FG_Transport.Index01_Y_Lift",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index01/Y_Lift",
+       "role": "",
+       "signal": "Double solenoid with both limits read. EXTENDED raises the carriage and fixes the pallet clear of the belt; retracted is home.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Stopper",
+       "twinPlcPath": "MAIN.FG_Transport.Index01_Y_Stopper",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index01/Y_Stopper",
+       "role": "",
+       "signal": "Double solenoid with both limits read. RETRACTED (min) holds the pallet; EXTENDING (max) releases it - the blade drops out of the way.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Detect",
+       "twinPlcPath": "MAIN.FG_Transport.Index02_B_Detect",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index02/B_Detect",
+       "role": "",
+       "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Exit",
+       "twinPlcPath": "MAIN.FG_Transport.Index02_B_Exit",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index02/B_Exit",
+       "role": "",
+       "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Lift",
+       "twinPlcPath": "MAIN.FG_Transport.Index02_Y_Lift",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index02/Y_Lift",
+       "role": "",
+       "signal": "Double solenoid with both limits read. EXTENDED raises the carriage and fixes the pallet clear of the belt; retracted is home.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Stopper",
+       "twinPlcPath": "MAIN.FG_Transport.Index02_Y_Stopper",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index02/Y_Stopper",
+       "role": "",
+       "signal": "Double solenoid with both limits read. RETRACTED (min) holds the pallet; EXTENDING (max) releases it - the blade drops out of the way.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Detect",
+       "twinPlcPath": "MAIN.FG_Transport.Index03_B_Detect",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index03/B_Detect",
+       "role": "",
+       "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Exit",
+       "twinPlcPath": "MAIN.FG_Transport.Index03_B_Exit",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index03/B_Exit",
+       "role": "",
+       "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Lift",
+       "twinPlcPath": "MAIN.FG_Transport.Index03_Y_Lift",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index03/Y_Lift",
+       "role": "",
+       "signal": "Double solenoid with both limits read. EXTENDED raises the carriage and fixes the pallet clear of the belt; retracted is home.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Stopper",
+       "twinPlcPath": "MAIN.FG_Transport.Index03_Y_Stopper",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index03/Y_Stopper",
+       "role": "",
+       "signal": "Double solenoid with both limits read. RETRACTED (min) holds the pallet; EXTENDING (max) releases it - the blade drops out of the way.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Detect",
+       "twinPlcPath": "MAIN.FG_Transport.Index04_B_Detect",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index04/B_Detect",
+       "role": "",
+       "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Exit",
+       "twinPlcPath": "MAIN.FG_Transport.Index04_B_Exit",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index04/B_Exit",
+       "role": "",
+       "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Lift",
+       "twinPlcPath": "MAIN.FG_Transport.Index04_Y_Lift",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index04/Y_Lift",
+       "role": "",
+       "signal": "Double solenoid with both limits read. EXTENDED raises the carriage and fixes the pallet clear of the belt; retracted is home.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Stopper",
+       "twinPlcPath": "MAIN.FG_Transport.Index04_Y_Stopper",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index04/Y_Stopper",
+       "role": "",
+       "signal": "Double solenoid with both limits read. RETRACTED (min) holds the pallet; EXTENDING (max) releases it - the blade drops out of the way.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Detect",
+       "twinPlcPath": "MAIN.FG_Transport.Index05_B_Detect",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index05/B_Detect",
+       "role": "",
+       "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Exit",
+       "twinPlcPath": "MAIN.FG_Transport.Index05_B_Exit",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index05/B_Exit",
+       "role": "",
+       "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Lift",
+       "twinPlcPath": "MAIN.FG_Transport.Index05_Y_Lift",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index05/Y_Lift",
+       "role": "",
+       "signal": "Double solenoid with both limits read. EXTENDED raises the carriage and fixes the pallet clear of the belt; retracted is home.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Stopper",
+       "twinPlcPath": "MAIN.FG_Transport.Index05_Y_Stopper",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Index05/Y_Stopper",
+       "role": "",
+       "signal": "Double solenoid with both limits read. RETRACTED (min) holds the pallet; EXTENDING (max) releases it - the blade drops out of the way.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Detect",
+       "twinPlcPath": "MAIN.FG_Transport.Lift01_B_Detect",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Lift01/Axis_Lift/B_Detect",
+       "role": "",
+       "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Exit",
+       "twinPlcPath": "MAIN.FG_Transport.Lift01_B_Exit",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Lift01/B_Exit",
+       "role": "",
+       "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "M_Conveyor",
+       "twinPlcPath": "MAIN.FG_Transport.Lift01_M_Conveyor",
+       "deviceType": "DriveSimple",
+       "twinFb": "FB_Drive",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Lift01/Axis_Lift/TU_Linear/M_Conveyor",
+       "role": "",
+       "signal": "Simple drive: forward and backward run bits out, one drive-active bit back. No speed reference and no encoder.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Lift",
+       "twinPlcPath": "MAIN.FG_Transport.Lift01_Y_Lift",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Lift01/Y_Lift",
+       "role": "",
+       "signal": "Double solenoid with both limits read. Moves the carriage between the lower and upper conveyor levels.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Detect",
+       "twinPlcPath": "MAIN.FG_Transport.Lift02_B_Detect",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Lift02/Axis_Lift/B_Detect",
+       "role": "",
+       "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Exit",
+       "twinPlcPath": "MAIN.FG_Transport.Lift02_B_Exit",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Lift02/B_Exit",
+       "role": "",
+       "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "M_Conveyor",
+       "twinPlcPath": "MAIN.FG_Transport.Lift02_M_Conveyor",
+       "deviceType": "DriveSimple",
+       "twinFb": "FB_Drive",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Lift02/Axis_Lift/TU_Linear/M_Conveyor",
+       "role": "",
+       "signal": "Simple drive: forward and backward run bits out, one drive-active bit back. No speed reference and no encoder.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Lift",
+       "twinPlcPath": "MAIN.FG_Transport.Lift02_Y_Lift",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Lift02/Y_Lift",
+       "role": "",
+       "signal": "Double solenoid with both limits read. Moves the carriage between the lower and upper conveyor levels.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Detect",
+       "twinPlcPath": "MAIN.FG_Transport.Stopper01_B_Detect",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Stopper01/B_Detect",
+       "role": "",
+       "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Exit",
+       "twinPlcPath": "MAIN.FG_Transport.Stopper01_B_Exit",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Stopper01/B_Exit",
+       "role": "",
+       "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Stopper",
+       "twinPlcPath": "MAIN.FG_Transport.Stopper01_Y_Stopper",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Stopper01/Y_Stopper",
+       "role": "",
+       "signal": "Double solenoid with both limits read. RETRACTED (min) holds the pallet; EXTENDING (max) releases it - the blade drops out of the way.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Detect",
+       "twinPlcPath": "MAIN.FG_Transport.Stopper02_B_Detect",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Stopper02/B_Detect",
+       "role": "",
+       "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Exit",
+       "twinPlcPath": "MAIN.FG_Transport.Stopper02_B_Exit",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Stopper02/B_Exit",
+       "role": "",
+       "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Stopper",
+       "twinPlcPath": "MAIN.FG_Transport.Stopper02_Y_Stopper",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Stopper02/Y_Stopper",
+       "role": "",
+       "signal": "Double solenoid with both limits read. RETRACTED (min) holds the pallet; EXTENDING (max) releases it - the blade drops out of the way.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Detect",
+       "twinPlcPath": "MAIN.FG_Transport.Stopper03_B_Detect",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Stopper03/B_Detect",
+       "role": "",
+       "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Exit",
+       "twinPlcPath": "MAIN.FG_Transport.Stopper03_B_Exit",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Stopper03/B_Exit",
+       "role": "",
+       "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Stopper",
+       "twinPlcPath": "MAIN.FG_Transport.Stopper03_Y_Stopper",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Stopper03/Y_Stopper",
+       "role": "",
+       "signal": "Double solenoid with both limits read. RETRACTED (min) holds the pallet; EXTENDING (max) releases it - the blade drops out of the way.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Detect",
+       "twinPlcPath": "MAIN.FG_Transport.Stopper04_B_Detect",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Stopper04/B_Detect",
+       "role": "",
+       "signal": "Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Exit",
+       "twinPlcPath": "MAIN.FG_Transport.Stopper04_B_Exit",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Stopper04/B_Exit",
+       "role": "",
+       "signal": "Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Stopper",
+       "twinPlcPath": "MAIN.FG_Transport.Stopper04_Y_Stopper",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Stopper04/Y_Stopper",
+       "role": "",
+       "signal": "Double solenoid with both limits read. RETRACTED (min) holds the pallet; EXTENDING (max) releases it - the blade drops out of the way.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "M_Conveyor",
+       "twinPlcPath": "MAIN.FG_Transport.Transport01_M_Conveyor",
+       "deviceType": "DriveSimple",
+       "twinFb": "FB_Drive",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Transport01/M_Conveyor",
+       "role": "",
+       "signal": "Simple drive: forward and backward run bits out, one drive-active bit back. No speed reference and no encoder.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "M_Conveyor",
+       "twinPlcPath": "MAIN.FG_Transport.Transport02_M_Conveyor",
+       "deviceType": "DriveSimple",
+       "twinFb": "FB_Drive",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Transport02/M_Conveyor",
+       "role": "",
+       "signal": "Simple drive: forward and backward run bits out, one drive-active bit back. No speed reference and no encoder.",
+       "vendorSpecific": false
+      }
+     ]
+    },
+    {
+     "name": "FG_01",
+     "scenePath": "Project/FG_01",
+     "twinPlcPath": "MAIN.FG_01",
+     "behaviour": "fg-01-behaviour.md",
+     "servedBy": "Index01",
+     "symbols": [
+      {
+       "name": "B_SafetyGate1",
+       "twinPlcPath": "MAIN.FG_01.B_SafetyGate1",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_01",
+       "scenePath": "Project/FG_01/B_SafetyGate1",
+       "role": "Monitors guard gate 1 for the FG_01 laser interlock.",
+       "signal": "Binary presence sensor. Monitors a guard gate. Must be Active, with both gates at their extended limit, before the laser may fire.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_SafetyGate2",
+       "twinPlcPath": "MAIN.FG_01.B_SafetyGate2",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_01",
+       "scenePath": "Project/FG_01/B_SafetyGate2",
+       "role": "Monitors guard gate 2 for the FG_01 laser interlock.",
+       "signal": "Binary presence sensor. Monitors a guard gate. Must be Active, with both gates at their extended limit, before the laser may fire.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "P_Camera",
+       "twinPlcPath": "MAIN.FG_01.P_Camera",
+       "deviceType": "DataReader",
+       "twinFb": "FB_Camera",
+       "group": "FG_01",
+       "scenePath": "Project/FG_01/Barcode Reader/P_Camera",
+       "role": "",
+       "signal": "Enable, then trigger; reads back Ready, Busy, ResultValid and ResultOK. The twin echoes the two control bits and hands over the datum; the verdict is synthesised in OC_SIM FB_Camera.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Gate1",
+       "twinPlcPath": "MAIN.FG_01.Y_Gate1",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_01",
+       "scenePath": "Project/FG_01/Y_Gate1",
+       "role": "Guard gate 1. Must be closed before the FG_01 laser may fire.",
+       "signal": "Extending CLOSES the gate, retracting OPENS it, and retracted is home - the opposite sense to a transport stopper. Both limits are read; the two gates are commanded together.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Gate2",
+       "twinPlcPath": "MAIN.FG_01.Y_Gate2",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_01",
+       "scenePath": "Project/FG_01/Y_Gate2",
+       "role": "Guard gate 2. Must be closed before the FG_01 laser may fire.",
+       "signal": "Extending CLOSES the gate, retracting OPENS it, and retracted is home - the opposite sense to a transport stopper. Both limits are read; the two gates are commanded together.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Gripper",
+       "twinPlcPath": "MAIN.FG_01.Y_Gripper",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_01",
+       "scenePath": "Project/FG_01/Y_Gripper",
+       "role": "",
+       "signal": "Double solenoid with both limits read. EXTENDED clamps the payload for marking and reading; retracted releases.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_LaserMark",
+       "twinPlcPath": "MAIN.FG_01.Y_LaserMark",
+       "deviceType": "LinkByte",
+       "twinFb": "FB_DeviceByte",
+       "group": "FG_01",
+       "scenePath": "Project/FG_01/Laser Unit/Axis/Y_LaserMark",
+       "role": "",
+       "signal": "One control bit out enables the laser module; held high for 1 s it applies the mark. NO status bits - the PLC gets no confirmation that it fired.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Platform",
+       "twinPlcPath": "MAIN.FG_01.Y_Platform",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_01",
+       "scenePath": "Project/FG_01/Laser Unit/Y_Platform",
+       "role": "",
+       "signal": "Double solenoid with both limits read. Service positioning of the laser head. Never actuated during the production cycle.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_ReaderWindow",
+       "twinPlcPath": "MAIN.FG_01.Y_ReaderWindow",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_01",
+       "scenePath": "Project/FG_01/Barcode Reader/Y_ReaderWindow",
+       "role": "",
+       "signal": "Double solenoid with both limits read. EXTENDED opens the window for the read; retracted shields the optics and is home.",
+       "vendorSpecific": false
+      }
+     ]
+    },
+    {
+     "name": "FG_02",
+     "scenePath": "Project/FG_02",
+     "twinPlcPath": "MAIN.FG_02",
+     "behaviour": "fg-02-behaviour.md",
+     "servedBy": "Index02",
+     "symbols": [
+      {
+       "name": "P_Camera",
+       "twinPlcPath": "MAIN.FG_02.P_Camera",
+       "deviceType": "DataReader",
+       "twinFb": "FB_Camera",
+       "group": "FG_02",
+       "scenePath": "Project/FG_02/P_Camera",
+       "role": "",
+       "signal": "Enable, then trigger; reads back Ready, Busy, ResultValid and ResultOK. The twin echoes the two control bits and hands over the datum; the verdict is synthesised in OC_SIM FB_Camera.",
+       "vendorSpecific": false
+      }
+     ]
+    },
+    {
+     "name": "FG_03",
+     "scenePath": "Project/FG_03",
+     "twinPlcPath": "MAIN.FG_03",
+     "behaviour": "fg-03-behaviour.md",
+     "servedBy": "Index03",
+     "symbols": [
+      {
+       "name": "B_Detect1",
+       "twinPlcPath": "MAIN.FG_03.B_Detect1",
+       "deviceType": "SignalBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_03",
+       "scenePath": "Project/FG_03/Axis_X1/Axis_Y1/B_Detect1",
+       "role": "",
+       "signal": "Grip witness for arm 1. Active while gripper 1 actually holds the part.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Detect2",
+       "twinPlcPath": "MAIN.FG_03.B_Detect2",
+       "deviceType": "SignalBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_03",
+       "scenePath": "Project/FG_03/Axis_X2/Axis_Y2/B_Detect2",
+       "role": "",
+       "signal": "Grip witness for arm 2. Active while gripper 2 actually holds the part.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_AxisR1",
+       "twinPlcPath": "MAIN.FG_03.Y_AxisR1",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_03",
+       "scenePath": "Project/FG_03/Axis_X1/Axis_Y1/Y_AxisR1",
+       "role": "",
+       "signal": "Double solenoid with both limits read. Rotary. Retracted is 0 deg and the receiving orientation; extended is 180 deg and the placing one.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_AxisX1",
+       "twinPlcPath": "MAIN.FG_03.Y_AxisX1",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_03",
+       "scenePath": "Project/FG_03/Y_AxisX1",
+       "role": "",
+       "signal": "Double solenoid with both limits read. MAX is raised; arm 1 rises once and stays up for the whole cycle.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_AxisX2",
+       "twinPlcPath": "MAIN.FG_03.Y_AxisX2",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_03",
+       "scenePath": "Project/FG_03/Y_AxisX2",
+       "role": "",
+       "signal": "Double solenoid with both limits read. MAX is the transfer position, min is home over slot 1.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_AxisY1",
+       "twinPlcPath": "MAIN.FG_03.Y_AxisY1",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_03",
+       "scenePath": "Project/FG_03/Axis_X1/Y_AxisY1",
+       "role": "",
+       "signal": "Double solenoid with both limits read. MAX is the transfer position, min is home over slot 2.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_AxisY2",
+       "twinPlcPath": "MAIN.FG_03.Y_AxisY2",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_03",
+       "scenePath": "Project/FG_03/Axis_X2/Y_AxisY2",
+       "role": "",
+       "signal": "Double solenoid with both limits read. The axis factor is inverted, so MAX is LOWERED.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Gripper1",
+       "twinPlcPath": "MAIN.FG_03.Y_Gripper1",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_03",
+       "scenePath": "Project/FG_03/Axis_X1/Axis_Y1/Y_AxisR1/Axis_R1/Y_Gripper1",
+       "role": "",
+       "signal": "Double solenoid with both limits read. EXTENDED grips. The limit proves the jaws moved, NOT that they caught anything - only B_Detect1 says that.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Gripper2",
+       "twinPlcPath": "MAIN.FG_03.Y_Gripper2",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_03",
+       "scenePath": "Project/FG_03/Axis_X2/Axis_Y2/Y_Gripper2",
+       "role": "",
+       "signal": "Double solenoid with both limits read. EXTENDED grips. The limit proves the jaws moved, NOT that they caught anything - only B_Detect2 says that.",
+       "vendorSpecific": false
+      }
+     ]
+    },
+    {
+     "name": "FG_04",
+     "scenePath": "Project/FG_04",
+     "twinPlcPath": "MAIN.FG_04",
+     "behaviour": "fg-04-behaviour.md",
+     "servedBy": "Index04",
+     "symbols": [
+      {
+       "name": "B_NIO",
+       "twinPlcPath": "MAIN.FG_04.B_NIO",
+       "deviceType": "SignalBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_04",
+       "scenePath": "Project/FG_04/B_NIO",
+       "role": "",
+       "signal": "A VERDICT, not a sensor reading. Active means the press bottomed with nothing correctly seated. Only meaningful at the bottom limit with the hold expired.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_AxisZ",
+       "twinPlcPath": "MAIN.FG_04.Y_AxisZ",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_04",
+       "scenePath": "Project/FG_04/Y_AxisZ",
+       "role": "",
+       "signal": "Double solenoid with both limits read. EXTENDED presses down onto the part; retracted is clear. A double solenoid so an abort leaves it where it is.",
+       "vendorSpecific": false
+      }
+     ]
+    },
+    {
+     "name": "FG_05",
+     "scenePath": "Project/FG_05",
+     "twinPlcPath": "MAIN.FG_05",
+     "behaviour": "fg-05-behaviour.md",
+     "servedBy": "Index05",
+     "symbols": [
+      {
+       "name": "B_Detect",
+       "twinPlcPath": "MAIN.FG_05.B_Detect",
+       "deviceType": "SignalBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_05",
+       "scenePath": "Project/FG_05/Axis_X/Axis_Z1/Axis_Z2/Axis_R/B_Detect",
+       "role": "",
+       "signal": "Grip witness in the jaws. Active while this unit carries a cap. NOT the same question as B_Part.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_Part",
+       "twinPlcPath": "MAIN.FG_05.B_Part",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_05",
+       "scenePath": "Project/FG_05/B_Part",
+       "role": "",
+       "signal": "Binary presence sensor. On the FEED: a cap has arrived at the pick position. Once the gripper lifts one away it reports the NEXT one.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "P_Camera",
+       "twinPlcPath": "MAIN.FG_05.P_Camera",
+       "deviceType": "DataReader",
+       "twinFb": "FB_Camera",
+       "group": "FG_05",
+       "scenePath": "Project/FG_05/P_Camera",
+       "role": "",
+       "signal": "Enable, then trigger; reads back Ready, Busy, ResultValid and ResultOK. The twin echoes the two control bits and hands over the datum; the verdict is synthesised in OC_SIM FB_Camera.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_AxisR",
+       "twinPlcPath": "MAIN.FG_05.Y_AxisR",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_05",
+       "scenePath": "Project/FG_05/Axis_X/Axis_Z1/Axis_Z2/Y_AxisR",
+       "role": "",
+       "signal": "Double solenoid with both limits read. Rotary. Extended is the fitting orientation, retracted is home.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_AxisX",
+       "twinPlcPath": "MAIN.FG_05.Y_AxisX",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_05",
+       "scenePath": "Project/FG_05/Y_AxisX",
+       "role": "",
+       "signal": "Double solenoid with both limits read. MAX is over the pallet, min is over the cap feed.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_AxisZ1",
+       "twinPlcPath": "MAIN.FG_05.Y_AxisZ1",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_05",
+       "scenePath": "Project/FG_05/Axis_X/Y_AxisZ1",
+       "role": "",
+       "signal": "Double solenoid with both limits read. EXTENDED lowers the cap onto the part on the pallet side.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_AxisZ2",
+       "twinPlcPath": "MAIN.FG_05.Y_AxisZ2",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_05",
+       "scenePath": "Project/FG_05/Axis_X/Axis_Z1/Y_AxisZ2",
+       "role": "",
+       "signal": "Double solenoid with both limits read. EXTENDED lowers to the cap at the pick position on the feed side.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_CapsSource",
+       "twinPlcPath": "MAIN.FG_05.Y_CapsSource",
+       "deviceType": "ControlBunker",
+       "twinFb": "FB_DeviceByte",
+       "group": "FG_05",
+       "scenePath": "Project/FG_05/Y_CapsSource",
+       "role": "",
+       "signal": "Two bool outputs from the PLC and no status bits - the bunker reports nothing back. MIL turns both on together for as long as it is enabled.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_CapsSourceStopper",
+       "twinPlcPath": "MAIN.FG_05.Y_CapsSourceStopper",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_05",
+       "scenePath": "Project/FG_05/Y_CapsSourceStopper",
+       "role": "",
+       "signal": "Double solenoid with both limits read. EXTENDED BLOCKS the feed path and the queue accumulates against it. The opposite sense to a transport stopper.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "Y_Gripper",
+       "twinPlcPath": "MAIN.FG_05.Y_Gripper",
+       "deviceType": "Cylinder",
+       "twinFb": "FB_Cylinder",
+       "group": "FG_05",
+       "scenePath": "Project/FG_05/Axis_X/Axis_Z1/Axis_Z2/Axis_R/Y_Gripper",
+       "role": "",
+       "signal": "Double solenoid with both limits read. EXTENDED grips the cap. The limit proves the jaws moved, NOT that they caught one - only B_Detect says that.",
+       "vendorSpecific": false
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "deviceTypes": [
+  "Button",
+  "ControlBunker",
+  "Cylinder",
+  "DataReader",
+  "DriveSimple",
+  "LinkByte",
+  "Lock",
+  "PanelSampler",
+  "SensorBinary",
+  "SignalBinary"
+ ]
+}

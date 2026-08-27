@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://github.com/Preliy/DT_PSA_OPCV/wiki
+    about: Setup, usage, architecture and the full machine description.
+  - name: Open Commissioning
+    url: https://github.com/OpenCommissioning
+    about: For issues in the OC Unity packages or the OC Assistant themselves, report them upstream.

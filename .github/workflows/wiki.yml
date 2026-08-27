@@ -1,0 +1,119 @@
+# Build and publish this repository's GitHub wiki.
+#
+# A GitHub wiki IS a repository - <repo>.wiki.git - so publishing means rendering the
+# nested docs in _docs/ into a flat page set and pushing it there. That is what
+# _workflow/tools/build_wiki.py does; _workflow/WIKI-SPEC.md is the contract it
+# implements. Each vendor module publishes its own wiki from its own repository.
+#
+# WHY THE TOOLS ARE PUBLIC. The generators that read the Unity export live in the
+# private _private/ repository. The wiki builder does not: it reads only _docs/,
+# _workflow/config/modules.json and module.json, and this workflow has to be able to
+# run it from a checkout of this repository alone.
+#
+# WHAT RUNS WHEN
+#   pull_request  - build only, publishing nothing. The builder REFUSES on any link it
+#                   cannot resolve, so this catches a dead link before it merges. In a
+#                   flat wiki namespace a broken link is invisible until someone clicks
+#                   it, and there is no other check that would find it.
+#   workflow_call - publish. release.yml calls this after cutting a release, passing the
+#                   new tag as `ref`. It calls rather than relying on the trigger below
+#                   because a release created with GITHUB_TOKEN does not fire other
+#                   workflows - the `release` trigger would silently never run.
+#   release       - publish. Kept for a release made by hand, which does fire it.
+#   manual        - publish, or tick `dry_run` to see the diff and push nothing.
+
+name: Wiki
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Build and show the diff, but push nothing"
+        type: boolean
+        default: false
+  workflow_call:
+    inputs:
+      ref:
+        description: "The commit, branch or tag to publish from. Empty means the default."
+        type: string
+        required: false
+      dry_run:
+        description: "Build and show the diff, but push nothing"
+        type: boolean
+        required: false
+        default: false
+  release:
+    types: [published]
+  pull_request:
+    paths:
+      - "_docs/**"
+      - "_workflow/tools/**"
+      - "_workflow/config/modules.json"
+      - ".github/workflows/wiki.yml"
+
+# One publish at a time, whichever path started it. Keying on github.ref would put a
+# release-triggered run (a tag ref) and a called run (a branch ref) in different groups,
+# which is exactly the race this exists to prevent. Pull request builds publish nothing,
+# so they keep their own per-ref group and still run in parallel.
+concurrency:
+  group: wiki-${{ github.event_name == 'pull_request' && github.ref || 'publish' }}
+  cancel-in-progress: false
+
+jobs:
+  check:
+    name: Build (no publish)
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # No vendor module is cloned here, and that is deliberate: the build must produce
+      # byte-identical output whether or not one is present. All it loses is the ability
+      # to VERIFY its cross-repo links, and it says which ones it could not check.
+      - name: Build the wiki
+        run: python _workflow/tools/build_wiki.py --check
+
+  publish:
+    name: Publish
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write        # pushing to <repo>.wiki.git
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # release.yml passes the tag it just cut. The version bump lands AFTER the
+          # commit that started that run, and every published page carries a "Published
+          # from ..." link to the commit it was built from - so checking out the default
+          # here would date every one of those links to before the release. Empty is
+          # checkout's own default, which is what the release and manual paths get.
+          ref: ${{ inputs.ref }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Configure git
+        run: |
+          git config --global user.name  "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # publish_wiki.py clones and pushes <repo>.wiki.git over plain https. Rewriting
+          # the host here means the tool needs no token of its own and behaves exactly as
+          # it does on a developer's machine.
+          git config --global \
+            url."https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/".insteadOf \
+            "https://github.com/"
+          # actions/checkout leaves HEAD detached with no origin/HEAD, which is what
+          # src_ref() reads to decide the branch a published link should name. Without
+          # this every "edit it there" link falls back to the hardcoded default.
+          git remote set-head origin --auto
+
+      - name: Publish the wiki
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            python _workflow/tools/publish_wiki.py
+          else
+            python _workflow/tools/publish_wiki.py --publish
+          fi

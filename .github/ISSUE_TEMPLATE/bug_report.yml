@@ -1,0 +1,77 @@
+name: Bug report
+description: Something in the twin, the PLC program or the tooling does not work
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Please say which module is affected — the three are quite
+        separate, and it saves a round trip.
+
+  - type: dropdown
+    id: module
+    attributes:
+      label: Which module?
+      options:
+        - Unity twin
+        - Beckhoff / TwinCAT
+        - Siemens / TIA
+        - Tooling (knowledge base, wiki builder)
+        - Documentation
+        - Not sure
+    validations:
+      required: true
+
+  - type: input
+    id: scene
+    attributes:
+      label: Scene or project
+      description: e.g. `VC_Demo_1_Beckhoff_1`, `VC_Demo_1_SIL`, `PLC_1`, `SIM_1`
+      placeholder: VC_Demo_1_Beckhoff_1
+    validations:
+      required: false
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you saw, and what you expected instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open ...
+        2. Press Play
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: versions
+    attributes:
+      label: Versions
+      description: >
+        Unity, TwinCAT, OS, and the commit you are on (`git rev-parse --short HEAD`).
+        The project is developed against Unity 6000.3.18f1 and TwinCAT 3.1.4026.25.
+      value: |
+        - Unity:
+        - TwinCAT:
+        - OS:
+        - Commit:
+    validations:
+      required: true
+
+  - type: textarea
+    id: output
+    attributes:
+      label: Console or tool output
+      description: >
+        Paste any error. If a builder stopped with `REFUSED:`, include the whole message —
+        it names the exact inconsistency.
+      render: text
+    validations:
+      required: false

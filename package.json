@@ -1,0 +1,12 @@
+{
+  "name": "dt-psa-opcv",
+  "version": "0.0.0-semantic-release",
+  "private": true,
+  "description": "Digital Twin for Laser Welding & Assembly System (PSA OPCV) - the main repository's version record. Nothing here is a Node package: this file exists so semantic-release has somewhere to write the version, and so `requiresMain` in a vendor module's module.json has something to be checked against.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Preliy/DT_PSA_OPCV.git"
+  },
+  "license": "GPL-3.0",
+  "author": "Viktor Gaponenko"
+}
