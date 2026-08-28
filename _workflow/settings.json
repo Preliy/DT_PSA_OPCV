@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(unity status)",
+      "Bash(unity status *)",
+      "Bash(unity list)",
+      "Bash(unity list *)",
+      "Bash(unity command)",
+      "Bash(unity command --format *)",
+      "Bash(unity command context_tree *)",
+      "Bash(unity command context_get *)",
+      "Bash(unity command context_audit)",
+      "Bash(unity command context_audit *)",
+      "Bash(unity command get_scene_hierarchy *)",
+      "Bash(unity command find_gameobjects *)",
+      "Bash(unity command get_component_properties *)",
+      "Bash(unity command get_serialized_fields *)",
+      "Bash(unity command list_open_scenes)",
+      "Bash(unity command editor_status)",
+      "Bash(unity command recompile_status)",
+      "Bash(unity command recompile_status *)",
+      "Bash(unity command console *)",
+      "Bash(unity command get_console_logs *)",
+      "Bash(python _private/tools/*)",
+      "Bash(python Beckhoff/_private/tools/*)",
+      "Bash(python -c ' *)",
+      "Bash(unity cmd eval --code ' *)",
+      "Bash(unity cmd *)",
+      "Bash(unity cmd context_set --target Project/FG_05/Y_CapsSource --entries '[ *)",
+      "Edit(/_workflow/skills/authoring-context-nodes/**)",
+      "PowerShell(unity command --help 2>&1)",
+      "Bash(unity command *)"
+    ],
+    "deny": [
+      "Read(./_archive/**)"
+    ],
+    "ask": [
+      "Read(./_data/**)",
+      "Read(**/_data/**)"
+    ]
+  }
+}

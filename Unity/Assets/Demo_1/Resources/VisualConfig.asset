@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 515bbdd50b82d2241bd9de00a1370643, type: 3}
+  m_Name: VisualConfig
+  m_EditorClassIdentifier: OC.UI::OC.UI.VisualConfig
+  Preview: {fileID: 0}
+  Transparent: {fileID: 2100000, guid: 71b8d4d133818d94da7b7bd35bbd6852, type: 2}
+  Enable: {fileID: 0}
+  Warning: {fileID: 0}
+  Error: {fileID: 0}

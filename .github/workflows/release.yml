@@ -1,0 +1,400 @@
+# Cut a release from the commit history - in an order where nothing is committed until
+# everything that could fail already has.
+#
+#   version   checks pass, and semantic-release works out what the next version WOULD be.
+#             Nothing is written. On a pull request into master this is the whole run.
+#   preview   pull requests only: comments the version and notes onto the PR, so the decision
+#             to merge is made knowing exactly what merging publishes.
+#   build     the Windows player, stamped with that version. Uploaded as an artifact.
+#   release   only if the build succeeded: semantic-release writes package.json and
+#             CHANGELOG.md, commits them, pushes the tag, and publishes the GitHub release
+#             WITH the build already attached.
+#   wiki      published from the released tag.
+#
+# WHY THE VERSION IS COMPUTED TWICE. The dry run tells the build what to stamp and what to name
+# the zip; the real run does the release. Both read the same commits with the same
+# semantic-release, so they agree - and computing it first is what lets the build be a gate.
+#
+# WHY THE BUILD COMES BEFORE THE RELEASE. If the release ran first, a failed build would leave
+# a tag, a version commit on master and a published release with nothing to download - and all
+# three would have to be undone by hand on a protected branch. Building first means a failure
+# leaves nothing behind: no tag, no commit, no release. Re-run it and try again.
+#
+# WHY THERE IS NO PREVIEW WORKFLOW. This one runs on both the pull request into master and the
+# push that merges it. The same `version` job answers both, so the preview can never disagree
+# with the release it is previewing.
+#
+# THE BRANCHING MODEL THIS ASSUMES
+#   master       the release state. Protected: no direct push, pull request and review only.
+#                A release happens when an admin merges development into it.
+#   development  the integration branch. The only branch that may open a PR into master.
+#   <issue>      branched off development, squash-merged back into it.
+#
+#   development -> master MUST BE A MERGE COMMIT, never a squash. semantic-release reads the
+#   individual commit subjects to decide the version and to write the changelog; squashing
+#   collapses a whole release into one subject, so ten features become one changelog line and
+#   one arbitrary bump. Feature -> development is squashed on purpose, so that each issue
+#   arrives on development as exactly one conventional commit.
+#
+# SECRETS
+#   RELEASE_APP_ID / RELEASE_APP_PRIVATE_KEY  a GitHub App that can bypass the master ruleset.
+#       Required: master requires a pull request, and semantic-release has to push the version
+#       commit and the tag directly to it. GITHUB_TOKEN cannot be put on a ruleset bypass list;
+#       an App can. The App needs Contents: read and write and must be installed on this repo.
+#   UNITY_LICENSE / UNITY_EMAIL / UNITY_PASSWORD  required. The build gates the release, so a
+#       missing or expired licence stops the release rather than shipping one with no download.
+#       To make the build optional again, see the note on the `licence` step.
+
+name: Release
+
+on:
+  pull_request:
+    branches: [master]
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+# Keyed on the ref, so a pull request preview and a release on master never share a group.
+# Two pushes to master do share one, and must not overlap: a release pushes a commit, a tag and
+# a GitHub release, and half of that is worse than none of it. A superseded preview is just
+# noise, so those cancel.
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+
+jobs:
+  # ------------------------------------------------------------------ 1. checks + version
+  version:
+    name: Checks and next version
+    # semantic-release's own commit carries [skip ci]. An App-token push is an ordinary push
+    # and does retrigger workflows, unlike a GITHUB_TOKEN one, so this guard is load-bearing.
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+    runs-on: ubuntu-latest
+    # WRITE, even though this job writes nothing. semantic-release verifies push access
+    # before it analyses anything - `git push --dry-run --no-verify HEAD:master` - and it
+    # does that in dry-run mode too. With contents: read that returns 403 "Write access to
+    # repository not granted" and the run dies before reporting a version.
+    #
+    # Safe on a pull request: GitHub downgrades GITHUB_TOKEN to read-only for a fork's PR
+    # whatever is declared here, and only collaborators can push the same-repo branches
+    # that keep write. This deliberately stays GITHUB_TOKEN rather than the release App -
+    # the App can bypass the master ruleset, and a job that checks out pull-request code
+    # must never hold a token that can.
+    permissions:
+      contents: write
+    outputs:
+      published: ${{ steps.dry.outputs.new_release_published }}
+      version: ${{ steps.dry.outputs.new_release_version }}
+      notes: ${{ steps.dry.outputs.new_release_notes }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # semantic-release reads the whole history to find the last tag.
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      # Informational. A module being out of range lives in another repository and cannot be
+      # fixed here, so it must never hold up a release - the Compatibility workflow is what
+      # turns the badge red. This step records the state in the release run.
+      - name: Vendor compatibility
+        run: python _workflow/tools/check_compatibility.py
+
+      # A real gate. The builder refuses on any link it cannot resolve, and a tagged release
+      # that then fails to publish its wiki is a worse state than a release never cut.
+      - name: Build the wiki
+        run: python _workflow/tools/build_wiki.py --check
+
+      # semantic-release 25 requires node ^22.14 || >=24.10. Pinned rather than left to the
+      # runner image, whose default node has changed before and would fail the whole job.
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      - name: Work out the next version
+        id: dry
+        uses: cycjimmy/semantic-release-action@v6
+        with:
+          semantic_version: 25
+          dry_run: true
+          # On a pull request the checkout is the merge ref, which is not a configured release
+          # branch, and semantic-release would refuse to analyse it. On master, "" keeps
+          # .releaserc's own ["master"].
+          branches: ${{ github.event_name == 'pull_request' && github.head_ref || '' }}
+          extra_plugins: |
+            @semantic-release/changelog
+            @semantic-release/git
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Summary
+        env:
+          PUBLISHED: ${{ steps.dry.outputs.new_release_published }}
+          VERSION: ${{ steps.dry.outputs.new_release_version }}
+          NOTES: ${{ steps.dry.outputs.new_release_notes }}
+        run: |
+          if [ "$PUBLISHED" = "true" ]; then
+            { echo "## Next version: \`v$VERSION\`"; echo; printf '%s\n' "$NOTES"; } \
+              >> "$GITHUB_STEP_SUMMARY"
+          else
+            { echo "## No release"; echo;
+              echo "No commit since the last tag triggers a version bump. Only \`feat:\`,";
+              echo "\`fix:\`, \`perf:\`, \`revert:\`, \`refactor:\`, \`docs(README):\` and";
+              echo "\`BREAKING CHANGE:\` produce one."; } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+  # ------------------------------------------------------------------ 2. tell the reviewer
+  preview:
+    name: Comment on the pull request
+    needs: version
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Comment
+        # A pull request from a fork gets a read-only token, so commenting would fail. The
+        # version job's summary is written either way.
+        if: github.event.pull_request.head.repo.full_name == github.repository
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          PR: ${{ github.event.pull_request.number }}
+          PUBLISHED: ${{ needs.version.outputs.published }}
+          VERSION: ${{ needs.version.outputs.version }}
+          NOTES: ${{ needs.version.outputs.notes }}
+        run: |
+          # Written through a file so the notes are never interpreted by the shell.
+          if [ "$PUBLISHED" = "true" ]; then
+            {
+              printf '**Merging this pull request releases `v%s`.**\n\n' "$VERSION"
+              printf 'It will build the Windows player, then tag `v%s`, write ' "$VERSION"
+              printf '`package.json` and `CHANGELOG.md`, publish the GitHub release with the '
+              printf 'build attached, and republish the wiki.\n\n'
+              printf '<details><summary>Release notes</summary>\n\n'
+              printf '%s\n' "$NOTES"
+              printf '\n</details>\n\n'
+              printf '<sub>Merge with a <b>merge commit</b>, not a squash - squashing collapses '
+              printf 'every commit into one and the changelog loses them.</sub>\n'
+            } > comment.md
+          else
+            {
+              printf '**Merging this pull request releases nothing.**\n\n'
+              printf 'No commit on this branch triggers a version bump. Only `feat:`, `fix:`, '
+              printf '`perf:`, `revert:`, `refactor:`, `docs(README):` and `BREAKING CHANGE:` do.\n'
+            } > comment.md
+          fi
+          # One comment per pull request, edited in place, not a new one on every push.
+          gh pr comment "$PR" --body-file comment.md --edit-last --create-if-none
+
+  # ------------------------------------------------------------------ 3. build, as the gate
+  #
+  # WHAT GETS BUILT. Unity builds whatever EditorBuildSettings lists, and that is exactly one
+  # enabled scene: Assets/Demo_1/Scenes/VC_Demo_1_MIL.unity. No build script and no scene
+  # argument - adding a scene there changes what ships, which is the right place for that
+  # decision to live.
+  #
+  # WHY UBUNTU CAN BUILD A WINDOWS .EXE. Standalone has no scriptingBackend override in
+  # ProjectSettings, so it is Mono, and Mono standalone cross-compiles from Linux. Switching
+  # Standalone to IL2CPP would make this need a windows runner.
+  build:
+    name: Windows build
+    needs: version
+    if: github.event_name != 'pull_request' && needs.version.outputs.published == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      # The build gates the release, so a missing licence must stop the run rather than quietly
+      # produce a release with nothing to download. To make the build optional instead, change
+      # `exit 1` to a warning here and add `if: always()` to the release job's needs handling -
+      # but then a release can ship without a download, which is what this ordering avoids.
+      - name: Unity licence available
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        run: |
+          if [ -z "$UNITY_LICENSE" ]; then
+            echo "::error title=No Unity licence::UNITY_LICENSE is not set, so the Windows build cannot run - and the build gates the release, so no release was cut. Set UNITY_LICENSE, UNITY_EMAIL and UNITY_PASSWORD, then re-run this workflow."
+            exit 1
+          fi
+
+      # The unityci/editor image for a Windows Mono build unpacks to roughly 10 GB, and an
+      # ubuntu-latest runner starts with about 14 GB free on / - most of it preinstalled
+      # toolchains this build never touches. Without this the docker pull dies partway
+      # through extracting a layer with "no space left on device", which reads like a build
+      # failure and is not one.
+      #
+      # Nothing removed here is used by a Unity Windows Mono build. Sizes are approximate
+      # and drift with the runner image; the df lines either side are what makes the next
+      # failure diagnosable instead of a guess.
+      - name: Free disk space
+        run: |
+          echo "before:"; df -h / | tail -1
+          sudo rm -rf /usr/local/lib/android          # ~9 GB, the single biggest win
+          sudo rm -rf /opt/hostedtoolcache/CodeQL     # ~5 GB
+          sudo rm -rf /usr/share/dotnet               # ~1.6 GB
+          sudo rm -rf /opt/ghc /usr/local/.ghcup      # ~1 GB
+          sudo rm -rf /usr/share/swift
+          sudo rm -rf /usr/local/share/powershell
+          sudo docker image prune --all --force || true
+          echo "after:"; df -h / | tail -1
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/cache@v6
+        with:
+          path: Unity/Library
+          key: Library-StandaloneWindows64-${{ hashFiles('Unity/Packages/packages-lock.json') }}-${{ hashFiles('Unity/Assets/**') }}
+          restore-keys: |
+            Library-StandaloneWindows64-${{ hashFiles('Unity/Packages/packages-lock.json') }}-
+            Library-StandaloneWindows64-
+            Library-
+
+      - uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+          # Six dependencies resolve over git. Fail fast instead of blocking on a credential
+          # prompt no one is there to answer.
+          GIT_TERMINAL_PROMPT: '0'
+        with:
+          projectPath: Unity
+          unityVersion: 6000.3.18f1
+          targetPlatform: StandaloneWindows64
+          buildName: DT_PSA_OPCV
+          # Stamp the player with the version this run is about to release.
+          versioning: Custom
+          version: ${{ needs.version.outputs.version }}
+
+      # The builder runs as root inside its container, so the output is root-owned and the
+      # later steps cannot read it. The directory is located rather than hardcoded: buildsPath
+      # is resolved relative to the workspace, but projectPath here is the Unity/ subdirectory,
+      # and a wrong guess would produce an empty zip rather than a clear message.
+      - name: Locate and take ownership of the build
+        id: locate
+        run: |
+          sudo chown -R "$USER:$USER" build Unity/build 2>/dev/null || true
+          dir=""
+          for c in build/StandaloneWindows64 Unity/build/StandaloneWindows64; do
+            [ -d "$c" ] && dir="$c" && break
+          done
+          if [ -z "$dir" ]; then
+            echo "::error title=Build output not found::Looked in build/StandaloneWindows64 and Unity/build/StandaloneWindows64."
+            find . -maxdepth 4 -name '*.exe' -not -path './Unity/Library/*' || true
+            exit 1
+          fi
+          echo "dir=$dir" >> "$GITHUB_OUTPUT"
+          ls -la "$dir"
+
+      - name: Package
+        env:
+          VERSION: ${{ needs.version.outputs.version }}
+          DIR: ${{ steps.locate.outputs.dir }}
+        run: |
+          name="DT_PSA_OPCV-v${VERSION}-win64"
+          mkdir -p dist
+          (cd "$DIR" && zip -qr "$GITHUB_WORKSPACE/dist/${name}.zip" .)
+          # A checksum beside the download, so someone can verify what they got. Written with
+          # a bare filename so `sha256sum -c` works in the directory it was downloaded to.
+          (cd dist && sha256sum "${name}.zip" > "${name}.zip.sha256" && cat "${name}.zip.sha256")
+          ls -lh dist
+
+      # Handed to the release job, which attaches it to the GitHub release it creates.
+      - uses: actions/upload-artifact@v4
+        with:
+          name: windows-build
+          path: dist
+          retention-days: 14
+          if-no-files-found: error
+
+  # ------------------------------------------------------------------ 4. release, last
+  #
+  # Reached only when `build` succeeded - a failed or skipped build skips this job, and nothing
+  # has been written anywhere at that point.
+  release:
+    name: Publish the release
+    needs: [version, build]
+    if: github.event_name != 'pull_request' && needs.version.outputs.published == 'true'
+    runs-on: ubuntu-latest
+    outputs:
+      published: ${{ steps.semantic.outputs.new_release_published }}
+      version: ${{ steps.semantic.outputs.new_release_version }}
+    permissions:
+      contents: write          # the version commit, the tag, the release
+      issues: write            # @semantic-release/github comments on released issues
+      pull-requests: write     # ... and on the pull requests that closed them
+    steps:
+      # master is protected and requires a pull request, so the version commit and the tag
+      # cannot be pushed with GITHUB_TOKEN - it cannot be granted a ruleset bypass. A GitHub
+      # App can, so the release runs as one. Add this App to the master ruleset's bypass list,
+      # or every release fails at the push with a protected-branch rejection.
+      - name: Mint App token
+        id: app-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.RELEASE_APP_ID }}
+          private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
+
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ steps.app-token.outputs.token }}
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      # Into dist/, which is what .releaserc.json's `assets` globs. The release is therefore
+      # created WITH its download already on it, in one operation - never announced empty.
+      - uses: actions/download-artifact@v8
+        with:
+          name: windows-build
+          path: dist
+
+      - name: Semantic release
+        id: semantic
+        uses: cycjimmy/semantic-release-action@v6
+        with:
+          # Must match the dry run in the `version` job, or the preview can disagree with the
+          # release it previewed. Change both together.
+          semantic_version: 25
+          # Bundled with semantic-release: commit-analyzer, release-notes-generator, npm,
+          # github. These two are not.
+          extra_plugins: |
+            @semantic-release/changelog
+            @semantic-release/git
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+
+      - name: Summary
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          VERSION: ${{ steps.semantic.outputs.new_release_version }}
+        run: |
+          echo "### Released [v$VERSION](${{ github.server_url }}/${{ github.repository }}/releases/tag/v$VERSION)" >> "$GITHUB_STEP_SUMMARY"
+          gh release view "v$VERSION" --json assets \
+            --jq '.assets[] | "- \(.name) (\(.size) bytes)"' >> "$GITHUB_STEP_SUMMARY" || true
+
+  # ------------------------------------------------------------------ 5. the wiki
+  #
+  # WHY THE WIKI IS CALLED RATHER THAN TRIGGERED. wiki.yml also runs on `release: published`,
+  # but a release created with an App token does not reliably fire another workflow - relying
+  # on that trigger would mean the wiki silently never publishes. Calling the workflow needs no
+  # extra secret and keeps the `release: published` path working for a release made by hand.
+  wiki:
+    name: Wiki
+    needs: release
+    if: needs.release.outputs.published == 'true'
+    uses: ./.github/workflows/wiki.yml
+    with:
+      # The tag, not the commit that started this run: the version bump landed after it, and
+      # every published page carries a "Published from ..." link to the commit it was built
+      # from.
+      ref: v${{ needs.release.outputs.version }}
+    permissions:
+      contents: write

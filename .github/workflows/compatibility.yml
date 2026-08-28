@@ -1,0 +1,76 @@
+# Check that the vendor modules still pair with this twin.
+#
+# Each control platform is a SEPARATE repository, optional and gitignored here, so nothing in
+# a checkout of this repository says which module version belongs with it. modules.json
+# declares the version each module was `tested` at; each module commits a copy of this repo's
+# .machine.json, and comparing the two sha256s is what actually says whether it is still
+# current. Nothing compared them until this workflow existed - a module could go stale and the
+# only sign would be a reader following a link to a machine that had moved on.
+#
+# The modules are NOT cloned here. check_compatibility.py reads a module from disk when it is
+# cloned and fetches it from raw.githubusercontent.com when it is not - and in CI it is never
+# cloned, so this needs no token, no submodule and no access to a private repository.
+#
+# STRICT ON MASTER ONLY. This repository is master for the machine; a module being behind is a
+# fact about someone else's repository, and no change here can fix it - so it must never turn a
+# pull request red or block work on development. But the badge has to tell the truth, so the
+# master and scheduled runs use --strict and fail, which is the only thing that makes it red.
+#
+# Strictness keys on the BRANCH, not the event: development and every pull request report and
+# stay green, master and the schedule are strict. Keying on the event would make a push to
+# development strict too, and there is nothing anyone could do about it there either.
+
+name: Compatibility
+
+on:
+  push:
+    branches: [master, development]
+    paths:
+      - "_workflow/config/modules.json"
+      - "_docs/context/.machine.json"
+      - "_workflow/tools/**"
+      - "package.json"
+      - ".github/workflows/compatibility.yml"
+  pull_request:
+    paths:
+      - "_workflow/config/modules.json"
+      - "_docs/context/.machine.json"
+      - "_workflow/tools/**"
+      - "package.json"
+      - ".github/workflows/compatibility.yml"
+  # The point of the whole thing: a module can fall out of range with no commit in this
+  # repository at all, so a push-only trigger would never notice.
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+
+concurrency:
+  group: compatibility-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Vendor modules
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # module_identity()'s git-tag cross-check needs the tags; without them a fresh
+          # checkout reports the version as coming from package.json alone, which is correct
+          # but loses the ability to say the two disagree.
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Check declared modules
+        run: |
+          if [ "${{ github.ref }}" = "refs/heads/master" ] || [ "${{ github.event_name }}" = "schedule" ]; then
+            python _workflow/tools/check_compatibility.py --strict
+          else
+            python _workflow/tools/check_compatibility.py
+          fi

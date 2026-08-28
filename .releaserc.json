@@ -1,0 +1,51 @@
+{
+  "branches": ["master"],
+  "tagFormat": "v${version}",
+  "plugins": [
+    [
+      "@semantic-release/commit-analyzer",
+      {
+        "preset": "angular",
+        "releaseRules": [
+          { "type": "docs", "scope": "README", "release": "patch" },
+          { "type": "refactor", "release": "patch" }
+        ]
+      }
+    ],
+    "@semantic-release/release-notes-generator",
+    [
+      "@semantic-release/changelog",
+      {
+        "preset": "angular",
+        "changelogTitle": "# Changelog"
+      }
+    ],
+    [
+      "@semantic-release/npm",
+      { "npmPublish": false }
+    ],
+    [
+      "@semantic-release/git",
+      {
+        "assets": ["package.json", "CHANGELOG.md"],
+        "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+      }
+    ],
+    [
+      "@semantic-release/github",
+      {
+        "//": "The Windows build is produced BEFORE this runs and downloaded into dist/, so the release is created with its download already attached, in one operation - never announced empty, and never left as a draft if a later step fails.",
+        "assets": [
+          {
+            "path": "dist/DT_PSA_OPCV-*-win64.zip",
+            "label": "Windows build - MIL scene (v${nextRelease.version})"
+          },
+          {
+            "path": "dist/DT_PSA_OPCV-*-win64.zip.sha256",
+            "label": "SHA-256 checksum"
+          }
+        ]
+      }
+    ]
+  ]
+}

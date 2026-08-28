@@ -1,0 +1,16 @@
+# Puts the "Sponsor" button at the top of the repository page and on every issue.
+#
+# Both keys take the USERNAME only, never a full URL - GitHub builds
+# https://github.com/sponsors/<user> and https://buymeacoffee.com/<user> from them. A full
+# URL here renders a dead button.
+#
+# `github` only resolves once the account is ENROLLED in GitHub Sponsors and has a payout
+# account set up. Until then GitHub ignores the key and the button falls through to the
+# other one - so this file is correct ahead of the enrolment, not broken by it.
+#
+# This file is GitHub's mechanism and is read only by GitHub. The same two links are stated
+# in README.md under "Support this project", which is what a reader sees outside GitHub - in
+# the wiki, in a ZIP download, or on a mirror. Change both together.
+
+github: Preliy
+buy_me_a_coffee: preliy

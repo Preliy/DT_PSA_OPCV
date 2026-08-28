@@ -1,0 +1,47 @@
+name: Feature request
+description: Suggest a station, a capability, or a control platform
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is missing
+      description: The problem or gap, not the solution. What can you not do today?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you propose
+    validations:
+      required: true
+
+  - type: dropdown
+    id: owner
+    attributes:
+      label: Which module would own it?
+      description: >
+        Structure belongs to the Unity twin, behaviour to `_docs/reference/`,
+        and anything platform-specific to a vendor module.
+      options:
+        - Unity twin (structure - a new device, station or group)
+        - Behaviour contract (how something should sequence or recover)
+        - Beckhoff / TwinCAT
+        - Siemens / TIA
+        - A new control platform
+        - Tooling
+        - Documentation
+        - Not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Anything else
+      description: >
+        For a new control platform, say which one and what you already have. The behaviour
+        it must satisfy is already written down in `_docs/reference/`.
+    validations:
+      required: false

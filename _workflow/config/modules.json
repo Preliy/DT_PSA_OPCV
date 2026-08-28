@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "_comment": [
+    "The vendor modules this machine has. Hand-maintained - it is the main repo's",
+    "single statement of which control platforms exist and which version of each was",
+    "verified against this twin. A module is a SEPARATE repository the user clones",
+    "into this repo's root; the path is gitignored so the two git repos do not collide.",
+    "",
+    "Three tools read this file: build_knowledge.py (which vendor links to emit),",
+    "build_wiki.py (which sibling wikis to link into, and where) and",
+    "check_compatibility.py (the pairing table). Adding a vendor is one entry here plus",
+    "a repository - no tool changes.",
+    "",
+    "`tested` is the module version this twin was actually verified against. ONE field,",
+    "and a fact rather than a promise: it is the version to clone. There is deliberately",
+    "no version RANGE here and no `requiresMain` in a module - a range admits versions",
+    "that do not exist yet, so nobody ever narrows one and it never catches anything.",
+    "Whether a module is actually current is answered exactly, and without anyone",
+    "maintaining it, by comparing the machine handoff it committed against this repo's",
+    "_docs/context/.machine.json. See COMPATIBILITY.md.",
+    "",
+    "`knowledgeBase` says whether the module publishes _docs/ pages that a root page",
+    "can link to - and therefore whether it has a wiki of its own to link into. It is",
+    "DECLARED rather than probed for, because these pages are tracked: deriving it from",
+    "what is on disk would make a tracked file's content depend on which optional",
+    "modules a given user happened to clone."
+  ],
+  "repository": "https://github.com/Preliy/DT_PSA_OPCV",
+  "modules": {
+    "Beckhoff": {
+      "url": "https://github.com/Preliy/DT_PSA_OPCV_Beckhoff",
+      "branch": "master",
+      "tested": "1.0.0",
+      "platform": "Beckhoff TwinCAT 3",
+      "knowledgeBase": true,
+      "description": "The Beckhoff realisation: PLC_1 control on the SPT framework, SIM_1 twin devices, TE2000 HMI"
+    },
+    "Siemens": {
+      "url": "https://github.com/Preliy/DT_PSA_OPCV_Siemens",
+      "branch": "master",
+      "tested": "0.1.0",
+      "platform": "Siemens TIA Portal",
+      "knowledgeBase": false,
+      "description": "TIA port - work in progress. The Unity scene is real; the control side does not exist yet"
+    }
+  }
+}
