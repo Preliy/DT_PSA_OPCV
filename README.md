@@ -122,7 +122,7 @@ Then follow [Setup](_docs/01-setup.md) — what you need, and how to get the mac
 <!-- BEGIN GENERATED - do not edit between the markers. -->
 | Module | Platform | Version | Status |
 |---|---|---|---|
-| [Beckhoff](https://github.com/Preliy/DT_PSA_OPCV_Beckhoff) | Beckhoff TwinCAT 3 | 1.0.0 | current |
+| [Beckhoff](https://github.com/Preliy/DT_PSA_OPCV_Beckhoff) | Beckhoff TwinCAT 3 | 1.0.0 | behind |
 | [Siemens](https://github.com/Preliy/DT_PSA_OPCV_Siemens) | Siemens TIA Portal | 0.1.0 | not a consumer |
 <!-- END GENERATED -->
 

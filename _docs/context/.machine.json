@@ -4,7 +4,7 @@
  "referenceVendor": "Beckhoff",
  "scene": "VC_Demo_1_Beckhoff_1",
  "exportedAtUtc": "2026-08-23T17:09:36.0996372Z",
- "exportCommit": "5010e82 2026-08-23",
+ "exportCommit": "f310945 2026-08-28",
  "exportUncommitted": false,
  "liveVerified": false,
  "machinePrefab": "Unity/Assets/Demo_1/Prefabs/Machine_1.prefab",
