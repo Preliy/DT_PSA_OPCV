@@ -6,12 +6,12 @@ Reads  _workflow/config/modules.json    which modules exist, and the version eac
        _docs/context/.machine.json      the machine every module's snapshot is compared against
        a module's module.json           its version - from your checkout, or over https
        a module's _workflow/config/handoff/  the machine snapshot it was built against
-Writes the marked region in README.md and COMPATIBILITY.md, with --write
+Writes the marked region in COMPATIBILITY.md, with --write
 
     python _workflow/tools/check_compatibility.py            report, always exit 0
     python _workflow/tools/check_compatibility.py --strict    exit 1 on any mismatch
-    python _workflow/tools/check_compatibility.py --write     refresh the two tables
-    python _workflow/tools/check_compatibility.py --check     exit 1 if the tables are stale
+    python _workflow/tools/check_compatibility.py --write     refresh the table
+    python _workflow/tools/check_compatibility.py --check     exit 1 if the table is stale
     python _workflow/tools/check_compatibility.py --json      machine-readable
 
 ONE TOOL, ON PURPOSE. This used to be two - one reading the modules on disk to write the
@@ -59,9 +59,12 @@ three tracked files and a few public URLs. It touches no Unity export, probes no
 and digests no vendor project, so publishing it discloses nothing - and a check CI cannot
 run is not a check.
 
-NOTHING IT PRINTS INTO A PAGE MAY NAME A PRIVATE TOOL. README.md and COMPATIBILITY.md are
-addressed to a reader who has only this repository. A note telling them to run something
-out of _private/ is an instruction they cannot follow, in generated text nobody reviews.
+NOTHING IT PRINTS INTO A PAGE MAY NAME A PRIVATE TOOL. COMPATIBILITY.md is addressed to a
+reader who has only this repository. A note telling them to run something out of
+_private/ is an instruction they cannot follow, in generated text nobody reviews.
+
+README.md IS NOT WRITTEN. Its platform table is hand-written (Done / Work in progress) and
+links here for the pairing; the landing page states intent, this tool states the facts.
 """
 
 import json
@@ -333,17 +336,6 @@ def _built_against(r):
     return f"export `{r['exportCommit']}`"
 
 
-def readme_table(rows):
-    out = ["| Module | Platform | Version | Status |", "|---|---|---|---|"]
-    for r in rows:
-        status = r["verdict"]
-        if r["verdict"] in UNKNOWN:
-            status = f"{r['verdict']} — `git clone {r['url']} {r['name']}`"
-        out.append(f"| [{r['name']}]({r['url']}) | {r['platform'] or '—'} "
-                   f"| {r['version'] or '—'} | {status} |")
-    return out
-
-
 def compat_table(rows, main, reference):
     out = ["| Module | Platform | Version | Tested | Built against | Verdict |",
            "|---|---|---|---|---|---|"]
@@ -435,7 +427,7 @@ def main(argv):
 
     drifted = []
     if write or check:
-        # A run where nothing was learned about any module would rewrite both tables to
+        # A run where nothing was learned about any module would rewrite the table to
         # say "not published" everywhere and throw away everything they currently say.
         # That is a true statement about this run and a useless one to commit, so refuse
         # - it means no module is cloned AND none is reachable, which is CI, or an
@@ -446,8 +438,7 @@ def main(argv):
                 "'not published' and the committed tables would lose everything they "
                 "say. Clone a module, or run this where the module repositories are "
                 "reachable.")
-        bodies = {ROOT / "README.md": readme_table(rows),
-                  ROOT / "COMPATIBILITY.md": compat_table(rows, identity, reference)}
+        bodies = {ROOT / "COMPATIBILITY.md": compat_table(rows, identity, reference)}
         for path, body in bodies.items():
             new, changed = splice(path, body)
             if changed:

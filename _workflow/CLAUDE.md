@@ -42,7 +42,7 @@ realises it.
 
 | Module | Path | Role |
 |---|---|---|
-| Unity twin | `Unity/` | Digital twin of the machinery, on Open Commissioning + `com.pilar.context` |
+| Unity twin | `Unity/` | Digital twin of the machinery, on Open Commissioning + `com.pillar.context` |
 | **Beckhoff** | `Beckhoff/` | TwinCAT 3: `TwinCAT_1/PLC/PLC_1` (control), `SIM_1` (twin devices), `TwinCAT_1/HMI` (TE2000). **Active.** |
 | **Siemens** | `Siemens/` | TIA port — **work in progress**. Has its own Unity scene and export; no PLC knowledge base yet |
 
@@ -146,7 +146,7 @@ able to read it.
 
 **`check_compatibility.py` is public for exactly that reason.** It reads `modules.json`, each
 module's `module.json` and handoff, and `_docs/context/.machine.json` — all tracked, plus a few
-public URLs — and writes the marked region of `README.md` and `COMPATIBILITY.md`. It never touches
+public URLs — and writes the marked region of `COMPATIBILITY.md`. It never touches
 the Unity export. The table-writing half used to be a second tool in `_private/`, which meant the
 table could not be regenerated, or even checked, by anyone but a maintainer. **A generated public
 page must not name a private tool**: two of its notes used to print a `_private/tools/…` command
@@ -275,7 +275,7 @@ The main-repo tools that manage modules:
 |---|---|
 | Copy the machine handoff into every consuming module | `python _private/tools/sync_machine.py` |
 | Check the declared modules still pair with this twin | `python _workflow/tools/check_compatibility.py` (`--strict` to exit 1) |
-| Refresh the compatibility tables in `README.md` and `COMPATIBILITY.md` | `python _workflow/tools/check_compatibility.py --write` (`--check` to exit 1 when stale) |
+| Refresh the compatibility table in `COMPATIBILITY.md` (the `README.md` platform table is hand-written) | `python _workflow/tools/check_compatibility.py --write` (`--check` to exit 1 when stale) |
 | Build **this repo's** wiki into `_wiki/` | `python _workflow/tools/build_wiki.py` |
 | Publish **this repo's** wiki (dry run by default) | `python _workflow/tools/publish_wiki.py` |
 

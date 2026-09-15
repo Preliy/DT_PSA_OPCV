@@ -108739,8 +108739,8 @@ MonoBehaviour:
   _isPicked:
     _value: 0
   _pickType: 0
-  _dynamicSize: 0
-  _additionalColliderSize: {x: 0, y: 0, z: 0}
+  _dynamicSize: 1
+  _additionalColliderSize: {x: 0, y: -0.1, z: 0}
   OnPickEvent:
     m_PersistentCalls:
       m_Calls: []
