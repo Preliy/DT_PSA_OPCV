@@ -13,7 +13,7 @@ hand into a second place, because a second place is a place that goes stale.
 ## 1. The context node
 
 Every part of the twin can carry a **`ContextNode`** — a list of key/value entries on the
-GameObject, provided by [`com.pilar.context`](https://github.com/Preliy/unity-pilar-context). It
+GameObject, provided by [`com.pillar.context`](https://github.com/Preliy/unity-pillar-context). It
 holds two kinds of fact, and the difference between them is the whole design:
 
 | | Keys | Written by | Example |

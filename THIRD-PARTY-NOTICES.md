@@ -26,7 +26,7 @@ than the one recorded here. The licences were read from each repository's curren
 |---|---|---|---|
 | **Open Commissioning** `com.open-commissioning.core` | 1.3.14 | BSD 3-Clause — © 2024 SpiraTec AG | [OC_Unity_Core](https://github.com/OpenCommissioning/OC_Unity_Core) · [licence](https://github.com/OpenCommissioning/OC_Unity_Core/blob/master/LICENSE.md) |
 | **Open Commissioning UI** `com.open-commissioning.ui` | 1.1.8 | BSD 3-Clause — © 2024 SpiraTec AG | [OC_Unity_UI](https://github.com/OpenCommissioning/OC_Unity_UI) · [licence](https://github.com/OpenCommissioning/OC_Unity_UI/blob/master/LICENSE.md) |
-| **PILAR Context** `com.pilar.context` | 1.4.1 | MIT — © 2026 Viktor Gaponenko | [unity-pilar-context](https://github.com/Preliy/unity-pilar-context) · [licence](https://github.com/Preliy/unity-pilar-context/blob/master/LICENSE.md) |
+| **PILLAR Context** `com.pillar.context` | 1.0.0 | MIT — © 2026 Viktor Gaponenko | [unity-pillar-context](https://github.com/Preliy/unity-pillar-context) · [licence](https://github.com/Preliy/unity-pillar-context/blob/master/LICENSE.md) |
 | **Outline** `com.cqf.outline` | 1.0.0 | MIT — © 2024-2026 Cristian Qiu | [Unity-URP-Outline](https://github.com/CristianQiu/Unity-URP-Outline) · [licence](https://github.com/CristianQiu/Unity-URP-Outline/blob/main/LICENSE.md) |
 | **UniTask** `com.cysharp.unitask` | 2.5.11 | MIT — © 2019 Yoshifumi Kawai / Cysharp, Inc. | [UniTask](https://github.com/Cysharp/UniTask) · [licence](https://github.com/Cysharp/UniTask/blob/master/LICENSE) |
 | **NaughtyAttributes** `com.dbrizov.naughtyattributes` | 2.1.6 | MIT — © 2017 Denis Rizov | [NaughtyAttributes](https://github.com/dbrizov/NaughtyAttributes) · [licence](https://github.com/dbrizov/NaughtyAttributes/blob/master/LICENSE) |

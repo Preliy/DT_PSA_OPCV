@@ -76,7 +76,7 @@ The export is an existing Editor menu item; drive it rather than reimplementing 
 
 ```bash
 unity command eval --code 'UnityEditor.Selection.objects = new UnityEngine.Object[0]; return "cleared";'
-unity command menu --path "PILAR/Context/Export Machine Context (JSON)"
+unity command menu --path "PILLAR/Context/Export Machine Context (JSON)"
 ```
 
 **Clear the selection first — this one bites.** An explicit Editor selection *wins* over the default
@@ -111,7 +111,7 @@ an unsynced scene exports no metadata at all and looks complete while doing it:
 ```bash
 unity command context_sync --dry_run true     # what would change
 unity command context_sync --dry_run false    # write it
-unity command menu --path "PILAR/Context/Export Machine Context (JSON)"
+unity command menu --path "PILLAR/Context/Export Machine Context (JSON)"
 ```
 
 The dry run is also the only drift check there is: a rename or a deleted component leaves stored

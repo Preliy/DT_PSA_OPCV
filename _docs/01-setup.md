@@ -131,7 +131,7 @@ in `Unity/Packages/manifest.json`, six of which come from git URLs and need netw
 |---|---|---|
 | `com.open-commissioning.core` | `github.com/OpenCommissioning/OC_Unity_Core` | BSD 3-Clause |
 | `com.open-commissioning.ui` | `github.com/OpenCommissioning/OC_Unity_UI` | BSD 3-Clause |
-| `com.pilar.context` | `github.com/Preliy/unity-pilar-context` | MIT |
+| `com.pillar.context` | `github.com/Preliy/unity-pillar-context` | MIT |
 | `com.cqf.outline` | `github.com/CristianQiu/Unity-URP-Outline` | MIT |
 | `com.cysharp.unitask` | `github.com/Cysharp/UniTask` | MIT |
 | `com.dbrizov.naughtyattributes` | `github.com/dbrizov/NaughtyAttributes` | MIT |

@@ -1,4 +1,4 @@
-# DT_PSA_OPCV — Digital Twin for Laser Welding & Assembly System (PSA OPCV)
+# DT_PSA_OPCV — Digital Twin for Laser Welding & Assembly System
 
 **A real production line, in software. Connect your PLC and run it.**
 
@@ -12,214 +12,95 @@
 
 ![The machine](_docs/images/Machine_Overview.png)
 
-## Welcome
+## What is it?
 
-A Unity-based digital twin of a laser welding and assembly system, built for **virtual
-commissioning**. The twin runs on **Open Commissioning Core** and the **Open Commissioning UI
-framework**; **TwinCAT** is the simulation unit — it hosts the behaviour models and emulates the
-real-time industrial fieldbus, so the twin and a control program meet over EtherCAT exactly as a
-real cell does.
+A Unity digital twin of a laser welding and assembly line, built for **virtual commissioning** on
+[Open Commissioning](https://github.com/OpenCommissioning). Your PLC program connects over EtherCAT
+and drives the machine exactly as it would drive a real one.
 
-Pallets circulate on a two-level conveyor. Five stations work on the part as it passes: one
-identifies it and marks it with a laser, one inspects it optically, one moves it between pallet
-slots and flips it over, one presses it home and checks it seated, and the last fits a cap. Doors
-interlock. Stations wait for each other. Things go wrong, and have to be reset properly.
+Pallets circulate on a two-level conveyor through five stations: identify and laser-mark, optical
+inspection, part transfer, press and seat check, and capping. Doors interlock, stations wait for
+each other, and things go wrong and have to be reset properly — just like on a real line.
 
-**The difference is what drives it.** Your own PLC program can take over and run the whole machine —
-and it cannot tell that the machine is not real.
+## Who is it for?
 
-## The goal
+- **Goal** — test a control program against a realistic machine long before the real one exists,
+  from any control platform.
+- **Why** — most virtual commissioning demos are too kind: nothing jams, the sensors always agree,
+  so even a broken program passes. This machine keeps the awkward parts. If your program runs it,
+  that means something.
+- **Community driven** — an independent open-source project. The machine is described once, in a
+  vendor-neutral way, and each control platform lives in its own repository.
 
-Virtual commissioning means testing a control program against a model of the machine, long before
-the machine is standing on a factory floor. This project exists to make that testable on a machine
-close enough to a real one that the answer counts for something — and to publish everything needed
-to run it from **any** control platform, not one.
+It is made for **controls engineers** who want a serious machine to code against, **students** learning
+how a real line is put together, and **anyone curious** about virtual commissioning.
 
-So there are three deliverables, and they are kept apart on purpose:
+## Getting started
 
-| | |
-|---|---|
-| **A machine worth testing against** | A two-level pallet conveyor and five processing stations, modelled from real CAD, with the awkward parts kept |
-| **A written specification of it** | What it is made of, published as machine-readable JSON; what it must do, published as platform-neutral [behaviour contracts](_docs/reference/transport-behaviour.md) |
-| **One module per control platform** | Each realises the same specification in its own tooling, in its own repository |
+**Just want to watch it run?** [Download the Windows build](https://github.com/Preliy/DT_PSA_OPCV/releases/latest) —
+nothing to install.
 
-## Why this one is different
-
-Most virtual commissioning demos are three boxes on a conveyor belt, or an animation in a slide deck.
-They look nice. You cannot learn much from them, and you certainly cannot test a control program
-against one.
-
-A model that is too kind is worse than no model at all. If the sensors always agree, if nothing ever
-jams, if the simulation quietly helps the program along — then every program passes, including the
-broken ones.
-
-So this machine is built to be honest. It has the awkward parts that real machines have, the ones
-that catch people out during real commissioning. If your program runs this line properly, that
-actually tells you something.
-
-## A community project
-
-This is an independent, community-run open-source project. **It is not affiliated with, endorsed by,
-sponsored by or supported by** any of the automation, engine or framework vendors whose products it
-works with, nor by the manufacturer of the machine it is modelled on. No vendor has reviewed it and
-none is responsible for it.
-
-Product and company names are used only to say what the software talks to, and remain the property
-of their owners. EtherCAT® is a registered trademark and patented technology, licensed by Beckhoff
-Automation GmbH, Germany.
-
-**The machine itself is vendor-neutral.** It is described once — the same device list, the same
-behaviour contracts — in a form that belongs to no controller. A control platform is then just one
-implementation of that description, kept in its own repository. The ones here exist because someone
-sat down and built them, and yours can be next.
-
-It is also, plainly, a simulation. It is published under [GPL-3.0](LICENSE) with no warranty of any
-kind, and a program that runs correctly here has not thereby been validated for safety, for
-certification, or for use on real machinery.
-
-## Three ways to run it
-
-| | What happens |
-|---|---|
-| **Watch it** | The machine runs by itself, like an animation. [Download the Windows build](https://github.com/Preliy/DT_PSA_OPCV/releases/latest) and run it — no Unity, no PLC, nothing to install |
-| **Test your program** | Your PLC program runs on your PC and drives the machine |
-| **Test your hardware** | The same program runs on a real controller and drives the machine |
-
-The second and third are the same setup — the only difference is where your PLC is. What you prove
-on your desk still holds on the hardware.
-
-## Who it is for
-
-- **Controls engineers** who want a serious machine to write and test code against, without owning
-  one.
-- **Students and people learning automation**, who want to see how a real line is actually put
-  together — the interlocks and the recovery, not just the happy path.
-- **Anyone curious about virtual commissioning** who wants to judge it on a real example.
-
-You need a PC. That is all.
-
-## Getting it
-
-The twin is one repository. Each **control platform is a separate, optional repository** you clone
-into this one's root — take only the platform you use:
+**Want to connect your PLC?** Clone the twin, plus the platform you use:
 
 ```bash
 git clone https://github.com/Preliy/DT_PSA_OPCV.git
 cd DT_PSA_OPCV
 
-# optional - only if you want to run it on this platform
+
+# optional: add a control platform, e.g. Beckhoff
 git clone https://github.com/Preliy/DT_PSA_OPCV_Beckhoff.git Beckhoff
 ```
 
-The module paths are gitignored here, so the two repositories do not collide: inside `Beckhoff/`
-everything is a normal checkout on a normal branch, and `git status` in the main repo never mentions
-it. Nothing to initialise, nothing to keep in sync by hand.
+Then follow the **[Setup guide](_docs/01-setup.md)**. Everything else is in the
+**[Documentation](_docs/README.md)**, also browsable as a **[Wiki](https://github.com/Preliy/DT_PSA_OPCV/wiki)**.
 
-Then follow [Setup](_docs/01-setup.md) — what you need, and how to get the machine running.
+## Supported platforms
 
-### Control platforms
+| Platform | Repository | Status |
+|---|---|---|
+| Beckhoff TwinCAT 3 | [DT_PSA_OPCV_Beckhoff](https://github.com/Preliy/DT_PSA_OPCV_Beckhoff) | ✅ Done |
+| Siemens TIA Portal | [DT_PSA_OPCV_Siemens](https://github.com/Preliy/DT_PSA_OPCV_Siemens) | 🚧 Work in progress |
 
-<!-- BEGIN GENERATED - do not edit between the markers. -->
-| Module | Platform | Version | Status |
-|---|---|---|---|
-| [Beckhoff](https://github.com/Preliy/DT_PSA_OPCV_Beckhoff) | Beckhoff TwinCAT 3 | 1.0.0 | current |
-| [Siemens](https://github.com/Preliy/DT_PSA_OPCV_Siemens) | Siemens TIA Portal | 0.1.0 | not a consumer |
-<!-- END GENERATED -->
-
-Which module version pairs with which twin — and how a stale one is caught — is in
-[COMPATIBILITY.md](COMPATIBILITY.md). The **vendor compatibility** badge above is that check
-running weekly: green means every declared module still pairs with this twin.
-
-## Bring your own control system
-
-The machine belongs to no vendor. Beckhoff runs it today because that is what was built first.
-Siemens is on the way. Anything else is wide open — and that is where help is most welcome.
-
-Everything you would need is already written down: [what the machine is made
-of](_docs/context/machine.md), and [exactly how it is supposed to
-behave](_docs/reference/transport-behaviour.md). So you are building against a specification, not
-guessing.
-
-If you would like to bring your platform to it, we would love to hear from you.
-
-**→ [Connecting a PLC](_docs/04-plc-connectivity.md)** · **→ [CONTRIBUTING.md](CONTRIBUTING.md)**
-
-## Where to start
-
-| | |
-|---|---|
-| [**Setup**](_docs/01-setup.md) | What you need, and getting it running |
-| [**Using the application**](_docs/02-using-the-application.md) | Moving around, and the controls |
-| [**How it works**](_docs/03-how-it-works.md) | The architecture, and why it is built this way |
-| [**PLC connectivity**](_docs/04-plc-connectivity.md) | The platforms that run it, and how to add yours |
-| [**Engineering workflow**](_docs/05-engineering-workflow.md) | How the machine describes itself, and where PLC code comes from |
-| [**The machine**](_docs/06-machine-description.md) | Every station and device, with drawings |
-| [**Glossary**](_docs/07-glossary.md) | PLC, MIL/SIL/HIL, fieldbus — every abbreviation in plain language |
-| [**Full documentation**](_docs/README.md) | Everything else |
-
-The same pages are browsable as a [Wiki](https://github.com/Preliy/DT_PSA_OPCV/wiki). Each control
-platform keeps its own — the TwinCAT one is
-[here](https://github.com/Preliy/DT_PSA_OPCV_Beckhoff/wiki) — and the two cross-link.
+Which module version pairs with which twin is in [COMPATIBILITY.md](COMPATIBILITY.md).
 
 ## Contributing
 
-Contributions are genuinely wanted — a new control platform, a missing setup step, a bug you hit, or
-a correction to something we got wrong.
+This project grows through discussion. Have an idea, a question or a better way to do something?
+Open an issue or start a discussion — let's iterate on it together and make the machine better.
 
-| | |
-|---|---|
-| **Connect another control system** | Rockwell, CODESYS, B&R, Omron, your own soft PLC. You implement against a published specification rather than guessing — see [PLC connectivity](_docs/04-plc-connectivity.md) |
-| **Get HIL working** | Everything here was validated on an emulated runtime. Real controller hardware uses the same mechanism, but nobody has captured the steps |
-| **Fill a setup gap** | A step that fails on a fresh machine is worth reporting even if you cannot fix it |
-| **Correct the record** | If a page disagrees with the machine, one of the two is wrong and we want to know which |
+Directions where help is very welcome:
 
-Start with [CONTRIBUTING.md](CONTRIBUTING.md), and the [Code of Conduct](CODE_OF_CONDUCT.md) applies
-to everyone taking part.
+- **New devices** — drives, barcode readers, and other components real lines use
+- **Another control platform** — Rockwell, CODESYS, B&R, Omron… built against a published
+  specification, see [PLC connectivity](_docs/04-plc-connectivity.md)
+- **Hardware-in-the-loop** — running the same program on a real controller
+- **Setup gaps, bugs and corrections** — a report is worth as much as a fix
 
-## Support this project
+Start with [CONTRIBUTING.md](CONTRIBUTING.md). The [Code of Conduct](CODE_OF_CONDUCT.md) applies to everyone.
 
-This is built and maintained in spare time, and it stays free and GPL-3.0 either way. If it saved
-you a commissioning week, or you just want to keep it moving:
+## Support the project
 
-- **[❤ GitHub Sponsors](https://github.com/sponsors/Preliy)** — one-off or monthly, through GitHub
+Built in spare time, and free forever. If it helped you, you can keep it moving:
+
+- **[❤ GitHub Sponsors](https://github.com/sponsors/Preliy)** — one-off or monthly
 - **[☕ Buy me a coffee](https://buymeacoffee.com/preliy)** — one-off, no account needed
-
-Not sponsoring costs you nothing — a bug report, a fixed setup step or a new control platform is
-worth just as much. See [Contributing](#contributing) above.
-
-## License
-
-[GPL-3.0](LICENSE) — Copyright © 2026 Viktor Gaponenko.
-
-Use it, learn from it, build on it. If you share a modified version, it stays open for the next
-person.
 
 ## Credits
 
-### The machine — [Villette Oh](https://grabcad.com/villette.oh-2)
+- **[Villette Oh](https://grabcad.com/villette.oh-2)** — the CAD model
+  [Laser Welding & Assembly System (PSA OPCV)](https://grabcad.com/library/laser-welding-assembly-system-psa-opcv-1),
+  where every shape of this machine comes from. Thank you.
+- **[Andreas Fast](https://www.linkedin.com/in/automation-fast-andreas/)** — PLC project architecture and Digital Twin development and validation.
+- **[Open Commissioning](https://github.com/OpenCommissioning)** — the framework the twin stands on.
+- Also used: [`com.pillar.context`](https://github.com/Preliy/unity-pillar-context),
+  [Unity-URP-Outline](https://github.com/CristianQiu/Unity-URP-Outline),
+  [UniTask](https://github.com/Cysharp/UniTask),
+  [NaughtyAttributes](https://github.com/dbrizov/NaughtyAttributes) — full list in
+  [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
 
-This twin has a real machine behind it because someone drew one and gave it away. The CAD model —
-[**Laser Welding & Assembly System (PSA
-OPCV)**](https://grabcad.com/library/laser-welding-assembly-system-psa-opcv-1), published on
-GrabCAD — is where every shape here comes from. Without it this would be one more demo with three
-boxes on a conveyor. Thank you.
+## License
 
-### [Open Commissioning](https://github.com/OpenCommissioning)
+[GPL-3.0](LICENSE) — Copyright © 2026 Viktor Gaponenko. Use it, learn from it, build on it; if you
+share a modified version, it stays open for the next person.
 
-The framework the whole twin stands on: the `com.open-commissioning.core` and
-`com.open-commissioning.ui` Unity packages, the OC TwinCAT library, and the OC Assistant tooling.
-
-**Thanks to Andreas Fast** for the Siemens expertise, and for the PLC project architecture and
-design that this project's control side is built on.
-
-### Also used
-
-| | |
-|---|---|
-| [`com.pilar.context`](https://github.com/Preliy/unity-pilar-context) | the engineering context carried by each part of the twin |
-| [Unity-URP-Outline](https://github.com/CristianQiu/Unity-URP-Outline) | selection outlines |
-| [UniTask](https://github.com/Cysharp/UniTask) | async sequences |
-| [NaughtyAttributes](https://github.com/dbrizov/NaughtyAttributes) | editor tooling |
-
-Every third-party component, with its version and licence, is listed in
-[THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
+Trademarks, non-affiliation and safety: see [NOTICE.md](NOTICE.md).
