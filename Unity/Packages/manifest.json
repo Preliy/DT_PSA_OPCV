@@ -5,7 +5,7 @@
     "com.dbrizov.naughtyattributes": "https://github.com/dbrizov/NaughtyAttributes.git#upm",
     "com.open-commissioning.core": "https://github.com/OpenCommissioning/OC_Unity_Core.git#upm",
     "com.open-commissioning.ui": "https://github.com/OpenCommissioning/OC_Unity_UI.git#upm",
-    "com.pilar.context": "https://github.com/Preliy/unity-pilar-context.git#upm",
+    "com.pillar.context": "https://github.com/Preliy/unity-pillar-context.git#upm",
     "com.unity.ai.navigation": "2.0.13",
     "com.unity.cinemachine": "3.1.6",
     "com.unity.collab-proxy": "2.12.4",

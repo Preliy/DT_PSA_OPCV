@@ -26,7 +26,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "b842bcd4aae03adbc34eb89e4a7cf35317dc548d"
+      "hash": "113ebf7a1c427a88e802076a90b25a117ba28298"
     },
     "com.open-commissioning.ui": {
       "version": "https://github.com/OpenCommissioning/OC_Unity_UI.git#upm",
@@ -35,12 +35,12 @@
       "dependencies": {},
       "hash": "59a681433b60466bd0c792d9417f293a0711566e"
     },
-    "com.pilar.context": {
-      "version": "https://github.com/Preliy/unity-pilar-context.git#upm",
+    "com.pillar.context": {
+      "version": "https://github.com/Preliy/unity-pillar-context.git#upm",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "7576a922d533563a033b4696a3930c94ddd05093"
+      "hash": "291f75ff214d75d7b646334ec0101dc5b44d3db9"
     },
     "com.unity.ai.navigation": {
       "version": "2.0.13",
