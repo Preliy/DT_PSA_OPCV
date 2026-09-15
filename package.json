@@ -1,6 +1,6 @@
 {
   "name": "dt-psa-opcv",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "Digital Twin for Laser Welding & Assembly System (PSA OPCV) - the main repository's version record. Nothing here is a Node package: this file exists so semantic-release has somewhere to write the version, and so sync_machine.py has a version to stamp into each vendor module's handoff sidecar as the pairing.",
   "repository": {
