@@ -9,7 +9,7 @@ Read this before trusting anything else in `_docs/context/`.
 |---|---|
 | Scene | `VC_Demo_1_Beckhoff_1` |
 | Exported (UTC) | `2026-08-23T17:09:36.0996372Z` |
-| Export commit | `5010e82 2026-08-23` |
+| Export commit | `f310945 2026-08-28` |
 | Export uncommitted | no |
 | Reference scene | `VC_Demo_1_Beckhoff_1` (Beckhoff) |
 | Nodes | 180 |

@@ -19,12 +19,16 @@ it. Take only the platform you use — a Siemens user has no reason to fetch a T
 <!-- BEGIN GENERATED - do not edit between the markers. -->
 | Module | Platform | Version | Tested | Built against | Verdict |
 |---|---|---|---|---|---|
-| [Beckhoff](https://github.com/Preliy/DT_PSA_OPCV_Beckhoff) | Beckhoff TwinCAT 3 | 1.0.0 | 1.0.0 | export `5010e82 2026-08-23` | current |
+| [Beckhoff](https://github.com/Preliy/DT_PSA_OPCV_Beckhoff) | Beckhoff TwinCAT 3 | 1.0.0 | 1.0.0 | export `5010e82 2026-08-23` | behind |
 | [Siemens](https://github.com/Preliy/DT_PSA_OPCV_Siemens) | Siemens TIA Portal | 0.1.0 | 0.1.0 | — | not a consumer |
 
-**This twin is** `unreleased`, carrying machine schema `2`, export `5010e82 2026-08-23`.
+**This twin is** `unreleased`, carrying machine schema `2`, export `f310945 2026-08-28`.
 
 _Beckhoff, Siemens — read from the local checkout rather than the published repository, so unpushed work is included._
+
+**Notes**
+
+- **Beckhoff** — module's machine snapshot differs from this repo's (module export `5010e82 2026-08-23`, this repo `f310945 2026-08-28`)
 <!-- END GENERATED -->
 
 **Clone the module at the version in the `Tested` column.** That is the pairing that was actually
