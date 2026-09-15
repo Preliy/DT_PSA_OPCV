@@ -33,7 +33,7 @@ them.
 
 The Unity scene is where the twin lives. The model is a **hierarchy of parts and components** —
 actors, sensors, drives, cylinders — assembled into a hierarchical kinematic, so a movement applied
-to a parent carries everything mounted on it. Together with **PILAR Context**, each part also carries
+to a parent carries everything mounted on it. Together with **PILLAR Context**, each part also carries
 its engineering context: its type and role, its properties, its metadata. That context is what
 [05 · Engineering workflow](05-engineering-workflow.md) is about.
 
@@ -88,7 +88,7 @@ program, and it is not meant to.
 |---|---|
 | `com.open-commissioning.core` | Device components (`Cylinder`, `SensorBinary`, `DriveSimple`, …), the `Client` gateway and its transport, the hierarchy model |
 | `com.open-commissioning.ui` | The runtime application UI — toolbar, selection, cameras, industrial panels |
-| `com.pilar.context` | The authored engineering context on each part |
+| `com.pillar.context` | The authored engineering context on each part |
 
 Project-specific behaviour is small and lives in `Unity/Assets/Demo_1/Scripts/`:
 `ControlBunker`, `DataReader`, `GripSensor`, `PartPressDetector`, plus the `MIL/` animation

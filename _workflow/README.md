@@ -171,7 +171,7 @@ python _private/tools/sync_machine.py                       # handoff -> each mo
 python Beckhoff/_private/tools/plc_io.py build              # I/O map + .plc-image.json snapshot
 python Beckhoff/_private/tools/build_plc_knowledge.py
 python Beckhoff/_private/tools/hmi_check.py
-python _workflow/tools/check_compatibility.py --write        # refresh the README/COMPATIBILITY table
+python _workflow/tools/check_compatibility.py --write        # refresh the COMPATIBILITY.md table
 
 # with Unity closed — same digest, honestly stamped as unverified,
 # topology read from the cached probe

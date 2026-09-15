@@ -91,7 +91,7 @@ that reported no error anywhere.
 
 ```bash
 unity command eval --code 'UnityEditor.Selection.objects = new UnityEngine.Object[0]; return "cleared";'
-unity command menu --path "PILAR/Context/Export Machine Context (JSON)"
+unity command menu --path "PILLAR/Context/Export Machine Context (JSON)"
 unity command console --format json     # expect "exported machine context of 'Project'"
 ```
 
@@ -112,7 +112,7 @@ python _private/tools/sync_machine.py                      # handoff -> each mod
 python Beckhoff/_private/tools/plc_io.py build             # I/O map + .plc-image.json snapshot
 python Beckhoff/_private/tools/build_plc_knowledge.py
 python Beckhoff/_private/tools/hmi_check.py
-python _workflow/tools/check_compatibility.py --write       # refresh the README/COMPATIBILITY table
+python _workflow/tools/check_compatibility.py --write       # refresh the COMPATIBILITY.md table
 ```
 
 Everything is written from the **main repo root**, vendor tools included — they anchor on their own

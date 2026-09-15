@@ -26,7 +26,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "b842bcd4aae03adbc34eb89e4a7cf35317dc548d"
+      "hash": "113ebf7a1c427a88e802076a90b25a117ba28298"
     },
     "com.open-commissioning.ui": {
       "version": "https://github.com/OpenCommissioning/OC_Unity_UI.git#upm",
@@ -35,12 +35,12 @@
       "dependencies": {},
       "hash": "59a681433b60466bd0c792d9417f293a0711566e"
     },
-    "com.pilar.context": {
-      "version": "https://github.com/Preliy/unity-pilar-context.git#upm",
+    "com.pillar.context": {
+      "version": "https://github.com/Preliy/unity-pillar-context.git#upm",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "7576a922d533563a033b4696a3930c94ddd05093"
+      "hash": "291f75ff214d75d7b646334ec0101dc5b44d3db9"
     },
     "com.unity.ai.navigation": {
       "version": "2.0.13",
@@ -48,6 +48,15 @@
       "source": "registry",
       "dependencies": {
         "com.unity.modules.ai": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.bindings.openimageio": {
+      "version": "1.0.2",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.collections": "1.2.4"
       },
       "url": "https://packages.unity.com"
     },
@@ -80,7 +89,7 @@
     },
     "com.unity.collections": {
       "version": "2.6.6",
-      "depth": 2,
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.burst": "1.8.28",
@@ -167,6 +176,17 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.unity.recorder": {
+      "version": "5.1.7",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.timeline": "1.8.7",
+        "com.unity.collections": "1.2.4",
+        "com.unity.bindings.openimageio": "1.0.2"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.render-pipelines.core": {
       "version": "17.3.0",
       "depth": 1,
@@ -245,7 +265,7 @@
     },
     "com.unity.test-framework.performance": {
       "version": "3.5.0",
-      "depth": 3,
+      "depth": 2,
       "source": "registry",
       "dependencies": {
         "com.unity.test-framework": "1.1.33",
