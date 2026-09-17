@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/Preliy/DT_PSA_OPCV/compare/v1.0.1...v1.0.2) (2026-09-17)
+
+
+### Bug Fixes
+
+* **ci:** publish the wiki from a tag checkout ([8e29fc4](https://github.com/Preliy/DT_PSA_OPCV/commit/8e29fc4b427fc30fc18f8b63186e3bc347a75979))
+
 ## [1.0.1](https://github.com/Preliy/DT_PSA_OPCV/compare/v1.0.0...v1.0.1) (2026-09-15)
 
 
