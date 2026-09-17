@@ -9,8 +9,15 @@
 [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Sponsor](https://img.shields.io/badge/sponsor-GitHub-EA4AAA.svg)](https://github.com/sponsors/Preliy)
 [![Buy me a coffee](https://img.shields.io/badge/support-buy%20me%20a%20coffee-FFDD00.svg)](https://buymeacoffee.com/preliy)
+[![YouTube](https://img.shields.io/badge/YouTube-watch%20the%20video-FF0000.svg?logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=r7aKSjU0HO8)
 
 ![The machine](_docs/images/Machine_Overview.png)
+
+## See it in action
+
+[![Watch the video on YouTube](https://img.youtube.com/vi/r7aKSjU0HO8/maxresdefault.jpg)](https://www.youtube.com/watch?v=r7aKSjU0HO8)
+
+A walkthrough of the project on YouTube — click the image to watch.
 
 ## What is it?
 
@@ -38,7 +45,7 @@ how a real line is put together, and **anyone curious** about virtual commission
 ## Getting started
 
 **Just want to watch it run?** [Download the Windows build](https://github.com/Preliy/DT_PSA_OPCV/releases/latest) —
-nothing to install.
+nothing to install. Or [watch the video](https://www.youtube.com/watch?v=r7aKSjU0HO8) first.
 
 **Want to connect your PLC?** Clone the twin, plus the platform you use:
 
