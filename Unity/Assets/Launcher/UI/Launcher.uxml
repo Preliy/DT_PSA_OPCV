@@ -1,0 +1,28 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="Launcher.uss" />
+    <ui:VisualElement name="launcher-root" class="launcher-root">
+        <ui:VisualElement name="launcher-panel" class="launcher-panel">
+            <ui:VisualElement name="header" class="launcher-header">
+                <ui:Label text="PSA OPCV Digital Twin" name="title" class="launcher-title" />
+                <ui:Label text="Laser welding &amp; assembly system - select a demo scene" name="subtitle" class="launcher-subtitle" />
+            </ui:VisualElement>
+            <ui:VisualElement name="body" class="launcher-body">
+                <ui:ScrollView name="scene-scroll" class="scene-scroll">
+                    <ui:VisualElement name="scene-list" class="scene-list" />
+                </ui:ScrollView>
+                <ui:VisualElement name="detail" class="launcher-detail">
+                    <ui:Label text="No scene selected" name="detail-title" class="detail-title" />
+                    <ui:Label text="Select a demo scene to start." name="detail-description" class="detail-description" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="footer" class="launcher-footer">
+                <ui:Button text="Quit" name="quit-button" class="launcher-button launcher-button--secondary" />
+                <ui:Button text="Start" name="start-button" class="launcher-button launcher-button--primary" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="loading-overlay" class="loading-overlay">
+            <ui:Label text="Loading…" name="loading-label" class="loading-label" />
+            <ui:ProgressBar name="loading-progress" low-value="0" high-value="100" class="loading-progress" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

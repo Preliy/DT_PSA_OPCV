@@ -38,7 +38,7 @@
         "assets": [
           {
             "path": "dist/DT_PSA_OPCV-*-win64.zip",
-            "label": "Windows build - MIL scene (v${nextRelease.version})"
+            "label": "Windows build - demo launcher (v${nextRelease.version})"
           },
           {
             "path": "dist/DT_PSA_OPCV-*-win64.zip.sha256",

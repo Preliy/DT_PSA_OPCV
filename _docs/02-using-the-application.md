@@ -11,6 +11,8 @@ Moving around the twin, and the controls. For installing the toolchain, see
    release](https://github.com/Preliy/DT_PSA_OPCV/releases/latest).
 2. Extract it on your local machine.
 3. Start the `.exe` from the archive folder.
+4. The launcher opens. Pick a demo scene and press **Start** (or double-click it). Only **MIL**
+   runs on its own; **Beckhoff** and **Siemens** need their control platform running first.
 
 ### From the Unity Editor
 
@@ -19,6 +21,7 @@ Open the project in Unity and load the scene for the control platform you are us
 
 | Scene | Use it for |
 |---|---|
+| `Launcher` (in `Unity/Assets/Launcher/Scenes/`) | The entry point of the built application — lists the three scenes below and loads the one you pick |
 | `VC_Demo_1_MIL` | **MIL** — the twin on its own, no PLC. Needs nothing else installed |
 | `VC_Demo_1_Beckhoff_1` | Running against the TwinCAT PLC. Adds the Beckhoff operator panel |
 | `VC_Demo_1_Siemens_1` | The Siemens variant. Adds that vendor's panel — the PLC side is not written yet |
