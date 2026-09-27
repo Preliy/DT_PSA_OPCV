@@ -1,0 +1,14 @@
+{
+    "SceneName": "VC_Demo_1_Beckhoff_1",
+    "Clients": [
+        {
+            "_name": "Client",
+            "_reconnect": true,
+            "_netId": "Local",
+            "_port": 852,
+            "_clearBuffer": true,
+            "_verbose": false
+        }
+    ],
+    "Directories": []
+}

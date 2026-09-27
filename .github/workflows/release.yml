@@ -194,10 +194,10 @@ jobs:
 
   # ------------------------------------------------------------------ 3. build, as the gate
   #
-  # WHAT GETS BUILT. Unity builds whatever EditorBuildSettings lists, and that is exactly one
-  # enabled scene: Assets/Demo_1/Scenes/VC_Demo_1_MIL.unity. No build script and no scene
-  # argument - adding a scene there changes what ships, which is the right place for that
-  # decision to live.
+  # WHAT GETS BUILT. Unity builds whatever EditorBuildSettings lists: the launcher
+  # (Assets/Launcher/Scenes/Launcher.unity, index 0 - the entry point) and the three demo scenes
+  # it offers - MIL, Beckhoff, Siemens. No build script and no scene argument - adding a scene
+  # there changes what ships, which is the right place for that decision to live.
   #
   # WHY UBUNTU CAN BUILD A WINDOWS .EXE. Standalone has no scriptingBackend override in
   # ProjectSettings, so it is Mono, and Mono standalone cross-compiles from Linux. Switching
