@@ -1,5 +1,17 @@
 # Changelog
 
+# [1.1.0](https://github.com/Preliy/DT_PSA_OPCV/compare/v1.0.2...v1.1.0) (2026-09-27)
+
+
+### Bug Fixes
+
+* scene configs ([69905d4](https://github.com/Preliy/DT_PSA_OPCV/commit/69905d4aab419875041435b4ff61403a4e91ff03))
+
+
+### Features
+
+* **unity:** add launcher scene with demo selection ([4e8ab44](https://github.com/Preliy/DT_PSA_OPCV/commit/4e8ab44ca94916bc75e1c5975ca1da9dcf844ec5))
+
 ## [1.0.2](https://github.com/Preliy/DT_PSA_OPCV/compare/v1.0.1...v1.0.2) (2026-09-17)
 
 
