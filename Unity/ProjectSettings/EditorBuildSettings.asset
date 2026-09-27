@@ -6,8 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Launcher/Scenes/Launcher.unity
+    guid: 9a9dc919fb117b94a832b8230573890a
+  - enabled: 1
     path: Assets/Demo_1/Scenes/VC_Demo_1_MIL.unity
     guid: 95986f40f6a551c4a9f7dc43a67fc939
+  - enabled: 1
+    path: Assets/Demo_1/Scenes/VC_Demo_1_Beckhoff_1.unity
+    guid: 2fc3da029dae1f048b17b780876651ff
+  - enabled: 1
+    path: Assets/Demo_1/Scenes/VC_Demo_1_Siemens_1.unity
+    guid: 11262c25e4d1b984bb477a53da638cb8
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 8206edf0164083743a770ff474fe521f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

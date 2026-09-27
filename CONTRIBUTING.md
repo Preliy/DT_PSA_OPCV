@@ -182,7 +182,7 @@ the commit subjects since the last tag.
 |---|---|
 | **Version** | The tag `vX.Y.Z`, with `package.json` and `CHANGELOG.md` written and committed back to `master` |
 | **Changelog** | Release notes generated from the commit subjects since the previous tag, grouped into Features and Bug Fixes — and the same text prepended to `CHANGELOG.md` |
-| **Download** | `DT_PSA_OPCV-vX.Y.Z-win64.zip` — the MIL scene as a Windows executable, with a `.sha256` beside it. Unzip and run: no Unity, no PLC, no clone |
+| **Download** | `DT_PSA_OPCV-vX.Y.Z-win64.zip` — a Windows executable that opens a launcher to pick a demo scene (MIL, Beckhoff, Siemens), with a `.sha256` beside it. Unzip and run: no Unity, no clone, and for MIL no PLC |
 | **Wiki** | Republished from the released tag |
 
 **Nothing is written until everything that could fail already has:**
@@ -201,8 +201,9 @@ workflow and try again.
 The build is downloaded into the release job before semantic-release runs, so the GitHub release
 is created with its download already attached, in one operation. It is never announced empty.
 
-What gets built is whatever `Unity/ProjectSettings/EditorBuildSettings.asset` has enabled — one
-scene today; enabling a second one puts it in the public download.
+What gets built is whatever `Unity/ProjectSettings/EditorBuildSettings.asset` has enabled — the
+launcher at index 0 and the three demo scenes today; enabling another one puts it in the public
+download.
 
 **A Unity licence is required to release.** The build gates the release, so missing or expired
 `UNITY_LICENSE` secrets stop it rather than shipping a release with nothing to download.

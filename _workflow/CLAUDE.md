@@ -93,7 +93,7 @@ reference with `--reference <Vendor>`.
 
 | Path | Status |
 |---|---|
-| `Unity/` | **Active** — the twin itself: the prefab, the scenes, the scripts, the exports |
+| `Unity/` | **Active** — the twin itself: the prefab, the scenes, the scripts, the exports. `Unity/Assets/Launcher/` is the player's entry scene (UI Toolkit demo picker) — not part of the machine, no context export, and deliberately outside `Demo_1/Scenes/` |
 | `_docs/` | **Active** — everything published. `README.md`, `01-`…`07-*.md` and `images/` are hand-written narrative; `context/` is generated; `reference/` is the hand-written behaviour contracts; `config/` holds `modules.json` |
 | `_workflow/` | **Active and published** — how the project is built: `CLAUDE.md`, `README.md` (the skill chain), `CONTEXT-SPEC.md`, `WIKI-SPEC.md`, `skills/`, `settings.json`, `config/modules.json`, and `tools/` — the **wiki tooling** and the **compatibility check**, public because GitHub Actions has to run both |
 | `package.json`, `CHANGELOG.md`, `.releaserc.json` | **Release machinery, tracked.** `package.json` is not a Node package — private, no dependencies, never published. It is where semantic-release writes the version, and that version is what `sync_machine.py` stamps into each module's handoff sidecar as the pairing. Both it and `CHANGELOG.md` are owned by the release bot: **never hand-edit either** |
@@ -414,10 +414,14 @@ These are lifted out of the skills so they are visible without loading one. They
   `master` and the push that merges it; the same `version` job answers both, which is what makes
   the PR comment trustworthy. Do not add a second workflow that recomputes it.
 - **`EditorBuildSettings.asset` decides what ships.** Every release builds the scenes enabled
-  there to a Windows executable and attaches it to the GitHub release — today exactly one,
-  `VC_Demo_1_MIL.unity`. There is no build script and no scene argument, so enabling a second
-  scene there silently puts it in the public download, and disabling the MIL scene silently
-  ships nothing. Standalone has no `scriptingBackend` override, which is why a Linux runner can
+  there to a Windows executable and attaches it to the GitHub release — today the launcher,
+  `Assets/Launcher/Scenes/Launcher.unity`, at **index 0**, then `VC_Demo_1_MIL`,
+  `VC_Demo_1_Beckhoff_1` and `VC_Demo_1_Siemens_1`. Index 0 is what the player opens, so moving
+  the launcher off it silently boots straight into a demo. The launcher's list is authored on its
+  `SceneLauncher` component; an entry whose scene is not enabled here shows as *not in build* and
+  cannot be started. The Beckhoff and Siemens scenes ship but only do something with their
+  control platform running. There is no build script and no scene argument, so enabling another
+  scene there silently puts it in the public download. Standalone has no `scriptingBackend` override, which is why a Linux runner can
   cross-build the `.exe` at all; switching Standalone to IL2CPP would need a Windows runner.
 - **A release publishes the wiki by *calling* `wiki.yml`, not by triggering it.** A release created
   with `GITHUB_TOKEN` does not fire other workflows, so `wiki.yml`'s `release: published` trigger

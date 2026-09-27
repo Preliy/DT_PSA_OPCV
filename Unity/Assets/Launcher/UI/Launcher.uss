@@ -1,0 +1,193 @@
+/* Colours come from the Open Commissioning UI theme (default-theme.uss); fallbacks keep the
+   launcher readable if it is ever rendered with a different panel theme. */
+
+.launcher-root {
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(18, 18, 20);
+}
+
+.launcher-panel {
+    width: 80%;
+    max-width: 900px;
+    min-width: 520px;
+    max-height: 90%;
+    padding: 28px 32px;
+    background-color: var(--panel-color, rgba(0, 0, 0, 0.9));
+    border-radius: var(--toolbar-border-radius, 8px);
+    border-width: 1px;
+    border-color: var(--accent-color, rgb(84, 84, 84));
+}
+
+.launcher-header {
+    margin-bottom: 20px;
+}
+
+.launcher-title {
+    font-size: 28px;
+    -unity-font-style: bold;
+    color: var(--secondary-color, rgb(251, 244, 244));
+    margin: 0;
+    padding: 0;
+}
+
+.launcher-subtitle {
+    font-size: 14px;
+    color: var(--text-color-1, rgb(195, 196, 195));
+    margin: 4px 0 0 0;
+    padding: 0;
+}
+
+.launcher-body {
+    flex-direction: row;
+    flex-shrink: 1;
+    min-height: 220px;
+}
+
+.scene-scroll {
+    width: 45%;
+    margin-right: 20px;
+}
+
+.scene-list {
+    flex-direction: column;
+}
+
+.scene-card {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 0 8px 0;
+    padding: 12px 14px;
+    background-color: var(--button-color, rgb(50, 60, 80));
+    border-radius: var(--border-radius, 4px);
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0);
+    transition-property: background-color, border-color;
+    transition-duration: 0.15s;
+}
+
+.scene-card:hover {
+    background-color: var(--button-color-hover, rgb(60, 70, 90));
+}
+
+.scene-card:focus {
+    border-color: var(--scrollview-selected-item, rgb(71, 122, 176));
+}
+
+.scene-card--selected,
+.scene-card--selected:hover {
+    background-color: var(--button-color-checked, rgb(68, 100, 140));
+    border-color: var(--scrollview-selected-item, rgb(71, 122, 176));
+}
+
+.scene-card--unavailable {
+    opacity: 0.45;
+}
+
+.scene-card__title {
+    font-size: 17px;
+    -unity-font-style: bold;
+    color: var(--secondary-color, rgb(251, 244, 244));
+    margin: 0;
+    padding: 0;
+}
+
+.scene-card__scene {
+    font-size: 11px;
+    color: var(--text-color-1, rgb(195, 196, 195));
+    margin: 2px 0 0 0;
+    padding: 0;
+}
+
+.scene-card__tag {
+    font-size: 11px;
+    -unity-font-style: italic;
+    color: rgb(230, 170, 90);
+    margin: 4px 0 0 0;
+    padding: 0;
+}
+
+.launcher-detail {
+    flex-grow: 1;
+    flex-basis: 0;
+    padding: 14px 16px;
+    background-color: var(--panel-field-background, rgb(32, 32, 32));
+    border-radius: var(--border-radius, 4px);
+}
+
+.detail-title {
+    font-size: 18px;
+    -unity-font-style: bold;
+    color: var(--secondary-color, rgb(251, 244, 244));
+    margin: 0 0 8px 0;
+    padding: 0;
+}
+
+.detail-description {
+    font-size: 14px;
+    white-space: normal;
+    color: var(--text-color-1, rgb(195, 196, 195));
+    margin: 0;
+    padding: 0;
+}
+
+.launcher-footer {
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 24px;
+}
+
+.launcher-button {
+    min-width: 120px;
+    height: 36px;
+    margin: 0 0 0 10px;
+    font-size: 15px;
+    border-radius: var(--border-radius, 4px);
+    border-width: 0;
+    color: var(--secondary-color, rgb(251, 244, 244));
+    transition-property: background-color;
+    transition-duration: 0.15s;
+}
+
+.launcher-button--primary {
+    -unity-font-style: bold;
+    background-color: var(--selected-color, rgb(70, 96, 124));
+}
+
+.launcher-button--primary:hover {
+    background-color: var(--selected-hover-color, rgb(31, 90, 145));
+}
+
+.launcher-button--secondary {
+    background-color: var(--toolbar_button-background, rgb(56, 56, 56));
+}
+
+.launcher-button--secondary:hover {
+    background-color: var(--toolbar_button-background-hover, rgb(66, 66, 66));
+}
+
+.launcher-button:disabled {
+    opacity: 0.4;
+}
+
+.loading-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+.loading-label {
+    font-size: 18px;
+    color: var(--secondary-color, rgb(251, 244, 244));
+    margin-bottom: 12px;
+}
+
+.loading-progress {
+    width: 360px;
+}
