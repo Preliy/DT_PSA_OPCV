@@ -65,7 +65,7 @@ jobs:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
@@ -83,7 +83,7 @@ jobs:
     permissions:
       contents: write        # pushing to <repo>.wiki.git
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           # release.yml passes the tag it just cut. The version bump lands AFTER the
           # commit that started that run, and every published page carries a "Published
