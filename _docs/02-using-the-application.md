@@ -55,7 +55,8 @@ Mode** in the left side panel.
 
 ![The application window](images/UI_MainPage.png)
 
-The interface has three main operating modules, numbered in the picture above.
+The interface has three main operating modules, numbered in the picture above. Press **F4** to hide
+all of it and show only the scene — see [4.1 Hiding the interface](#41-hiding-the-interface).
 
 ### 1–9 · Left side panel
 
@@ -86,8 +87,21 @@ machine itself.
 | Key | Does |
 |---|---|
 | **Selection + F** | Jumps the camera to the selected object in the scene |
+| **F4** | Hide or show the whole user interface |
 | **F12** | Switch between full screen and windowed mode |
 | **ESC** | Exit the application |
+
+### 4.1 Hiding the interface
+
+**F4** hides every UI element at once — the left side panel, the time panel, the industrial panels,
+tooltips and any open windows — and leaves only the 3D scene, for screenshots, recordings or a clean
+view of the machine. Press **F4** again to bring it back.
+
+- It works in every scene, the launcher included.
+- While the interface is hidden, clicks go to the scene. The camera controls in
+  [2.1](#21-camera-control) still work.
+- Hiding only changes what is drawn. Panels keep their state, and the machine keeps running.
+- Loading another scene always shows the interface again.
 
 ## 5. Operating the machine
 
