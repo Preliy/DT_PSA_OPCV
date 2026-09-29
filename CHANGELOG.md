@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.1.1](https://github.com/Preliy/DT_PSA_OPCV/compare/v1.1.0...v1.1.1) (2026-09-29)
+
+
+### Bug Fixes
+
+* **docs:** F4 description ([27b3065](https://github.com/Preliy/DT_PSA_OPCV/commit/27b306511a25d690776c1f193bdb7fc5c5452f01))
+* frame rate limiter ([4665820](https://github.com/Preliy/DT_PSA_OPCV/commit/4665820139edb6ba718d2ea13170ff9901d0a98f))
+* UI visibility toggle ([622cda5](https://github.com/Preliy/DT_PSA_OPCV/commit/622cda5a2db46e9eda7a214bb66b3c4597eca552))
+
 # [1.1.0](https://github.com/Preliy/DT_PSA_OPCV/compare/v1.0.2...v1.1.0) (2026-09-27)
 
 
