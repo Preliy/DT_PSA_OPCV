@@ -31,9 +31,9 @@ realises it.
                     ┌──────────────────────────┴──────────────────┐
                     ▼                                             ▼
               Beckhoff/ TwinCAT_1                          Siemens/ TIA_1
-              PLC_1  control, port 851                     work in progress
-                    │ EtherCAT
-               real master ⇄ EtherCAT_1_SIM
+              PLC_1  control, port 851                     TIA V19 archive → PLCSIM Advanced
+                    │ EtherCAT                                    │ OC Assistant plugin
+               real master ⇄ EtherCAT_1_SIM                 EmulationUnit/SIM_1 (its own)
                     │
    Unity ── ADS ── SIM_1  twin devices, port 852
 
@@ -44,7 +44,7 @@ realises it.
 |---|---|---|
 | Unity twin | `Unity/` | Digital twin of the machinery, on Open Commissioning + `com.pillar.context` |
 | **Beckhoff** | `Beckhoff/` | TwinCAT 3: `TwinCAT_1/PLC/PLC_1` (control), `SIM_1` (twin devices), `TwinCAT_1/HMI` (TE2000). **Active.** |
-| **Siemens** | `Siemens/` | TIA port — **work in progress**. Has its own Unity scene and export; no PLC knowledge base yet |
+| **Siemens** | `Siemens/` | TIA Portal V19 PLC + HMI (`TIA_1/Archive/*.zap19`) on PLCSIM Advanced, and a TwinCAT `TIA_1/EmulationUnit` reached through the OC Assistant PLCSIM Advanced plugin. **Active**, maintained by Andreas Fast at `slickz44/DT_PSA_OPCV_Siemens`. Hand-written `_docs/` (setup, framework); no generated knowledge base, no handoff |
 
 **Each vendor module is a separate repository**, cloned into this root and **gitignored here** so
 the two git repos do not collide. `_workflow/config/modules.json` declares which exist; `COMPATIBILITY.md`
@@ -61,6 +61,7 @@ module builds from a standalone clone with no main repo present.
 git clone https://github.com/Preliy/DT_PSA_OPCV.git
 cd DT_PSA_OPCV
 git clone https://github.com/Preliy/DT_PSA_OPCV_Beckhoff.git Beckhoff   # optional
+git clone https://github.com/slickz44/DT_PSA_OPCV_Siemens.git Siemens   # optional
 git clone <the tooling repo> _private          # maintainers only - the generators
 ```
 
@@ -100,7 +101,7 @@ reference with `--reference <Vendor>`.
 | `_private/` | **Gitignored — its own repository. The generators that read the Unity export, and nothing else** |
 | `_wiki/` | **Generated and gitignored** — a build artifact, not a tracked copy. **This repository's `_docs/` only**; a module builds its own. `build_wiki.py` writes it, `publish_wiki.py` pushes it. Never hand-edit, never commit |
 | `Beckhoff/` | **Active** — a separate repository cloned in here. Read `Beckhoff/CLAUDE.md` before touching anything in it |
-| `Siemens/` | A separate repository. Its Unity scene and export live in **this** repo and are read by the root build; the module itself holds no `_private/` yet. `Siemens/TIA_1/` is a **parked TwinCAT template, not the TIA program** — ignore that folder |
+| `Siemens/` | **Active** — a separate repository, maintained outside this account (`slickz44/DT_PSA_OPCV_Siemens`). Its Unity scene and export live in **this** repo and are read by the root build; the module holds no `_private/` and no handoff. `TIA_1/Archive/` is the TIA Portal V19 program, `TIA_1/EmulationUnit/` its TwinCAT emulation project. Its own `_workflow/CLAUDE.md` still describes the old stub — trust its `README.md` and `_docs/` over it |
 | `*/_data/` | Third-party sources, in every module — **read only on explicit permission from the user** |
 | `_archive/` | Hard archive — **ignore entirely** |
 

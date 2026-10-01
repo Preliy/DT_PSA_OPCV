@@ -66,7 +66,7 @@ Then follow the **[Setup guide](_docs/01-setup.md)**. Everything else is in the
 | Platform | Repository | Status |
 |---|---|---|
 | Beckhoff TwinCAT 3 | [DT_PSA_OPCV_Beckhoff](https://github.com/Preliy/DT_PSA_OPCV_Beckhoff) | ✅ Done |
-| Siemens TIA Portal | [DT_PSA_OPCV_Siemens](https://github.com/Preliy/DT_PSA_OPCV_Siemens) | 🚧 Work in progress |
+| Siemens TIA Portal | [DT_PSA_OPCV_Siemens](https://github.com/slickz44/DT_PSA_OPCV_Siemens) | ✅ Done — TIA Portal V19 on PLCSIM Advanced, maintained by [Andreas Fast](https://github.com/slickz44) |
 
 Which module version pairs with which twin is in [COMPATIBILITY.md](COMPATIBILITY.md).
 

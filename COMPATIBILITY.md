@@ -7,7 +7,8 @@ you clone into the main repo's root:
 ```bash
 git clone https://github.com/Preliy/DT_PSA_OPCV.git
 cd DT_PSA_OPCV
-git clone https://github.com/Preliy/DT_PSA_OPCV_Beckhoff.git Beckhoff
+git clone https://github.com/Preliy/DT_PSA_OPCV_Beckhoff.git Beckhoff    # Beckhoff / TwinCAT
+git clone https://github.com/slickz44/DT_PSA_OPCV_Siemens.git Siemens    # Siemens / TIA Portal
 ```
 
 The module paths are gitignored here, so the two git repositories do not collide: inside `Beckhoff/`
@@ -19,16 +20,12 @@ it. Take only the platform you use — a Siemens user has no reason to fetch a T
 <!-- BEGIN GENERATED - do not edit between the markers. -->
 | Module | Platform | Version | Tested | Built against | Verdict |
 |---|---|---|---|---|---|
-| [Beckhoff](https://github.com/Preliy/DT_PSA_OPCV_Beckhoff) | Beckhoff TwinCAT 3 | 1.0.0 | 1.0.0 | export `5010e82 2026-08-23` | behind |
-| [Siemens](https://github.com/Preliy/DT_PSA_OPCV_Siemens) | Siemens TIA Portal | 0.1.0 | 0.1.0 | — | not a consumer |
+| [Beckhoff](https://github.com/Preliy/DT_PSA_OPCV_Beckhoff) | Beckhoff TwinCAT 3 | 1.0.0 | 1.0.0 | export `f310945 2026-08-28` | current |
+| [Siemens](https://github.com/slickz44/DT_PSA_OPCV_Siemens) | Siemens TIA Portal | 0.1.0 | 0.1.0 | — | not a consumer |
 
-**This twin is** `unreleased`, carrying machine schema `2`, export `f310945 2026-08-28`.
+**This twin is** `1.0.0`, carrying machine schema `2`, export `f310945 2026-08-28`.
 
 _Beckhoff, Siemens — read from the local checkout rather than the published repository, so unpushed work is included._
-
-**Notes**
-
-- **Beckhoff** — module's machine snapshot differs from this repo's (module export `5010e82 2026-08-23`, this repo `f310945 2026-08-28`)
 <!-- END GENERATED -->
 
 **Clone the module at the version in the `Tested` column.** That is the pairing that was actually

@@ -10,7 +10,7 @@ exists because breaking it fails **silently**.
 
 | | |
 |---|---|
-| **Connect another control system** | Rockwell, CODESYS, B&R, Omron, Siemens, your own soft PLC — nobody has done any of them. The machine's structure is published as JSON and its behaviour as a platform-neutral contract, so you implement against a spec rather than guessing. **[See how the setups fit together](_docs/04-plc-connectivity.md)** — this is the most interesting work in the project |
+| **Connect another control system** | Rockwell, CODESYS, B&R, Omron, your own soft PLC — Beckhoff and Siemens are done, nobody has started the others. The machine's structure is published as JSON and its behaviour as a platform-neutral contract, so you implement against a spec rather than guessing. **[See how the setups fit together](_docs/04-plc-connectivity.md)** — this is the most interesting work in the project |
 | **Get HIL working** | Everything here was validated in SIL, on an emulated runtime. Real controller hardware uses the same mechanism, but its concrete steps are still missing from [PLC connectivity](_docs/04-plc-connectivity.md) |
 | **Fill a setup gap** | The TwinCAT gaps in the [Beckhoff setup guide](https://github.com/Preliy/DT_PSA_OPCV_Beckhoff/blob/master/_docs/01-setup.md) — ADS route, EtherCAT simulation pairing, licence activation, OC Assistant install. Blank because nobody has captured them from a working install, not because they are secret |
 | **Report what does not work** | Especially a setup step that fails on a fresh machine |
@@ -48,8 +48,8 @@ directory is gitignored here, so `../Beckhoff/…` is dead for anyone who did no
 ### Behaviour is machine-level; realisation belongs to the platform
 
 [`_docs/reference/`](_docs/reference/) holds **contracts**. They were written from the TwinCAT
-program, because that is where the behaviour was first made to work — but a Siemens implementation
-has to honour the same ones. A control module documents its *realisation* of a contract, never a
+program, because that is where the behaviour was first made to work — but the Siemens implementation
+is held to the same ones, and so is any platform after it. A control module documents its *realisation* of a contract, never a
 second version of the contract.
 
 Conversely: **never write a control-platform fact into this repository.** Function blocks, terminal
