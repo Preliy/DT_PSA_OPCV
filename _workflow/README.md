@@ -237,7 +237,7 @@ re-exported from a ready Editor in the same session.
 | `Unity/Assets/StreamingAssets/<Scene>_Context.json` | The raw export, one per scene | The Unity exporter |
 | `Unity/Assets/StreamingAssets/<Scene>_Project_Tree.xml` | OC's independent device tree, one per scene | OC Assistant |
 | `Beckhoff/` | The TwinCAT projects, their knowledge base in `_docs/`, their skills and handoff in `_workflow/`, their tools in `_private/` | The Beckhoff skills, and you — see `Beckhoff/_workflow/README.md` in that module |
-| `Siemens/` | Stub for the TIA port. Its Unity scene and export live in **this** repo | Not yet |
+| `Siemens/` | The TIA Portal V19 project archive, its TwinCAT EmulationUnit, and hand-written setup and framework guides in `_docs/`. Its Unity scene and export live in **this** repo | Its maintainer, Andreas Fast — see that module's `README.md` |
 
 Both vendor paths are **separate repositories** cloned into this root and gitignored here, so the two
 git repos do not collide. `modules.json` declares them; `COMPATIBILITY.md` explains the pairing.

@@ -49,7 +49,7 @@ One machine, one prefab - `Unity/Assets/Demo_1/Prefabs/Machine_1.prefab` - insta
 This repository is master for **structure**. Each vendor module is master for how that structure is realised in a control platform, and keeps its own knowledge base:
 
 - **Beckhoff** (Beckhoff TwinCAT 3) — [the machine in Beckhoff](https://github.com/Preliy/DT_PSA_OPCV_Beckhoff/blob/master/_docs/context/machine.md)
-- **Siemens** (Siemens TIA Portal) — [DT_PSA_OPCV_Siemens](https://github.com/Preliy/DT_PSA_OPCV_Siemens), _no knowledge base published yet_
+- **Siemens** (Siemens TIA Portal) — [DT_PSA_OPCV_Siemens](https://github.com/slickz44/DT_PSA_OPCV_Siemens), _no knowledge base published yet_
 
 ## How the groups drive each other
 

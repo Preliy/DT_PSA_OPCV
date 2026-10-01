@@ -133,8 +133,8 @@ build overwrites it. Change the Unity scene instead — see
 
 Behaviour is written by hand because it cannot be read out of anything — a sequence is a decision,
 and guessing one from a hierarchy produces something plausible and wrong. It is written once and
-platform-neutrally, so a Siemens implementation has to satisfy exactly the same contract the TwinCAT
-one does.
+platform-neutrally, so the Siemens implementation is held to exactly the same contract the TwinCAT
+one is.
 
 Realisation is one answer per platform, so it lives with that platform and nowhere else.
 

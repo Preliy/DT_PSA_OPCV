@@ -12,7 +12,7 @@ other side of that fieldbus.
 | Platform | Status | Documentation |
 |---|---|---|
 | **Beckhoff / TwinCAT 3** | **Working today** — control program, twin device layer, TE2000 web HMI | [Setup, usage, and how the PLC projects are organised](https://github.com/Preliy/DT_PSA_OPCV_Beckhoff/blob/master/_docs/README.md) · [wiki](https://github.com/Preliy/DT_PSA_OPCV_Beckhoff/wiki) |
-| **Siemens / TIA Portal** | **In progress.** The Unity scene and its operator panel exist; the PLC program is not written | — |
+| **Siemens / TIA Portal** | **Working today** — TIA Portal V19 PLC and HMI on PLCSIM Advanced, maintained by [Andreas Fast](https://github.com/slickz44) | [Setup guide](https://github.com/slickz44/DT_PSA_OPCV_Siemens/blob/master/_docs/setup.md) · [Operating the machine and the framework](https://github.com/slickz44/DT_PSA_OPCV_Siemens/blob/master/_docs/framework.md) · [video walkthrough](https://youtu.be/DnUcnGoN3U8) |
 | **Anything else** | Wide open — **and this is where help is most wanted** | [Section 4](#4-bring-your-own-control-system) |
 
 A platform is a **separate, optional repository** cloned into this repo's root. Which ones are
@@ -50,6 +50,10 @@ GVL is the interface to the PLCSIM Advanced I/O. OC Assistant manages the plugin
 Unity ⇄ SIM_1 ⇄ PLCSIM Advanced plugin ⇄ PLCSIM Advanced ⇄ TIA Portal project
 ```
 
+This is the setup the Siemens module runs. Its emulation project, the PLCSIM Advanced instance and
+the connection settings are documented by the
+[Siemens module](https://github.com/slickz44/DT_PSA_OPCV_Siemens/blob/master/_docs/setup.md).
+
 ### Digital twin with a Siemens PLC
 
 Same base setup again. OC Assistant scans the **PROFINET** fieldbus and creates the emulation unit as
@@ -67,10 +71,12 @@ Then open that platform's scene:
 | Scene | Platform |
 |---|---|
 | `VC_Demo_1_Beckhoff_1` | Beckhoff / TwinCAT |
-| `VC_Demo_1_Siemens_1` | Siemens — scene only, for now |
+| `VC_Demo_1_Siemens_1` | Siemens / TIA Portal |
 
 The step-by-step procedure belongs to the platform: for TwinCAT it is
-[`Beckhoff/_docs/01-setup.md`](https://github.com/Preliy/DT_PSA_OPCV_Beckhoff/blob/master/_docs/01-setup.md).
+[`Beckhoff/_docs/01-setup.md`](https://github.com/Preliy/DT_PSA_OPCV_Beckhoff/blob/master/_docs/01-setup.md),
+for TIA Portal it is
+[`Siemens/_docs/setup.md`](https://github.com/slickz44/DT_PSA_OPCV_Siemens/blob/master/_docs/setup.md).
 This repository does not repeat a vendor's install steps, because nothing here would keep them true.
 
 ### SIL or HIL
@@ -99,8 +105,9 @@ If you get it working, that is one of the most useful contributions you could se
 
 ## 4. Bring your own control system
 
-Beckhoff runs this machine today because that is what was built first. **Nothing in the twin is
-Beckhoff-shaped**, and nothing in this repository needs editing to accept another platform.
+Beckhoff and Siemens run this machine today. **Nothing in the twin is shaped by either of them**,
+and nothing in this repository needs editing to accept another platform — the Siemens module was
+added as a scene and a declaration, exactly as described below.
 
 ### What you are given
 
