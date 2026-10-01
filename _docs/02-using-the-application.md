@@ -24,7 +24,7 @@ Open the project in Unity and load the scene for the control platform you are us
 | `Launcher` (in `Unity/Assets/Launcher/Scenes/`) | The entry point of the built application — lists the three scenes below and loads the one you pick |
 | `VC_Demo_1_MIL` | **MIL** — the twin on its own, no PLC. Needs nothing else installed |
 | `VC_Demo_1_Beckhoff_1` | Running against the TwinCAT PLC. Adds the Beckhoff operator panel |
-| `VC_Demo_1_Siemens_1` | The Siemens variant. Adds that vendor's panel — the PLC side is not written yet |
+| `VC_Demo_1_Siemens_1` | Running against the TIA Portal PLC on PLCSIM Advanced. Adds the Siemens operator panel |
 
 **With a PLC, start the runtime first, then enter Play mode.** The twin binds its devices on
 connect, so a runtime that appears later is a runtime the twin never found. The rest of that
@@ -133,7 +133,7 @@ actually run the sequence belongs to the platform:
 | Platform | How to run it |
 |---|---|
 | **Beckhoff / TwinCAT** | [Beckhoff usage guide](https://github.com/Preliy/DT_PSA_OPCV_Beckhoff/blob/master/_docs/02-usage.md) |
-| **Siemens / TIA** | Not yet — the control side does not exist |
+| **Siemens / TIA** | [Siemens framework guide — first steps and machine startup](https://github.com/slickz44/DT_PSA_OPCV_Siemens/blob/master/_docs/framework.md#first-steps-get-the-machine-running) |
 | **Your own** | [04 · PLC connectivity](04-plc-connectivity.md) |
 
 ## 6. What you are looking at

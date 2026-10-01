@@ -57,7 +57,9 @@ works](03-how-it-works.md) explains why.
 
 **Installation, licensing and versions are the vendor's own, and are documented by the module that
 owns them** — for TwinCAT, the [Beckhoff setup
-guide](https://github.com/Preliy/DT_PSA_OPCV_Beckhoff/blob/master/_docs/01-setup.md). This page does
+guide](https://github.com/Preliy/DT_PSA_OPCV_Beckhoff/blob/master/_docs/01-setup.md); for TIA Portal
+and PLCSIM Advanced, the [Siemens setup
+guide](https://github.com/slickz44/DT_PSA_OPCV_Siemens/blob/master/_docs/setup.md). This page does
 not repeat them, because nothing here would keep them true.
 
 ### Tooling
@@ -108,7 +110,8 @@ That is everything you need to run the twin on its own. To drive it with a PLC y
 platform's module, which is a **separate repository cloned into this directory**:
 
 ```bash
-git clone https://github.com/Preliy/DT_PSA_OPCV_Beckhoff.git Beckhoff
+git clone https://github.com/Preliy/DT_PSA_OPCV_Beckhoff.git Beckhoff    # Beckhoff / TwinCAT
+git clone https://github.com/slickz44/DT_PSA_OPCV_Siemens.git Siemens    # Siemens / TIA Portal
 ```
 
 Take only the platform you use — the modules are optional and independent, and a Siemens user has no

@@ -36,12 +36,12 @@
       "description": "The Beckhoff realisation: PLC_1 control on the SPT framework, SIM_1 twin devices, TE2000 HMI"
     },
     "Siemens": {
-      "url": "https://github.com/Preliy/DT_PSA_OPCV_Siemens",
+      "url": "https://github.com/slickz44/DT_PSA_OPCV_Siemens",
       "branch": "master",
       "tested": "0.1.0",
       "platform": "Siemens TIA Portal",
       "knowledgeBase": false,
-      "description": "TIA port - work in progress. The Unity scene is real; the control side does not exist yet"
+      "description": "The Siemens realisation, maintained by Andreas Fast (slickz44): a TIA Portal V19 PLC and HMI project run on PLCSIM Advanced, plus the TwinCAT EmulationUnit that reaches it through the OC Assistant plugin. Publishes a setup and a framework guide, but no knowledge base"
     }
   }
 }

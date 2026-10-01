@@ -43,7 +43,7 @@ Each control platform is a **separate repository** with its own dependencies and
 Nothing in this file covers them:
 
 - [DT_PSA_OPCV_Beckhoff](https://github.com/Preliy/DT_PSA_OPCV_Beckhoff)
-- [DT_PSA_OPCV_Siemens](https://github.com/Preliy/DT_PSA_OPCV_Siemens)
+- [DT_PSA_OPCV_Siemens](https://github.com/slickz44/DT_PSA_OPCV_Siemens) — by Andreas Fast, GPL-3.0
 
 ## Corrections
 
