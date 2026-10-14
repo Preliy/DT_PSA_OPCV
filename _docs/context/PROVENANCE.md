@@ -9,8 +9,8 @@ Read this before trusting anything else in `_docs/context/`.
 |---|---|
 | Scene | `VC_Demo_1_Beckhoff_1` |
 | Exported (UTC) | `2026-10-14T20:03:08.0167801Z` |
-| Export commit | `f310945 2026-08-28` |
-| Export uncommitted | **yes - working tree is ahead of git** |
+| Export commit | `4de76f0 2026-10-15` |
+| Export uncommitted | no |
 | Reference scene | `VC_Demo_1_Beckhoff_1` (Beckhoff) |
 | Nodes | 184 |
 | Max depth | 7 (JsonUtility truncates past ~7-10) |
