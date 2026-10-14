@@ -5,12 +5,13 @@
 
 **A pneumatic cylinder. Travels between a retracted and an extended end position, taking real time to get there, and reports when it arrives.**
 
-Twin device type · twin FB `FB_Cylinder` · **35 instances** in FG_01, FG_03, FG_04, FG_05, FG_Transport · Unity component `OC.Components.Cylinder`
+Twin device type · twin FB `FB_Cylinder` · **33 instances** in FG_01, FG_03, FG_04, FG_05, FG_Transport · Unity component `OC.Components.Cylinder`
 
 ## What it is
 
-The workhorse of the machine: 35 of the 83 devices are cylinders. Stoppers, lifts, grippers, gates
-and the press are all cylinders. A real one is driven by air through one or two solenoid valves and
+The workhorse of the machine: 33 of the 87 devices are cylinders. Stoppers, index lifts, grippers,
+gates and the press are all cylinders; only the two lift units' carriages are servo axes
+([DrivePosition](driveposition.md)). A real one is driven by air through one or two solenoid valves and
 usually has a sensor at each end of its stroke telling the PLC it has arrived.
 
 ## What the PLC sees
@@ -30,8 +31,8 @@ the real machine.
 
 Travel is a stroke completed over a configured time — half a second by default, separately settable
 for each direction — mapped onto the part's actual movement through a motion curve. The two end
-positions are set per instance, so the same component drives a 10 mm gripper jaw and a full lift
-stroke.
+positions are set per instance, so the same component drives a 10 mm gripper jaw and a full index
+lift stroke.
 
 Three valve types, set per instance:
 
@@ -53,7 +54,7 @@ Three valve types, set per instance:
 
 ## In this machine
 
-There are **35** of them, in FG_01, FG_03, FG_04, FG_05, FG_Transport:
+There are **33** of them, in FG_01, FG_03, FG_04, FG_05, FG_Transport:
 
 | Device | Twin PLC path | Group | Role / Signal |
 |---|---|---|---|
@@ -86,8 +87,6 @@ There are **35** of them, in FG_01, FG_03, FG_04, FG_05, FG_Transport:
 | `Y_Stopper` | `MAIN.FG_Transport.Index04_Y_Stopper` | FG_Transport | Double solenoid with both limits read. RETRACTED (min) holds the pallet; EXTENDING (max) releases it - the blade drops out of the way. |
 | `Y_Lift` | `MAIN.FG_Transport.Index05_Y_Lift` | FG_Transport | Double solenoid with both limits read. EXTENDED raises the carriage and fixes the pallet clear of the belt; retracted is home. |
 | `Y_Stopper` | `MAIN.FG_Transport.Index05_Y_Stopper` | FG_Transport | Double solenoid with both limits read. RETRACTED (min) holds the pallet; EXTENDING (max) releases it - the blade drops out of the way. |
-| `Y_Lift` | `MAIN.FG_Transport.Lift01_Y_Lift` | FG_Transport | Double solenoid with both limits read. Moves the carriage between the lower and upper conveyor levels. |
-| `Y_Lift` | `MAIN.FG_Transport.Lift02_Y_Lift` | FG_Transport | Double solenoid with both limits read. Moves the carriage between the lower and upper conveyor levels. |
 | `Y_Stopper` | `MAIN.FG_Transport.Stopper01_Y_Stopper` | FG_Transport | Double solenoid with both limits read. RETRACTED (min) holds the pallet; EXTENDING (max) releases it - the blade drops out of the way. |
 | `Y_Stopper` | `MAIN.FG_Transport.Stopper02_Y_Stopper` | FG_Transport | Double solenoid with both limits read. RETRACTED (min) holds the pallet; EXTENDING (max) releases it - the blade drops out of the way. |
 | `Y_Stopper` | `MAIN.FG_Transport.Stopper03_Y_Stopper` | FG_Transport | Double solenoid with both limits read. RETRACTED (min) holds the pallet; EXTENDING (max) releases it - the blade drops out of the way. |

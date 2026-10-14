@@ -75,11 +75,11 @@ namespace Preliy.Demo
         {
             if (_reverseDirection)
             {
-                yield return _lift.MoveTo(0, _liftDriveSpeed);;
+                yield return _lift.MoveTo(0, _liftDriveSpeed);
             }
             else
             {
-                yield return _lift.MoveTo(_liftTopPosition, _liftDriveSpeed);;
+                yield return _lift.MoveTo(_liftTopPosition, _liftDriveSpeed);
             }
             
             ChangeState(Occupied);

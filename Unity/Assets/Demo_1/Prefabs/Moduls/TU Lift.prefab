@@ -542,11 +542,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Pilar.Context::Pilar.Context.ContextNode
   _entries:
   - key: Function
-    value: Lift cylinder. Drives the carriage between the lower and upper conveyor
+    value: Lift servo drive. Positions the carriage between the lower and upper conveyor
       levels.
   - key: Signal
-    value: Double solenoid with both limits read. Moves the carriage between the
-      lower and upper conveyor levels.
+    value: Position-controlled. Referenced on B_AxisMin, which reads 0 mm; the lower
+      conveyor level is at 10 mm and the upper at 364 mm.
   - key: Caution
     value: The carriage belt may only run while this is AT a level. Between levels
       the belt drives the pallet into a fixed edge.
@@ -5847,7 +5847,7 @@ MonoBehaviour:
   _direction: 1
   _type: 0
   _controlMode: 0
-  _updateLoop: 1
+  _updateLoop: 0
 --- !u!114 &4361635252483876386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10882,7 +10882,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9093580364819369669}
   - component: {fileID: 1584330366515369687}
-  - component: {fileID: 8907143873303458932}
+  - component: {fileID: 6135924348382867239}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -10926,7 +10926,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.017139513, y: 0.02895175, z: 0.07139026}
   m_Center: {x: 0.0020242755, y: -0.00086126477, z: -0.0010796338}
---- !u!114 &8907143873303458932
+--- !u!114 &6135924348382867239
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16336,7 +16336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2382628837202104780, guid: b1ed7a465bf8e1148b8ad865924f49b6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.03012
+      value: -0.0301
       objectReference: {fileID: 0}
     - target: {fileID: 2382628837202104780, guid: b1ed7a465bf8e1148b8ad865924f49b6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -16344,7 +16344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2382628837202104780, guid: b1ed7a465bf8e1148b8ad865924f49b6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.30201972
+      value: 0.3065
       objectReference: {fileID: 0}
     - target: {fileID: 2382628837202104780, guid: b1ed7a465bf8e1148b8ad865924f49b6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -16704,6 +16704,28 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8807106517301252348}
     m_Modifications:
+    - target: {fileID: 1307102641081823463, guid: b1ed7a465bf8e1148b8ad865924f49b6, type: 3}
+      propertyPath: _entries.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1307102641081823463, guid: b1ed7a465bf8e1148b8ad865924f49b6, type: 3}
+      propertyPath: _entries.Array.data[0].key
+      value: Function
+      objectReference: {fileID: 0}
+    - target: {fileID: 1307102641081823463, guid: b1ed7a465bf8e1148b8ad865924f49b6, type: 3}
+      propertyPath: _entries.Array.data[1].key
+      value: Signal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1307102641081823463, guid: b1ed7a465bf8e1148b8ad865924f49b6, type: 3}
+      propertyPath: _entries.Array.data[0].value
+      value: Lower travel limit of the carriage and its homing reference. Made at
+        the bottom of travel, below the lower conveyor level.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1307102641081823463, guid: b1ed7a465bf8e1148b8ad865924f49b6, type: 3}
+      propertyPath: _entries.Array.data[1].value
+      value: 'Travel limit: while made, motion further down is blocked. Referencing
+        sets the axis position here to 0 mm.'
+      objectReference: {fileID: 0}
     - target: {fileID: 2382628837202104780, guid: b1ed7a465bf8e1148b8ad865924f49b6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.0469
@@ -16764,6 +16786,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: B_AxisMin
       objectReference: {fileID: 0}
+    - target: {fileID: 6386003031695435441, guid: b1ed7a465bf8e1148b8ad865924f49b6, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7218648714126138200, guid: b1ed7a465bf8e1148b8ad865924f49b6, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -16786,6 +16812,27 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8807106517301252348}
     m_Modifications:
+    - target: {fileID: 1307102641081823463, guid: b1ed7a465bf8e1148b8ad865924f49b6, type: 3}
+      propertyPath: _entries.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1307102641081823463, guid: b1ed7a465bf8e1148b8ad865924f49b6, type: 3}
+      propertyPath: _entries.Array.data[0].key
+      value: Function
+      objectReference: {fileID: 0}
+    - target: {fileID: 1307102641081823463, guid: b1ed7a465bf8e1148b8ad865924f49b6, type: 3}
+      propertyPath: _entries.Array.data[1].key
+      value: Signal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1307102641081823463, guid: b1ed7a465bf8e1148b8ad865924f49b6, type: 3}
+      propertyPath: _entries.Array.data[0].value
+      value: Upper travel limit of the carriage. Made at the top of travel, above
+        the upper conveyor level.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1307102641081823463, guid: b1ed7a465bf8e1148b8ad865924f49b6, type: 3}
+      propertyPath: _entries.Array.data[1].value
+      value: 'Travel limit: while made, motion further up is blocked.'
+      objectReference: {fileID: 0}
     - target: {fileID: 2382628837202104780, guid: b1ed7a465bf8e1148b8ad865924f49b6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.0469
@@ -16845,6 +16892,10 @@ PrefabInstance:
     - target: {fileID: 6386003031695435441, guid: b1ed7a465bf8e1148b8ad865924f49b6, type: 3}
       propertyPath: m_Name
       value: B_AxisMax
+      objectReference: {fileID: 0}
+    - target: {fileID: 6386003031695435441, guid: b1ed7a465bf8e1148b8ad865924f49b6, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7218648714126138200, guid: b1ed7a465bf8e1148b8ad865924f49b6, type: 3}
       propertyPath: m_IsActive

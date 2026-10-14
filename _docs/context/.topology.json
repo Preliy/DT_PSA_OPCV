@@ -1,6 +1,6 @@
 {
-  "probedAtUtc": "2026-08-23T17:11:57Z",
-  "scene": "VC_Demo_1_Siemens_1",
+  "probedAtUtc": "2026-10-14T20:07:33Z",
+  "scene": "VC_Demo_1_Beckhoff_1",
   "units": [
     {
       "name": "FG_Transport",
@@ -16,6 +16,8 @@
       "scenePath": "Project/FG_Transport/Lift01",
       "component": "SequenceTransferLift",
       "next": "Project/FG_Transport/Stopper03",
+      "liftDriveSpeed": 180,
+      "liftTopPosition": 354,
       "log": false,
       "reverseDirection": false,
       "devices": {
@@ -30,6 +32,8 @@
       "scenePath": "Project/FG_Transport/Lift02",
       "component": "SequenceTransferLift",
       "next": "Project/FG_Transport/Stopper01",
+      "liftDriveSpeed": 180,
+      "liftTopPosition": 354,
       "log": false,
       "reverseDirection": true,
       "devices": {
@@ -268,6 +272,7 @@
       "scenePath": "Project/FG_05",
       "component": "SequenceUnit5",
       "devices": {
+        "_capStopper": "Y_CapsSourceStopper",
         "_gripper": "Y_Gripper",
         "_part": "B_Part",
         "_r1": "Y_AxisR",

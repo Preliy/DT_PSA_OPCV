@@ -8,7 +8,7 @@
 | Scene path | `Project/FG_Transport` |
 | Twin PLC path | `MAIN.FG_Transport` |
 | Served by | — |
-| Symbols | 42 |
+| Symbols | 46 |
 | Behaviour | [`transport-behaviour.md`](../reference/transport-behaviour.md) |
 
 Two level pallet conveyor in the Bosch TS style. Circulates pallets past the five processing stations and returns them.
@@ -81,14 +81,18 @@ Rendered from `Stopper01`. Stands for `Stopper01`, `Stopper02`, `Stopper03`, `St
 | [4](#modul-index-overview) | `B_Exit` | [SensorBinary](devices/sensorbinary.md) | `FB_SensorBinary` | `MAIN.FG_Transport.Index05_B_Exit` | Exit sensor just past the stopper. Confirms the released pallet has actually left before the unit returns to idle. |
 | [2](#modul-index-overview) | `Y_Lift` | [Cylinder](devices/cylinder.md) | `FB_Cylinder` | `MAIN.FG_Transport.Index05_Y_Lift` | Index lift cylinder. Raises the pallet off the conveyor to a repeatable position and fixes the payload while the station works on it. |
 | [1](#modul-index-overview) | `Y_Stopper` | [Cylinder](devices/cylinder.md) | `FB_Cylinder` | `MAIN.FG_Transport.Index05_Y_Stopper` | Stopper cylinder. Retracted holds an incoming pallet at the station; extending releases it once the next station is free. |
+| — | `B_AxisMax` | [SensorBinary](devices/sensorbinary.md) | `FB_SensorBinary` | `MAIN.FG_Transport.Lift01_B_AxisMax` | Upper travel limit of the carriage. Made at the top of travel, above the upper conveyor level. |
+| — | `B_AxisMin` | [SensorBinary](devices/sensorbinary.md) | `FB_SensorBinary` | `MAIN.FG_Transport.Lift01_B_AxisMin` | Lower travel limit of the carriage and its homing reference. Made at the bottom of travel, below the lower conveyor level. |
 | [3](#modul-lift-overview) | `B_Detect` | [SensorBinary](devices/sensorbinary.md) | `FB_SensorBinary` | `MAIN.FG_Transport.Lift01_B_Detect` | Presence sensor on the lift carriage. Confirms a pallet is aboard before the carriage moves. |
 | [4](#modul-lift-overview) | `B_Exit` | [SensorBinary](devices/sensorbinary.md) | `FB_SensorBinary` | `MAIN.FG_Transport.Lift01_B_Exit` | Exit sensor on the lift. Confirms the pallet has transferred off the carriage. |
 | [2](#modul-lift-overview) | `M_Conveyor` | [DriveSimple](devices/drivesimple.md) | `FB_Drive` | `MAIN.FG_Transport.Lift01_M_Conveyor` | Drive for the conveyor section on the lift carriage. |
-| [1](#modul-lift-overview) | `Y_Lift` | [Cylinder](devices/cylinder.md) | `FB_Cylinder` | `MAIN.FG_Transport.Lift01_Y_Lift` | Lift cylinder. Drives the carriage between the lower and upper conveyor levels. |
+| [1](#modul-lift-overview) | `Y_Lift` | [DrivePosition](devices/driveposition.md) | `FB_Sercos_VC` | `MAIN.FG_Transport.Lift01_Y_Lift` | Lift servo drive. Positions the carriage between the lower and upper conveyor levels. |
+| — | `B_AxisMax` | [SensorBinary](devices/sensorbinary.md) | `FB_SensorBinary` | `MAIN.FG_Transport.Lift02_B_AxisMax` | Upper travel limit of the carriage. Made at the top of travel, above the upper conveyor level. |
+| — | `B_AxisMin` | [SensorBinary](devices/sensorbinary.md) | `FB_SensorBinary` | `MAIN.FG_Transport.Lift02_B_AxisMin` | Lower travel limit of the carriage and its homing reference. Made at the bottom of travel, below the lower conveyor level. |
 | [3](#modul-lift-overview) | `B_Detect` | [SensorBinary](devices/sensorbinary.md) | `FB_SensorBinary` | `MAIN.FG_Transport.Lift02_B_Detect` | Presence sensor on the lift carriage. Confirms a pallet is aboard before the carriage moves. |
 | [4](#modul-lift-overview) | `B_Exit` | [SensorBinary](devices/sensorbinary.md) | `FB_SensorBinary` | `MAIN.FG_Transport.Lift02_B_Exit` | Exit sensor on the lift. Confirms the pallet has transferred off the carriage. |
 | [2](#modul-lift-overview) | `M_Conveyor` | [DriveSimple](devices/drivesimple.md) | `FB_Drive` | `MAIN.FG_Transport.Lift02_M_Conveyor` | Drive for the conveyor section on the lift carriage. |
-| [1](#modul-lift-overview) | `Y_Lift` | [Cylinder](devices/cylinder.md) | `FB_Cylinder` | `MAIN.FG_Transport.Lift02_Y_Lift` | Lift cylinder. Drives the carriage between the lower and upper conveyor levels. |
+| [1](#modul-lift-overview) | `Y_Lift` | [DrivePosition](devices/driveposition.md) | `FB_Sercos_VC` | `MAIN.FG_Transport.Lift02_Y_Lift` | Lift servo drive. Positions the carriage between the lower and upper conveyor levels. |
 | [2](#modul-stopper-overview) | `B_Detect` | [SensorBinary](devices/sensorbinary.md) | `FB_SensorBinary` | `MAIN.FG_Transport.Stopper01_B_Detect` | Presence sensor at the stop position. Tells the unit a pallet is waiting. |
 | [3](#modul-stopper-overview) | `B_Exit` | [SensorBinary](devices/sensorbinary.md) | `FB_SensorBinary` | `MAIN.FG_Transport.Stopper01_B_Exit` | Exit sensor past the stopper. Confirms the released pallet has left before the unit accepts the next one. |
 | [1](#modul-stopper-overview) | `Y_Stopper` | [Cylinder](devices/cylinder.md) | `FB_Cylinder` | `MAIN.FG_Transport.Stopper01_Y_Stopper` | Stopper cylinder. Retracted holds the pallet at this accumulation point; extending releases it when the next position is free. |
@@ -126,21 +130,25 @@ Transport02:       # grouping, not a device
   M_Conveyor:      # DriveSimple
   Surface:         # grouping, not a device
 Lift01:            # grouping, not a device
-  Y_Lift:          # Cylinder
+  Y_Lift:          # DrivePosition
   Axis_Lift:       # grouping, not a device
     TU_Linear:     # grouping, not a device
       M_Conveyor:  # DriveSimple
       Surface:     # grouping, not a device
     B_Detect:      # SensorBinary
   B_Exit:          # SensorBinary
+  B_AxisMin:       # SensorBinary
+  B_AxisMax:       # SensorBinary
 Lift02:            # grouping, not a device
-  Y_Lift:          # Cylinder
+  Y_Lift:          # DrivePosition
   Axis_Lift:       # grouping, not a device
     TU_Linear:     # grouping, not a device
       M_Conveyor:  # DriveSimple
       Surface:     # grouping, not a device
     B_Detect:      # SensorBinary
   B_Exit:          # SensorBinary
+  B_AxisMin:       # SensorBinary
+  B_AxisMax:       # SensorBinary
 Index01:           # grouping, not a device
   Y_Stopper:       # Cylinder
     Axis:          # grouping, not a device
@@ -247,8 +255,8 @@ Twin animation: [`SequenceConveyor.cs`](../../Unity/Assets/Demo_1/Scripts/MIL/Se
 - *Function* — Vertical transfer between the two conveyor levels. Takes a pallet on its own short conveyor, moves it to the other level and hands it on.
 - *Role* — Lift 1. Raises pallets from the lower accumulation level to the upper processing level, feeding Index01.
 
-**Y_Lift** — `MAIN.FG_Transport.Lift01_Y_Lift` · Cylinder
-- *Signal* — Double solenoid with both limits read. Moves the carriage between the lower and upper conveyor levels.
+**Y_Lift** — `MAIN.FG_Transport.Lift01_Y_Lift` · DrivePosition
+- *Signal* — Position-controlled. Referenced on B_AxisMin, which reads 0 mm; the lower conveyor level is at 10 mm and the upper at 364 mm.
 
 **Axis_Lift** — `MAIN.FG_Transport.Lift01_Axis_Lift` · not a PLC symbol
 - *Function* — Kinematic axis of the lift carriage, driven by Y_Lift.
@@ -270,12 +278,18 @@ Twin animation: [`SequenceConveyor.cs`](../../Unity/Assets/Demo_1/Scripts/MIL/Se
 **B_Exit** — `MAIN.FG_Transport.Lift01_B_Exit` · SensorBinary
 - *Signal* — Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.
 
+**B_AxisMin** — `MAIN.FG_Transport.Lift01_B_AxisMin` · SensorBinary
+- *Signal* — Travel limit: while made, motion further down is blocked. Referencing sets the axis position here to 0 mm.
+
+**B_AxisMax** — `MAIN.FG_Transport.Lift01_B_AxisMax` · SensorBinary
+- *Signal* — Travel limit: while made, motion further up is blocked.
+
 **Lift02** — `MAIN.FG_Transport.Lift02` · not a PLC symbol
 - *Function* — Vertical transfer between the two conveyor levels. Takes a pallet on its own short conveyor, moves it to the other level and hands it on.
 - *Role* — Lift 2. Lowers pallets from the upper level after FG_05 onto the return conveyor.
 
-**Y_Lift** — `MAIN.FG_Transport.Lift02_Y_Lift` · Cylinder
-- *Signal* — Double solenoid with both limits read. Moves the carriage between the lower and upper conveyor levels.
+**Y_Lift** — `MAIN.FG_Transport.Lift02_Y_Lift` · DrivePosition
+- *Signal* — Position-controlled. Referenced on B_AxisMin, which reads 0 mm; the lower conveyor level is at 10 mm and the upper at 364 mm.
 
 **Axis_Lift** — `MAIN.FG_Transport.Lift02_Axis_Lift` · not a PLC symbol
 - *Function* — Kinematic axis of the lift carriage, driven by Y_Lift.
@@ -296,6 +310,12 @@ Twin animation: [`SequenceConveyor.cs`](../../Unity/Assets/Demo_1/Scripts/MIL/Se
 
 **B_Exit** — `MAIN.FG_Transport.Lift02_B_Exit` · SensorBinary
 - *Signal* — Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level.
+
+**B_AxisMin** — `MAIN.FG_Transport.Lift02_B_AxisMin` · SensorBinary
+- *Signal* — Travel limit: while made, motion further down is blocked. Referencing sets the axis position here to 0 mm.
+
+**B_AxisMax** — `MAIN.FG_Transport.Lift02_B_AxisMax` · SensorBinary
+- *Signal* — Travel limit: while made, motion further up is blocked.
 
 **Index01** — `MAIN.FG_Transport.Index01` · not a PLC symbol
 - *Function* — Pallet index station. Stops an incoming pallet, lifts it to a stable position to fix the payload, triggers the functional group it serves, then releases the pallet to the next station.

@@ -888,6 +888,46 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1982067114751242226, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
+      propertyPath: _entries.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982067114751242226, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
+      propertyPath: _entries.Array.data[2].key
+      value: oc.plcPath
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982067114751242226, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
+      propertyPath: _entries.Array.data[3].key
+      value: oc.deviceType
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982067114751242226, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
+      propertyPath: _entries.Array.data[2].value
+      value: MAIN.FG_Transport.Lift01_B_AxisMax
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982067114751242226, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
+      propertyPath: _entries.Array.data[3].value
+      value: SensorBinary
+      objectReference: {fileID: 0}
+    - target: {fileID: 2333836214194198109, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
+      propertyPath: _entries.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2333836214194198109, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
+      propertyPath: _entries.Array.data[2].key
+      value: oc.plcPath
+      objectReference: {fileID: 0}
+    - target: {fileID: 2333836214194198109, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
+      propertyPath: _entries.Array.data[3].key
+      value: oc.deviceType
+      objectReference: {fileID: 0}
+    - target: {fileID: 2333836214194198109, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
+      propertyPath: _entries.Array.data[2].value
+      value: MAIN.FG_Transport.Lift01_B_AxisMin
+      objectReference: {fileID: 0}
+    - target: {fileID: 2333836214194198109, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
+      propertyPath: _entries.Array.data[3].value
+      value: SensorBinary
+      objectReference: {fileID: 0}
     - target: {fileID: 3149254189970911906, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
       propertyPath: m_Name
       value: Project
@@ -931,6 +971,54 @@ PrefabInstance:
     - target: {fileID: 3845323154026550130, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3957745139143063427, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
+      propertyPath: _entries.Array.data[2].value
+      value: DrivePosition
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726611341261540904, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
+      propertyPath: _entries.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726611341261540904, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
+      propertyPath: _entries.Array.data[2].key
+      value: oc.plcPath
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726611341261540904, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
+      propertyPath: _entries.Array.data[3].key
+      value: oc.deviceType
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726611341261540904, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
+      propertyPath: _entries.Array.data[2].value
+      value: MAIN.FG_Transport.Lift02_B_AxisMax
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726611341261540904, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
+      propertyPath: _entries.Array.data[3].value
+      value: SensorBinary
+      objectReference: {fileID: 0}
+    - target: {fileID: 7851252232877479513, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
+      propertyPath: _entries.Array.data[2].value
+      value: DrivePosition
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825524582401046407, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
+      propertyPath: _entries.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825524582401046407, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
+      propertyPath: _entries.Array.data[2].key
+      value: oc.plcPath
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825524582401046407, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
+      propertyPath: _entries.Array.data[3].key
+      value: oc.deviceType
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825524582401046407, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
+      propertyPath: _entries.Array.data[2].value
+      value: MAIN.FG_Transport.Lift02_B_AxisMin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825524582401046407, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
+      propertyPath: _entries.Array.data[3].value
+      value: SensorBinary
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

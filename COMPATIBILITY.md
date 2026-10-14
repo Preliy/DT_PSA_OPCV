@@ -20,7 +20,7 @@ it. Take only the platform you use — a Siemens user has no reason to fetch a T
 <!-- BEGIN GENERATED - do not edit between the markers. -->
 | Module | Platform | Version | Tested | Built against | Verdict |
 |---|---|---|---|---|---|
-| [Beckhoff](https://github.com/Preliy/DT_PSA_OPCV_Beckhoff) | Beckhoff TwinCAT 3 | 1.0.0 | 1.0.0 | export `f310945 2026-08-28` | current |
+| [Beckhoff](https://github.com/Preliy/DT_PSA_OPCV_Beckhoff) | Beckhoff TwinCAT 3 | 1.0.0 | 1.0.0 | main 1.0.0 (export `f310945 2026-08-28`) | current |
 | [Siemens](https://github.com/slickz44/DT_PSA_OPCV_Siemens) | Siemens TIA Portal | 0.1.0 | 0.1.0 | — | not a consumer |
 
 **This twin is** `1.0.0`, carrying machine schema `2`, export `f310945 2026-08-28`.

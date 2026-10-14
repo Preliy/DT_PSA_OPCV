@@ -5,7 +5,7 @@
 
 **A presence sensor. Reports whether something is inside its beam — one bit, no commands.**
 
-Twin device type · twin FB `FB_SensorBinary` · **25 instances** in FG_01, FG_05, FG_Transport · Unity component `OC.Components.SensorBinary`
+Twin device type · twin FB `FB_SensorBinary` · **29 instances** in FG_01, FG_05, FG_Transport · Unity component `OC.Components.SensorBinary`
 
 ## What it is
 
@@ -31,7 +31,7 @@ Each instance can be inverted, for a sensor whose real-world contact is normally
 
 ## In this machine
 
-There are **25** of them, in FG_01, FG_05, FG_Transport:
+There are **29** of them, in FG_01, FG_05, FG_Transport:
 
 | Device | Twin PLC path | Group | Role / Signal |
 |---|---|---|---|
@@ -48,8 +48,12 @@ There are **25** of them, in FG_01, FG_05, FG_Transport:
 | `B_Exit` | `MAIN.FG_Transport.Index04_B_Exit` | FG_Transport | Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level. |
 | `B_Detect` | `MAIN.FG_Transport.Index05_B_Detect` | FG_Transport | Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it. |
 | `B_Exit` | `MAIN.FG_Transport.Index05_B_Exit` | FG_Transport | Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level. |
+| `B_AxisMax` | `MAIN.FG_Transport.Lift01_B_AxisMax` | FG_Transport | Travel limit: while made, motion further up is blocked. |
+| `B_AxisMin` | `MAIN.FG_Transport.Lift01_B_AxisMin` | FG_Transport | Travel limit: while made, motion further down is blocked. Referencing sets the axis position here to 0 mm. |
 | `B_Detect` | `MAIN.FG_Transport.Lift01_B_Detect` | FG_Transport | Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it. |
 | `B_Exit` | `MAIN.FG_Transport.Lift01_B_Exit` | FG_Transport | Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level. |
+| `B_AxisMax` | `MAIN.FG_Transport.Lift02_B_AxisMax` | FG_Transport | Travel limit: while made, motion further up is blocked. |
+| `B_AxisMin` | `MAIN.FG_Transport.Lift02_B_AxisMin` | FG_Transport | Travel limit: while made, motion further down is blocked. Referencing sets the axis position here to 0 mm. |
 | `B_Detect` | `MAIN.FG_Transport.Lift02_B_Detect` | FG_Transport | Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it. |
 | `B_Exit` | `MAIN.FG_Transport.Lift02_B_Exit` | FG_Transport | Binary presence sensor. Its RISING EDGE clears the transfer latch, in every PackML state. Read the edge, never the level. |
 | `B_Detect` | `MAIN.FG_Transport.Stopper01_B_Detect` | FG_Transport | Binary presence sensor. Active while a pallet is at this station. Occupied and CanAccept are computed from it. |

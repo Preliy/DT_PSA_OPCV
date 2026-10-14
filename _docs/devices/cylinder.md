@@ -8,8 +8,9 @@ Status:    Status
 
 ## What it is
 
-The workhorse of the machine: 35 of the 83 devices are cylinders. Stoppers, lifts, grippers, gates
-and the press are all cylinders. A real one is driven by air through one or two solenoid valves and
+The workhorse of the machine: 33 of the 87 devices are cylinders. Stoppers, index lifts, grippers,
+gates and the press are all cylinders; only the two lift units' carriages are servo axes
+([DrivePosition](driveposition.md)). A real one is driven by air through one or two solenoid valves and
 usually has a sensor at each end of its stroke telling the PLC it has arrived.
 
 ## What the PLC sees
@@ -29,8 +30,8 @@ the real machine.
 
 Travel is a stroke completed over a configured time — half a second by default, separately settable
 for each direction — mapped onto the part's actual movement through a motion curve. The two end
-positions are set per instance, so the same component drives a 10 mm gripper jaw and a full lift
-stroke.
+positions are set per instance, so the same component drives a 10 mm gripper jaw and a full index
+lift stroke.
 
 Three valve types, set per instance:
 

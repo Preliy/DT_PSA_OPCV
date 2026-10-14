@@ -3,7 +3,7 @@
 
 # PLC symbols
 
-Every device that is a real PLC symbol: it carries `oc.deviceType` and **neither** `oc.aggregatedBy` **nor** `oc.simulationDevice`. 83 of them.
+Every device that is a real PLC symbol: it carries `oc.deviceType` and **neither** `oc.aggregatedBy` **nor** `oc.simulationDevice`. 87 of them.
 
 Devices excluded by that test are listed under their group's own page, so nobody generates a symbol for a panel button or a simulation-only device.
 
@@ -70,14 +70,18 @@ Devices excluded by that test are listed under their group's own page, so nobody
 | `B_Exit` | `MAIN.FG_Transport.Index05_B_Exit` | SensorBinary | `?` | FG_Transport |
 | `Y_Lift` | `MAIN.FG_Transport.Index05_Y_Lift` | Cylinder | `?` | FG_Transport |
 | `Y_Stopper` | `MAIN.FG_Transport.Index05_Y_Stopper` | Cylinder | `?` | FG_Transport |
+| `B_AxisMax` | `MAIN.FG_Transport.Lift01_B_AxisMax` | SensorBinary | `?` | FG_Transport |
+| `B_AxisMin` | `MAIN.FG_Transport.Lift01_B_AxisMin` | SensorBinary | `?` | FG_Transport |
 | `B_Detect` | `MAIN.FG_Transport.Lift01_B_Detect` | SensorBinary | `FB_SensorBinary` | FG_Transport |
 | `B_Exit` | `MAIN.FG_Transport.Lift01_B_Exit` | SensorBinary | `?` | FG_Transport |
 | `M_Conveyor` | `MAIN.FG_Transport.Lift01_M_Conveyor` | DriveSimple | `?` | FG_Transport |
-| `Y_Lift` | `MAIN.FG_Transport.Lift01_Y_Lift` | Cylinder | `?` | FG_Transport |
+| `Y_Lift` | `MAIN.FG_Transport.Lift01_Y_Lift` | DrivePosition | `?` | FG_Transport |
+| `B_AxisMax` | `MAIN.FG_Transport.Lift02_B_AxisMax` | SensorBinary | `?` | FG_Transport |
+| `B_AxisMin` | `MAIN.FG_Transport.Lift02_B_AxisMin` | SensorBinary | `?` | FG_Transport |
 | `B_Detect` | `MAIN.FG_Transport.Lift02_B_Detect` | SensorBinary | `FB_SensorBinary` | FG_Transport |
 | `B_Exit` | `MAIN.FG_Transport.Lift02_B_Exit` | SensorBinary | `?` | FG_Transport |
 | `M_Conveyor` | `MAIN.FG_Transport.Lift02_M_Conveyor` | DriveSimple | `?` | FG_Transport |
-| `Y_Lift` | `MAIN.FG_Transport.Lift02_Y_Lift` | Cylinder | `?` | FG_Transport |
+| `Y_Lift` | `MAIN.FG_Transport.Lift02_Y_Lift` | DrivePosition | `?` | FG_Transport |
 | `B_Detect` | `MAIN.FG_Transport.Stopper01_B_Detect` | SensorBinary | `FB_SensorBinary` | FG_Transport |
 | `B_Exit` | `MAIN.FG_Transport.Stopper01_B_Exit` | SensorBinary | `?` | FG_Transport |
 | `Y_Stopper` | `MAIN.FG_Transport.Stopper01_Y_Stopper` | Cylinder | `?` | FG_Transport |
@@ -100,7 +104,7 @@ Devices excluded by that test are listed under their group's own page, so nobody
 | Group | Symbols |
 |---|---:|
 | [FG_System](fg-system.md) | 10 |
-| [FG_Transport](fg-transport.md) | 42 |
+| [FG_Transport](fg-transport.md) | 46 |
 | [FG_01](fg-01.md) | 9 |
 | [FG_02](fg-02.md) | 1 |
 | [FG_03](fg-03.md) | 9 |
@@ -115,11 +119,12 @@ The interface a device type presents - its control function block, its process-i
 |---|---:|
 | [Button](devices/button.md) | 2 |
 | [ControlBunker](devices/controlbunker.md) | 1 |
-| [Cylinder](devices/cylinder.md) | 35 |
+| [Cylinder](devices/cylinder.md) | 33 |
 | [DataReader](devices/datareader.md) | 3 |
+| [DrivePosition](devices/driveposition.md) | 2 |
 | [DriveSimple](devices/drivesimple.md) | 4 |
 | [LinkByte](devices/linkbyte.md) | 1 |
 | [Lock](devices/lock.md) | 6 |
 | [PanelSampler](devices/panelsampler.md) | 2 |
-| [SensorBinary](devices/sensorbinary.md) | 25 |
+| [SensorBinary](devices/sensorbinary.md) | 29 |
 | [SignalBinary](devices/signalbinary.md) | 4 |
