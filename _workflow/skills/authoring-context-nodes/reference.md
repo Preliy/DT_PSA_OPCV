@@ -135,7 +135,7 @@ A node is a real PLC symbol when it carries `oc.deviceType` and **neither** `oc.
 `oc.simulationDevice`. Both of the latter are inferred from a disabled `Link`, which OC overloads —
 splitting them is what makes either claim truthful, and downstream code generation must skip both.
 
-**83 of the 180 nodes are PLC symbols**, matching the scene's `_Project_Tree.xml` exactly.
+**87 of the 184 nodes are PLC symbols**, matching the scene's `_Project_Tree.xml` exactly.
 The 13 that are not:
 
 | Count | Nodes | Key | Why |
