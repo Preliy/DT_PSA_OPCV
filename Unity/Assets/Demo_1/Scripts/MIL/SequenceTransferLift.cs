@@ -10,12 +10,16 @@ namespace Preliy.Demo
         [Header("Settings")] 
         [SerializeField]
         private bool _reverseDirection;
+        [SerializeField]
+        private float _liftDriveSpeed = 100f;
+        [SerializeField]
+        private float _liftTopPosition = 354;
         
         [Header("References")]
         [SerializeField]
         private DriveSimple _conveyor;
         [SerializeField]
-        private Cylinder _lift;
+        private DrivePosition _lift;
         [SerializeField]
         private SensorBinary _sensorDetect;
         [SerializeField]
@@ -41,11 +45,11 @@ namespace Preliy.Demo
         {
             if (_reverseDirection)
             {
-                yield return _lift.MoveToMax();
+                yield return _lift.MoveTo(_liftTopPosition, _liftDriveSpeed);
             }
             else
             {
-                yield return _lift.MoveToMin();
+                yield return _lift.MoveTo(0, _liftDriveSpeed);
             }
             
             _conveyor.Backward.Value = false;
@@ -71,11 +75,11 @@ namespace Preliy.Demo
         {
             if (_reverseDirection)
             {
-                yield return _lift.MoveToMin();
+                yield return _lift.MoveTo(0, _liftDriveSpeed);;
             }
             else
             {
-                yield return _lift.MoveToMax();
+                yield return _lift.MoveTo(_liftTopPosition, _liftDriveSpeed);;
             }
             
             ChangeState(Occupied);

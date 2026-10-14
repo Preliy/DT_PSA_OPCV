@@ -876,6 +876,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 609309367730723036, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
+      propertyPath: _link._type
+      value: FB_Sercos_VC
+      objectReference: {fileID: 0}
     - target: {fileID: 681349332705207747, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -923,6 +927,10 @@ PrefabInstance:
     - target: {fileID: 3845323154026550130, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5939491267089627398, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
+      propertyPath: _link._type
+      value: FB_Sercos_VC
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
