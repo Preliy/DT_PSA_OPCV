@@ -312,7 +312,7 @@ These are lifted out of the skills so they are visible without loading one. They
   plausible invented `Function` entry is worse than no entry, because it will be believed.
 - **`oc.plcPath` does not prove a PLC symbol exists.** Every node carries one, including pure Unity
   grouping. A node is a symbol when it has `oc.deviceType` and **neither** `oc.aggregatedBy` **nor**
-  `oc.simulationDevice`. 83 of 180 nodes pass.
+  `oc.simulationDevice`. 87 of 184 nodes pass.
 - **The twin path is not the control path.** The twin says `MAIN.FG_01.P_Camera`; a control platform
   spells it differently — TwinCAT says `MAIN.Machine.FG_01.P_Camera` — and the twin's spelling fails
   silently in a link and in an HMI binding. The root page states the twin path only; the **verified**
@@ -333,12 +333,15 @@ These are lifted out of the skills so they are visible without loading one. They
   getters computed from the sensors and one transfer latch, so they are correct in every PackML state
   and mode. A stored flag maintained only inside `Execute` is stale everywhere else — that is what
   put two pallets on one lift carriage. Never reintroduce a `_Ready`.
-- **A reset must terminate on time and on its own cylinders.** Never on another unit, and never on an
+- **A reset must terminate on time and on its own actuators.** Never on another unit, and never on an
   event that may not arrive. Both violations of this shipped and both deadlocked the whole group —
   see the reset section of `transport-behaviour.md` before writing any `Resetting`.
 - **A reset may *branch* on a sensor but must never *wait* on one.** FG_03 and FG_05 sample their
   grip sensors once at `Resetting` step 0 and read the snapshot thereafter; a live read inside a
   waiting step is the same deadlock as waiting on another unit. See `gripper-station-reset.md`.
+  **The one exception is referencing a lift's carriage axis** on its own `B_AxisMin`: a search
+  that waits for the reference sensor by nature, run only when the axis has no reference, and
+  bounded by one timeout that raises fault 9. See §3 and §4 of `transport-behaviour.md`.
 - **A gripper's cylinder limit is not a grip witness.** Jaws closed on *nothing* reach `.Extended`
   sooner than jaws closed on a part, so `.Extended` is true either way. Only `B_Detect*` says a part
   is held.

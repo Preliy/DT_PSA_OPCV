@@ -19,7 +19,15 @@ unity command editor_play       # run one — e.g. enter Play mode
 unity command eval 'new UnityEngine.GameObject("Joe");'
 ```
 
-Requires the project's `com.unity.pipeline` package (Unity 6.0+) — add it once with `unity pipeline install`. Full details — launching a headless Editor to drive, `unity list` tool discovery, and authoring custom `[CliCommand]` tools — are in [integration-advanced.md](references/integration-advanced.md).
+Requires the project's `com.unity.pipeline` package (Unity 6.0+) — add it once with `unity pipeline install`.
+
+> **This project pins `com.unity.pipeline` at `0.7.0-exp.1`. Do not `unity pipeline upgrade` past it.**
+> 0.6.0 is the minimum for argument passing (`context_get --target …` fails on 0.5 and older with
+> "too old to parse command lines"). 0.8.0 moved `CliCommand` / `CliArg` into
+> `Unity.Pipeline.Attributes`, and `com.pillar.context` — which provides every `context_*` command —
+> no longer compiles against it; the Editor then keeps running the old assemblies and every
+> argument-taking command fails. Lift the pin only together with a `com.pillar.context` release that
+> imports the new namespace. Full details — launching a headless Editor to drive, `unity list` tool discovery, and authoring custom `[CliCommand]` tools — are in [integration-advanced.md](references/integration-advanced.md).
 
 ## Step 1: Install the CLI (if not already installed)
 
