@@ -56,7 +56,7 @@ CanAccept := <at home / blocking> AND NOT B_Detect.Active
 |---|---|---|
 | Stopper | `FB_TransferStopper.TcPOU:429` | `:378` |
 | Index | `FB_TransferIndex.TcPOU:504` | `:434` |
-| Lift | `FB_TransferLift.TcPOU:624` (`AtHome`) | `:556` |
+| Lift | `FB_TransferLift.TcPOU:201` (`AtHome`, derived from the carriage position — §3) | `:614` |
 
 **Why derived matters.** The previous design stored `_Ready` and `_Occupied` and only maintained them
 inside `Execute`. Every other PackML state either wiped them or left them stale, which meant a reset
@@ -112,8 +112,8 @@ per direction, initialising `FALSE`.
 |---|---|---|---|
 | Stopper | `_Transferring` (`:61`) | commit to release, `:247` | rising edge of `B_Exit`, `:185-188` |
 | Index | `_Transferring` (`:63`) | commit to release, `:296` | rising edge of `B_Exit`, `:196-199` |
-| Lift | `_LoadingIn` (`:67`) | belt starts drawing in, `:348` | rising edge of `B_Detect`, `:227-229` |
-| Lift | `_UnloadingOut` (`:68`) | commit to push off, `:394` | rising edge of `B_Exit`, `:230-232` |
+| Lift | `_LoadingIn` (`:55`) | belt starts drawing in, `:372` | rising edge of `B_Detect`, `:255-257` |
+| Lift | `_UnloadingOut` (`:56`) | commit to push off, `:418` | rising edge of `B_Exit`, `:258-260` |
 
 On the stopper and index the latch **is** `SendToNext` (`:511`, `:608`) — handing over and being
 mid-crossing are the same fact, so keeping them as one variable means they cannot disagree.
@@ -123,7 +123,7 @@ mid-crossing are the same fact, so keeping them as one variable means they canno
 **a. Clear on an edge, never a level.** `B_Exit` may still be made by the *previous* pallet when the
 next release commits, which would clear the latch instantly and drop `Occupied` while a pallet was
 about to cross. `R_TRIG` instances at `FB_TransferStopper.TcPOU:67`, `FB_TransferIndex.TcPOU:69`,
-`FB_TransferLift.TcPOU:74-75`.
+`FB_TransferLift.TcPOU:62-63`.
 
 **b. The witness may not be a live command.** An earlier version qualified the clear with
 `Y_Stopper.Extended` (stopper) and `M_Conveyor.RunForward/Backward` (lift). `Stopping` and `Aborting`
@@ -134,7 +134,7 @@ erase.
 
 **c. Arm only when the ending sensor is clear.** A latch armed while its ending sensor is already
 made will never see a rising edge and stays `TRUE` for ever. Hence `B_Detect` is tested *first* at the
-lift's `Execute` step 20 (`:333-340`), and `_UnloadingOut := NOT B_Exit.Active` at step 60 (`:394`).
+lift's `Execute` step 20 (`:363-372`), and `_UnloadingOut := NOT B_Exit.Active` at step 60 (`:418`).
 
 **d. Arm once, on the transition — never inside the waiting step.** `CyclicLogic` clears the latch
 before the state method runs, so a step that re-asserts it every scan re-sets it on the very scan it
@@ -142,11 +142,56 @@ was cleared. Both commits are on the transition into the pushing step, not insid
 
 ---
 
-## 3. The two lift invariants
+## 3. The lift — carriage axis and invariants
+
+### The carriage is a positioned axis
+
+The lift carriage is driven by a **servo axis** (`Y_Lift`), not a cylinder. It has no end-position
+switches; where it stands is read from its position, measured from a reference.
+
+| Fact | Value |
+|---|---|
+| Reference | `B_AxisMin`, at the bottom of travel. Referencing sets the position there to **0 mm** |
+| Lower conveyor level | **10 mm** |
+| Upper conveyor level | **364 mm** |
+| At a level | referenced **and** within ±1 mm of the level (`AtLevel`, `:182`) |
+| Travel limits | `B_AxisMin` and `B_AxisMax`. A made limit sensor forbids motion further in its own direction — in every state and mode — and always allows motion away from it (`:288-289`). Once referenced, software position limits of −2 / 370 mm apply as well |
+
+**`AtHome` and `AtFar` are derived from the position every time they are read**, like every other
+readiness fact here. Lift01 (`ReverseDirection = FALSE`) loads at the lower level and delivers to the
+upper; Lift02 is the mirror image. **An axis that is not referenced is at no level** — so until a
+reset has referenced it, the belt guard below stays shut and `CanAccept` stays `FALSE`. That is
+deliberate: an unreferenced position is a number, not a fact.
+
+### The Lift station cycle
+
+`FB_TransferLift.Execute`, Production mode. Like the ring, it loops and never completes.
+
+| Step | Action | Advances on | Fault |
+|---:|---|---|---|
+| 0 | belt off. A pallet aboard → step 40; otherwise command the home level | — | |
+| 10 | wait for the carriage at the home level and at rest | `AtHome` | **1** no home |
+| 20 | pallet aboard → 40; announced by the predecessor → belt draws in, arm `_LoadingIn` | `PayloadIncoming` | |
+| 30 | belt running inwards | `B_Detect` | **2** pallet never arrived aboard |
+| 40 | settle | 500 ms | |
+| 50 | command the far level — issued once | move accepted | **3** travel failed |
+| 55 | wait for the carriage at the far level and at rest; then **explicitly** to 60 | `AtFar` | **3** travel failed |
+| 60 | successor can accept; arm `_UnloadingOut` if `B_Exit` is clear | `NextCanAccept` | |
+| 70 | belt pushes out | `B_Exit` | **4** pallet never left |
+| 80 | belt off, back to 0 | — | |
+
+A level move is **issued once and then watched**, never re-issued every scan: the motion command is
+fire-and-forget, and the arrival test is the derived position, not the command's own status.
+
+**Steps are numbered by target, not by `+ 10`, once the chain is not a plain decade.** Step 55 used
+to advance with `+ 10` like its neighbours and landed on 65, a step that does not exist — the lift
+stood at the far level with the pallet aboard and the belt off, with no fault and no timeout.
+
+### The invariants
 
 **The carriage belt may only run while the carriage is at a level.** Between levels the belt drives
 the pallet into a fixed edge. Enforced in `CyclicLogic` for every state and every mode — including
-Manual, where the operator jogs the belt by hand — at `FB_TransferLift.TcPOU:262`:
+Manual, where the operator jogs the belt by hand — at `FB_TransferLift.TcPOU:279`:
 
 ```iecst
 IF NOT (AtHome OR AtFar) THEN
@@ -159,11 +204,17 @@ END_IF
 is what makes `Resetting` safe: with a latch set it may run the belt without testing the axis; with no
 latch set nothing spans the gap, so the axis is free to move. The whole reset routing rests on it.
 
-A second guard above it (`:255-260`) restricts the belt to `Execute` and `Resetting`. Note that guard
+A second guard above it (`:268-272`) restricts the belt to `Execute` and `Resetting`. Note that guard
 runs **before** `SUPER^.CyclicLogic()`, so it does not merely veto the output for a scan — it erases
 the request the state method set on the previous scan, before the drive evaluates it. A state left out
 of that condition cannot move a conveyor at all, however plainly its code commands one. The same shape
 guards the main conveyors at `FG_Transport.TcPOU:151`.
+
+**A stop halts the carriage where it stands; an abort also takes the power off it.** `Stopping` is
+orderly and `Resetting` resumes from wherever the carriage halted. `Aborting` — the safety chain's
+answer — must not rely on a servo holding position under power, so it removes the power once the
+axis is at rest, and does not wait for rest on an axis that is in error. `Resetting` powers the axis
+again before it moves it.
 
 ---
 
@@ -177,17 +228,25 @@ A reset re-establishes **where the pallets are**. It does not deliver anything.
 3. Loose pallets travel up against the blocking stoppers and **accumulate** where a detect sensor can
    see them.
 4. Each station waits a fixed `_AccumulateTime` (5 s, `FB_TransferStopper.TcPOU:86`,
-   `FB_TransferIndex.TcPOU:99`, `FB_TransferLift.TcPOU:101`), then clears its transfer latch and
+   `FB_TransferIndex.TcPOU:99`, `FB_TransferLift.TcPOU:91`), then clears its transfer latch and
    completes. After that, each station's state is simply what its sensor says.
 
 Arming lines: `FB_TransferStopper.TcPOU:494`, `FB_TransferIndex.TcPOU:594`,
-`FB_TransferLift.TcPOU:748`.
+`FB_TransferLift.TcPOU:802`.
 
 The lift additionally finishes any interrupted crossing first — direction from the latch, belt only,
-axis untouched — then homes (`FB_TransferLift.TcPOU:683-748`).
+axis untouched — then powers the axis, **references it only if it has no reference**, and moves to
+the home level (`FB_TransferLift.Resetting`, steps 30–40). The reference survives every PackML
+state, so in practice only the first reset after a power-up references; every later one goes
+straight to the home level.
 
-> **The rule this produced: a reset must terminate on time and on its own cylinders. Never on another
+> **The rule this produced: a reset must terminate on time and on its own actuators. Never on another
 > unit, and never on an event that may not arrive.**
+
+**Referencing is the one place a reset waits on a sensor**, and it stays inside the rule: the sensor
+is the lift's own `B_AxisMin`, the decision to reference is a branch on the axis' own state sampled
+once, and the whole of it — powering, referencing — is bounded by one timeout (40 s, a full stroke at
+search speed). A reference sensor that never makes is fault **9**, not a hang.
 
 Both violations of that rule were shipped and both deadlocked:
 
@@ -217,10 +276,15 @@ ring behind it rather than accepting pallets it cannot move.
 | 4 | — | lift did not lower | pallet never left |
 | 5 | — | no release | *reset:* pallet never came aboard |
 | 6 | — | pallet never reached exit | *reset:* pallet never left |
+| 9 | — | — | *reset:* carriage axis not referenced — timeout or axis error |
 
 > **Known drift:** the `ST_Transfer*_Status.TcDUT` header comments still list the pre-reset code sets
-> (`ST_TransferLift_Status.TcDUT:22` stops at 3). The FB declarations are current; the DUT comments
-> are not. Harmless — they are comments — but fix them when next in those files.
+> (`ST_TransferStopper_Status` and `ST_TransferIndex_Status`). The FB declarations are current; the
+> DUT comments are not. Harmless — they are comments — but fix them when next in those files.
+> `ST_TransferLift_Status` was brought up to date with the servo axis.
+>
+> Lift codes 7 and 8 are declared in the `FaultCode` comment and never raised: they belonged to a
+> reset that delivered the pallet, which deadlocked and was removed (§4).
 
 ---
 

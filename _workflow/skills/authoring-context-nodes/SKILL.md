@@ -107,6 +107,19 @@ the instance, write the shared text onto the instance too rather than fighting t
 After any prefab-side write, verify with `context_get` on a **different** instance than the one you
 addressed, and re-run `context_audit`.
 
+> **`--prefab true` writes to the OUTERMOST prefab, not the type prefab.** It resolves the target
+> through `GetCorrespondingObjectFromSource`, and every station sits inside the `Machine_1`
+> instance — so `--prefab true` on `Project/FG_Transport/Lift01/Y_Lift` lands in
+> **`Machine_1.prefab`, as an override for Lift01 only**, never in `TU Lift.prefab`. `context_get`
+> reports the *nearest* prefab (`TU Lift.prefab`), which makes the mismatch easy to miss.
+>
+> To write the shared type text, load the inner asset itself (`PrefabUtility.LoadPrefabContents`
+> on `TU Lift.prefab`, `ContextNode.Set`, `SaveAsPrefabAsset` — e.g. via `unity command eval_file`).
+> Then fix any key that a `Machine_1` override still shadows with `--prefab true` per instance,
+> which is the right place for it: every scene instances `Machine_1`, so nothing is marked `†`.
+> A nested sensor (`TU Sensor Typ 1` inside `TU Lift`) has the same trap one level deeper —
+> `--prefab true` there must never be read as "the sensor prefab", which every sensor shares.
+
 ## Common mistakes
 
 - **Writing prose that restates the component type.** "This is a cylinder" adds nothing — the

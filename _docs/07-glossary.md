@@ -106,6 +106,14 @@ it.
 **Index unit** — the transport station that stops a pallet, lifts it to hold the part still, asks a
 functional group to run, and only releases the pallet when the group reports it has finished.
 
+**Lift unit** — the transport station that carries a pallet between the two conveyor levels. Its
+carriage is driven by a servo axis and has a short belt of its own to draw a pallet aboard and push it
+off.
+
+**Referencing** (also *homing*) — finding a servo axis' zero by moving it onto a sensor. Until an
+axis is referenced its position is only a number; the lift units reference on their lower limit
+sensor at the first reset after power-up.
+
 **Pallet** — the carrier that travels around the conveyor with the workpiece on it. This one has two
 slots.
 

@@ -84,6 +84,11 @@ unity command context_sync --dry_run false
 unity command save_all
 ```
 
+Drift you did not cause and must not decide — another vendor's operator panel, say — can be left
+alone by syncing one subtree: `context_sync --root Lift01 --dry_run false` walks only that unit.
+The PLC path is computed from the real `Hierarchy` parents, not from the walk root, so a scoped
+sync writes the same values a full one would.
+
 Then export. **Clear the Editor selection first — this one bites.** An explicit selection *wins*
 over the default root, so whatever a human last clicked in the Hierarchy silently becomes the export
 root. A leftover selection on a single cylinder once produced a structurally valid **2-node** export
@@ -97,9 +102,15 @@ unity command console --format json     # expect "exported machine context of 'P
 
 The console line naming the root is the fastest tell that the export is the whole machine.
 
-Each export lands as `Unity/Assets/StreamingAssets/<Scene>_Context.json` plus its
-`<Scene>_Project_Tree.xml`. Check the file timestamps afterwards: two scenes and only one fresh pair
-means the second export never ran, and the build will happily render the stale one.
+Each export lands as `Unity/Assets/StreamingAssets/<Scene>_Context.json`. Its
+`<Scene>_Project_Tree.xml` is **not** written by that export: it is OC's device tree, from the
+`TcAdsClient` inspector's **Create Configuration** button. **After a device is added to the shared
+prefab, regenerate it for every scene** — the build compares the two per scene and refuses on a
+symbol-count mismatch, which is exactly what a vendor scene nobody reopened looks like. Without the
+file dialog: `OC.ProjectTreeFactory.Create(<Project transform>)` saved with an
+`XmlWriter` (`OmitXmlDeclaration = true, Indent = true`), through `unity command eval_file`.
+Check the file timestamps afterwards: two scenes and only one fresh pair means the second export
+never ran, and the build will happily render the stale one.
 `build_knowledge.py` checks it too and refuses a wrong root, but do not make the script the only
 thing paying attention.
 

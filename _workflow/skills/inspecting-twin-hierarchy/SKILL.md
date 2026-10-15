@@ -93,7 +93,7 @@ PLC.
 
 A target is a real PLC symbol when it has an `oc.deviceType` and **neither** `oc.aggregatedBy` nor
 `oc.simulationDevice` — every target resolves an `oc.plcPath`, including pure structure, so the path
-alone proves nothing. That is **83 of the 180 nodes**, matching
+alone proves nothing. That is **87 of the 184 nodes**, matching
 the scene's `_Project_Tree.xml` exactly.
 
 **A target with `derivedCount: 0` was never synced**, which is not the same as OC having nothing to

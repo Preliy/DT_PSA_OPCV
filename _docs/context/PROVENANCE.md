@@ -8,14 +8,14 @@ Read this before trusting anything else in `_docs/context/`.
 | | |
 |---|---|
 | Scene | `VC_Demo_1_Beckhoff_1` |
-| Exported (UTC) | `2026-08-23T17:09:36.0996372Z` |
-| Export commit | `f310945 2026-08-28` |
+| Exported (UTC) | `2026-10-14T20:03:08.0167801Z` |
+| Export commit | `4de76f0 2026-10-15` |
 | Export uncommitted | no |
 | Reference scene | `VC_Demo_1_Beckhoff_1` (Beckhoff) |
-| Nodes | 180 |
+| Nodes | 184 |
 | Max depth | 7 (JsonUtility truncates past ~7-10) |
-| Real PLC symbols | 83 |
-| Devices in `VC_Demo_1_Beckhoff_1_Project_Tree.xml` | 83 (must equal the row above) |
+| Real PLC symbols | 87 |
+| Devices in `VC_Demo_1_Beckhoff_1_Project_Tree.xml` | 87 (must equal the row above) |
 | Functional groups | 7 |
 | Nodes with no authored context | 0 |
 | Nodes differing between scenes | 15 (marked †) |
@@ -27,8 +27,8 @@ The machine is one prefab, `Unity/Assets/Demo_1/Prefabs/Machine_1.prefab`, insta
 
 | Scene | Vendor | Nodes | Symbols | Exported (UTC) | |
 |---|---|---:|---:|---|---|
-| `VC_Demo_1_Beckhoff_1` | Beckhoff | 180 | 83 | `2026-08-23T17:09:36.0996372Z` | **reference** |
-| `VC_Demo_1_Siemens_1` | Siemens | 179 | 83 | `2026-08-26T11:52:16.8621701Z` |  |
+| `VC_Demo_1_Beckhoff_1` | Beckhoff | 184 | 87 | `2026-10-14T20:03:08.0167801Z` | **reference** |
+| `VC_Demo_1_Siemens_1` | Siemens | 183 | 87 | `2026-10-15T09:26:05.8808515Z` |  |
 
 **The pages here are rendered from `VC_Demo_1_Beckhoff_1`.** Taking only what every scene agrees on would leave FG_System with no operator panel at all, which is a worse picture of the machine than one panel labelled as an example - so the reference scene's panel is shown, and every node that differs between scenes carries †. Anything *un*marked is the machine. Each vendor's own panel is on that vendor's page.
 
@@ -39,6 +39,4 @@ This is the **twin** half only. Each vendor module stamps its own control-side f
 
 ## Verified against a live scene?
 
-**No.** This was built from the committed export without a live Unity Editor. The digest is internally consistent and every assertion passed, but nothing proves the scene has not changed since the export timestamp above.
-
-That is a supported way to work - open Unity and run `refreshing-project-knowledge` when you need the stronger guarantee, and say which you had in any report.
+**Yes.** A ready Unity Editor was reachable when this was built, `context_sync` reported no drift, and the export was re-run from the Editor menu.

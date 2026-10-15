@@ -190339,8 +190339,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1442227950598735047, guid: 4701921893378b549b947b37f0285e05, type: 3}
       propertyPath: _entries.Array.data[3].value
-      value: Double solenoid with both limits read. Moves the carriage between the
-        lower and upper conveyor levels.
+      value: Position-controlled. Referenced on B_AxisMin, which reads 0 mm; the
+        lower conveyor level is at 10 mm and the upper at 364 mm.
       objectReference: {fileID: 0}
     - target: {fileID: 1503302826729009799, guid: 4701921893378b549b947b37f0285e05, type: 3}
       propertyPath: _entries.Array.size
@@ -195028,8 +195028,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1442227950598735047, guid: 4701921893378b549b947b37f0285e05, type: 3}
       propertyPath: _entries.Array.data[3].value
-      value: Double solenoid with both limits read. Moves the carriage between the
-        lower and upper conveyor levels.
+      value: Position-controlled. Referenced on B_AxisMin, which reads 0 mm; the
+        lower conveyor level is at 10 mm and the upper at 364 mm.
       objectReference: {fileID: 0}
     - target: {fileID: 1503302826729009799, guid: 4701921893378b549b947b37f0285e05, type: 3}
       propertyPath: _entries.Array.size

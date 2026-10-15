@@ -3,10 +3,10 @@
  "referenceScene": "VC_Demo_1_Beckhoff_1",
  "referenceVendor": "Beckhoff",
  "scene": "VC_Demo_1_Beckhoff_1",
- "exportedAtUtc": "2026-08-23T17:09:36.0996372Z",
- "exportCommit": "f310945 2026-08-28",
+ "exportedAtUtc": "2026-10-14T20:03:08.0167801Z",
+ "exportCommit": "4de76f0 2026-10-15",
  "exportUncommitted": false,
- "liveVerified": false,
+ "liveVerified": true,
  "machinePrefab": "Unity/Assets/Demo_1/Prefabs/Machine_1.prefab",
  "scenes": [
   {
@@ -15,9 +15,9 @@
    "sceneFile": "Unity/Assets/Demo_1/Scenes/VC_Demo_1_Beckhoff_1.unity",
    "contextJson": "Unity/Assets/StreamingAssets/VC_Demo_1_Beckhoff_1_Context.json",
    "projectTree": "Unity/Assets/StreamingAssets/VC_Demo_1_Beckhoff_1_Project_Tree.xml",
-   "exportedAtUtc": "2026-08-23T17:09:36.0996372Z",
-   "nodes": 180,
-   "symbols": 83,
+   "exportedAtUtc": "2026-10-14T20:03:08.0167801Z",
+   "nodes": 184,
+   "symbols": 87,
    "isReference": true
   },
   {
@@ -26,9 +26,9 @@
    "sceneFile": "Unity/Assets/Demo_1/Scenes/VC_Demo_1_Siemens_1.unity",
    "contextJson": "Unity/Assets/StreamingAssets/VC_Demo_1_Siemens_1_Context.json",
    "projectTree": "Unity/Assets/StreamingAssets/VC_Demo_1_Siemens_1_Project_Tree.xml",
-   "exportedAtUtc": "2026-08-26T11:52:16.8621701Z",
-   "nodes": 179,
-   "symbols": 83,
+   "exportedAtUtc": "2026-10-15T09:26:05.8808515Z",
+   "nodes": 183,
+   "symbols": 87,
    "isReference": false
   }
  ],
@@ -397,6 +397,28 @@
      "vendorSpecific": false
     },
     {
+     "name": "B_AxisMax",
+     "twinPlcPath": "MAIN.FG_Transport.Lift01_B_AxisMax",
+     "deviceType": "SensorBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Lift01/B_AxisMax",
+     "role": "",
+     "signal": "Travel limit: while made, motion further up is blocked.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "B_AxisMin",
+     "twinPlcPath": "MAIN.FG_Transport.Lift01_B_AxisMin",
+     "deviceType": "SensorBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Lift01/B_AxisMin",
+     "role": "",
+     "signal": "Travel limit: while made, motion further down is blocked. Referencing sets the axis position here to 0 mm.",
+     "vendorSpecific": false
+    },
+    {
      "name": "B_Detect",
      "twinPlcPath": "MAIN.FG_Transport.Lift01_B_Detect",
      "deviceType": "SensorBinary",
@@ -432,12 +454,34 @@
     {
      "name": "Y_Lift",
      "twinPlcPath": "MAIN.FG_Transport.Lift01_Y_Lift",
-     "deviceType": "Cylinder",
-     "twinFb": "FB_Cylinder",
+     "deviceType": "DrivePosition",
+     "twinFb": "FB_Sercos_VC",
      "group": "FG_Transport",
      "scenePath": "Project/FG_Transport/Lift01/Y_Lift",
      "role": "",
-     "signal": "Double solenoid with both limits read. Moves the carriage between the lower and upper conveyor levels.",
+     "signal": "Position-controlled. Referenced on B_AxisMin, which reads 0 mm; the lower conveyor level is at 10 mm and the upper at 364 mm.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "B_AxisMax",
+     "twinPlcPath": "MAIN.FG_Transport.Lift02_B_AxisMax",
+     "deviceType": "SensorBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Lift02/B_AxisMax",
+     "role": "",
+     "signal": "Travel limit: while made, motion further up is blocked.",
+     "vendorSpecific": false
+    },
+    {
+     "name": "B_AxisMin",
+     "twinPlcPath": "MAIN.FG_Transport.Lift02_B_AxisMin",
+     "deviceType": "SensorBinary",
+     "twinFb": "FB_SensorBinary",
+     "group": "FG_Transport",
+     "scenePath": "Project/FG_Transport/Lift02/B_AxisMin",
+     "role": "",
+     "signal": "Travel limit: while made, motion further down is blocked. Referencing sets the axis position here to 0 mm.",
      "vendorSpecific": false
     },
     {
@@ -476,12 +520,12 @@
     {
      "name": "Y_Lift",
      "twinPlcPath": "MAIN.FG_Transport.Lift02_Y_Lift",
-     "deviceType": "Cylinder",
-     "twinFb": "FB_Cylinder",
+     "deviceType": "DrivePosition",
+     "twinFb": "FB_Sercos_VC",
      "group": "FG_Transport",
      "scenePath": "Project/FG_Transport/Lift02/Y_Lift",
      "role": "",
-     "signal": "Double solenoid with both limits read. Moves the carriage between the lower and upper conveyor levels.",
+     "signal": "Position-controlled. Referenced on B_AxisMin, which reads 0 mm; the lower conveyor level is at 10 mm and the upper at 364 mm.",
      "vendorSpecific": false
     },
     {
@@ -1030,7 +1074,7 @@
  "vendors": {
   "Beckhoff": {
    "scene": "VC_Demo_1_Beckhoff_1",
-   "exportedAtUtc": "2026-08-23T17:09:36.0996372Z",
+   "exportedAtUtc": "2026-10-14T20:03:08.0167801Z",
    "groups": [
     {
      "name": "FG_System",
@@ -1379,6 +1423,28 @@
        "vendorSpecific": false
       },
       {
+       "name": "B_AxisMax",
+       "twinPlcPath": "MAIN.FG_Transport.Lift01_B_AxisMax",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Lift01/B_AxisMax",
+       "role": "",
+       "signal": "Travel limit: while made, motion further up is blocked.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_AxisMin",
+       "twinPlcPath": "MAIN.FG_Transport.Lift01_B_AxisMin",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Lift01/B_AxisMin",
+       "role": "",
+       "signal": "Travel limit: while made, motion further down is blocked. Referencing sets the axis position here to 0 mm.",
+       "vendorSpecific": false
+      },
+      {
        "name": "B_Detect",
        "twinPlcPath": "MAIN.FG_Transport.Lift01_B_Detect",
        "deviceType": "SensorBinary",
@@ -1414,12 +1480,34 @@
       {
        "name": "Y_Lift",
        "twinPlcPath": "MAIN.FG_Transport.Lift01_Y_Lift",
-       "deviceType": "Cylinder",
-       "twinFb": "FB_Cylinder",
+       "deviceType": "DrivePosition",
+       "twinFb": "FB_Sercos_VC",
        "group": "FG_Transport",
        "scenePath": "Project/FG_Transport/Lift01/Y_Lift",
        "role": "",
-       "signal": "Double solenoid with both limits read. Moves the carriage between the lower and upper conveyor levels.",
+       "signal": "Position-controlled. Referenced on B_AxisMin, which reads 0 mm; the lower conveyor level is at 10 mm and the upper at 364 mm.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_AxisMax",
+       "twinPlcPath": "MAIN.FG_Transport.Lift02_B_AxisMax",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Lift02/B_AxisMax",
+       "role": "",
+       "signal": "Travel limit: while made, motion further up is blocked.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_AxisMin",
+       "twinPlcPath": "MAIN.FG_Transport.Lift02_B_AxisMin",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Lift02/B_AxisMin",
+       "role": "",
+       "signal": "Travel limit: while made, motion further down is blocked. Referencing sets the axis position here to 0 mm.",
        "vendorSpecific": false
       },
       {
@@ -1458,12 +1546,12 @@
       {
        "name": "Y_Lift",
        "twinPlcPath": "MAIN.FG_Transport.Lift02_Y_Lift",
-       "deviceType": "Cylinder",
-       "twinFb": "FB_Cylinder",
+       "deviceType": "DrivePosition",
+       "twinFb": "FB_Sercos_VC",
        "group": "FG_Transport",
        "scenePath": "Project/FG_Transport/Lift02/Y_Lift",
        "role": "",
-       "signal": "Double solenoid with both limits read. Moves the carriage between the lower and upper conveyor levels.",
+       "signal": "Position-controlled. Referenced on B_AxisMin, which reads 0 mm; the lower conveyor level is at 10 mm and the upper at 364 mm.",
        "vendorSpecific": false
       },
       {
@@ -2012,7 +2100,7 @@
   },
   "Siemens": {
    "scene": "VC_Demo_1_Siemens_1",
-   "exportedAtUtc": "2026-08-26T11:52:16.8621701Z",
+   "exportedAtUtc": "2026-10-15T09:26:05.8808515Z",
    "groups": [
     {
      "name": "FG_System",
@@ -2361,6 +2449,28 @@
        "vendorSpecific": false
       },
       {
+       "name": "B_AxisMax",
+       "twinPlcPath": "MAIN.FG_Transport.Lift01_B_AxisMax",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Lift01/B_AxisMax",
+       "role": "",
+       "signal": "Travel limit: while made, motion further up is blocked.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_AxisMin",
+       "twinPlcPath": "MAIN.FG_Transport.Lift01_B_AxisMin",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Lift01/B_AxisMin",
+       "role": "",
+       "signal": "Travel limit: while made, motion further down is blocked. Referencing sets the axis position here to 0 mm.",
+       "vendorSpecific": false
+      },
+      {
        "name": "B_Detect",
        "twinPlcPath": "MAIN.FG_Transport.Lift01_B_Detect",
        "deviceType": "SensorBinary",
@@ -2396,12 +2506,34 @@
       {
        "name": "Y_Lift",
        "twinPlcPath": "MAIN.FG_Transport.Lift01_Y_Lift",
-       "deviceType": "Cylinder",
-       "twinFb": "FB_Cylinder",
+       "deviceType": "DrivePosition",
+       "twinFb": "FB_Profidrive_Telegram111",
        "group": "FG_Transport",
        "scenePath": "Project/FG_Transport/Lift01/Y_Lift",
        "role": "",
-       "signal": "Double solenoid with both limits read. Moves the carriage between the lower and upper conveyor levels.",
+       "signal": "Position-controlled. Referenced on B_AxisMin, which reads 0 mm; the lower conveyor level is at 10 mm and the upper at 364 mm.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_AxisMax",
+       "twinPlcPath": "MAIN.FG_Transport.Lift02_B_AxisMax",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Lift02/B_AxisMax",
+       "role": "",
+       "signal": "Travel limit: while made, motion further up is blocked.",
+       "vendorSpecific": false
+      },
+      {
+       "name": "B_AxisMin",
+       "twinPlcPath": "MAIN.FG_Transport.Lift02_B_AxisMin",
+       "deviceType": "SensorBinary",
+       "twinFb": "FB_SensorBinary",
+       "group": "FG_Transport",
+       "scenePath": "Project/FG_Transport/Lift02/B_AxisMin",
+       "role": "",
+       "signal": "Travel limit: while made, motion further down is blocked. Referencing sets the axis position here to 0 mm.",
        "vendorSpecific": false
       },
       {
@@ -2440,12 +2572,12 @@
       {
        "name": "Y_Lift",
        "twinPlcPath": "MAIN.FG_Transport.Lift02_Y_Lift",
-       "deviceType": "Cylinder",
-       "twinFb": "FB_Cylinder",
+       "deviceType": "DrivePosition",
+       "twinFb": "FB_Profidrive_Telegram111",
        "group": "FG_Transport",
        "scenePath": "Project/FG_Transport/Lift02/Y_Lift",
        "role": "",
-       "signal": "Double solenoid with both limits read. Moves the carriage between the lower and upper conveyor levels.",
+       "signal": "Position-controlled. Referenced on B_AxisMin, which reads 0 mm; the lower conveyor level is at 10 mm and the upper at 364 mm.",
        "vendorSpecific": false
       },
       {
@@ -2998,6 +3130,7 @@
   "ControlBunker",
   "Cylinder",
   "DataReader",
+  "DrivePosition",
   "DriveSimple",
   "LinkByte",
   "Lock",
