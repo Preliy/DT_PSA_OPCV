@@ -1,5 +1,18 @@
 # Changelog
 
+# [1.2.0](https://github.com/Preliy/DT_PSA_OPCV/compare/v1.1.1...v1.2.0) (2026-10-15)
+
+
+### Bug Fixes
+
+* lift with position drive ([893fffb](https://github.com/Preliy/DT_PSA_OPCV/commit/893fffb92fff590764b60fe07fc974a1786c7336))
+
+
+### Features
+
+* **twin:** lift limit sensors and servo drive in the knowledge base ([4de76f0](https://github.com/Preliy/DT_PSA_OPCV/commit/4de76f042336928bf8f23b273b46dbb765f3555f))
+* **twin:** Siemens lifts linked as PROFIdrive telegram 111 drives ([364407d](https://github.com/Preliy/DT_PSA_OPCV/commit/364407daefeab3a412f322d8ba81577244f79bfa))
+
 ## [1.1.1](https://github.com/Preliy/DT_PSA_OPCV/compare/v1.1.0...v1.1.1) (2026-09-29)
 
 
