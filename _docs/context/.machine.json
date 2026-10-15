@@ -26,7 +26,7 @@
    "sceneFile": "Unity/Assets/Demo_1/Scenes/VC_Demo_1_Siemens_1.unity",
    "contextJson": "Unity/Assets/StreamingAssets/VC_Demo_1_Siemens_1_Context.json",
    "projectTree": "Unity/Assets/StreamingAssets/VC_Demo_1_Siemens_1_Project_Tree.xml",
-   "exportedAtUtc": "2026-10-14T20:05:17.7910667Z",
+   "exportedAtUtc": "2026-10-15T09:26:05.8808515Z",
    "nodes": 183,
    "symbols": 87,
    "isReference": false
@@ -2100,7 +2100,7 @@
   },
   "Siemens": {
    "scene": "VC_Demo_1_Siemens_1",
-   "exportedAtUtc": "2026-10-14T20:05:17.7910667Z",
+   "exportedAtUtc": "2026-10-15T09:26:05.8808515Z",
    "groups": [
     {
      "name": "FG_System",
@@ -2507,7 +2507,7 @@
        "name": "Y_Lift",
        "twinPlcPath": "MAIN.FG_Transport.Lift01_Y_Lift",
        "deviceType": "DrivePosition",
-       "twinFb": "FB_Drive",
+       "twinFb": "FB_Profidrive_Telegram111",
        "group": "FG_Transport",
        "scenePath": "Project/FG_Transport/Lift01/Y_Lift",
        "role": "",
@@ -2573,7 +2573,7 @@
        "name": "Y_Lift",
        "twinPlcPath": "MAIN.FG_Transport.Lift02_Y_Lift",
        "deviceType": "DrivePosition",
-       "twinFb": "FB_Drive",
+       "twinFb": "FB_Profidrive_Telegram111",
        "group": "FG_Transport",
        "scenePath": "Project/FG_Transport/Lift02/Y_Lift",
        "role": "",

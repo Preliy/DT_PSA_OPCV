@@ -876,6 +876,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 609309367730723036, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
+      propertyPath: _link._type
+      value: FB_Profidrive_Telegram111
+      objectReference: {fileID: 0}
     - target: {fileID: 681349332705207747, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -995,6 +999,10 @@ PrefabInstance:
     - target: {fileID: 4726611341261540904, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
       propertyPath: _entries.Array.data[3].value
       value: SensorBinary
+      objectReference: {fileID: 0}
+    - target: {fileID: 5939491267089627398, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
+      propertyPath: _link._type
+      value: FB_Profidrive_Telegram111
       objectReference: {fileID: 0}
     - target: {fileID: 7851252232877479513, guid: 650d920dc49ad414fb90ac6285ed844c, type: 3}
       propertyPath: _entries.Array.data[2].value
