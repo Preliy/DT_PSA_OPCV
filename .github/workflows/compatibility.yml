@@ -56,7 +56,7 @@ jobs:
     name: Vendor modules
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           # module_identity()'s git-tag cross-check needs the tags; without them a fresh
           # checkout reports the version as coming from package.json alone, which is correct
